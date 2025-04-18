@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    body {
+      background-color: #333333;
+      color: #ffffff;
+      font-family: sans-serif;
+      position: relative;
+    }
+    
+    /* Background image */
+    .bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('assets/images/background.png');
+      background-size: cover;
+      background-position: top;
+      opacity: 0.9; /* Adjust transparency as needed */
+    }
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+    
+    /* Logo in corner */
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      max-width: 150px; /* Adjust size as needed */
+    }
+    .centered-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      text-align: center;
+      font-family: 'Avenir Next', 'Avenir', sans-serif;
+      font-size: 2vw;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .centered-text-sm {
+      text-align: center;
+      font-family: 'Avenir Next', 'Avenir', sans-serif;
+      font-size: 1vw;
+      font-weight: 80;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+     
+    .sup {
+      font-size         : 0.74em;
+      position	      : relative;
+      text-transform    : lowercase;
+      left              : -2.2px;
+      bottom	      : 2.3px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background image container -->
+  <div class="bg-image"></div>
+  
+  <!-- Logo in corner -->
+  <img src="assets/images/logo.png" alt="Logo" class="logo">
+
+  <!-- Centered text -->
+  <div class="centered-text">security is <i>culture</i>
+  <br>
+  <div class="centered-text-sm">enquire: <b><a href="mailto:hello@sixravens.io">hello@sixravens.io</b></a></div>
+  </div>
+</body>
+</html>
