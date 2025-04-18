@@ -55,10 +55,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60%;
+      width: 80%;
       text-align: center;
       font-family: 'Avenir Next', 'Avenir', sans-serif;
-      font-size: 8vw;
+      font-size: clamp(2em, 8vw, 12.5rem); 
       font-weight: 400;
       letter-spacing: 1px;
       color: #ffffff;
@@ -67,7 +67,7 @@
     .centered-text-sm {
       text-align: center;
       font-family: 'Avenir Next', 'Avenir', sans-serif;
-      font-size: 4vw;
+      font-size: clamp(2em, 4dvw, 10rem);
       font-weight: 80;
       letter-spacing: 1px;
       color: #ffffff;
@@ -93,7 +93,7 @@
   <!-- Centered text -->
   <div class="centered-text">security is <i>culture</i>
   <br>
-  <div class="centered-text-sm">enquire: <b><a href="mailto:hello@sixravens.io">hello@sixravens.io</b></a></div>
+  <div class="centered-text-sm">enquire: <a href="mailto:hello@sixravens.io">hello@sixravens.io</a></div>
   </div>
 </body>
 </html>
