@@ -1,0 +1,7 @@
+# Local-only notes and reference files for Claude; never committed
+/_inbox/
+
+# OS and editor cruft
+.DS_Store
+*.swp
+*.swo
