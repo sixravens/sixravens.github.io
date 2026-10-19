@@ -89,7 +89,7 @@ Sometimes the evidence supports what you're already doing, and we'll say so.
 
 ## On the name
 
-For centuries, ravens have been associated with the Tower of London. According to a legend, at least six must remain there; should they ever leave, the Tower will fall, and the kingdom with it.
+For centuries, ravens have been associated with the Tower of London. According to legend, six ravens must remain there; should they ever leave, the Tower will fall, and the kingdom with it.
 
 The origins of the legend are less certain than its telling. The ravens remain.
 
