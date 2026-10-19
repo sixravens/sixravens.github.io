@@ -32,11 +32,7 @@ No organization has a complete picture of how its systems operate, how its peopl
 
 These representations are indispensable. They are also incomplete. The difficulty begins when the distinction between a representation and the reality it describes becomes hard to see, or inconvenient to acknowledge.
 
-This is not a new problem, nor is it peculiar to cybersecurity.
-
 Research into auditing has shown how organizations change their behavior to satisfy the demands of verification, sometimes at the expense of the work being verified. Investigations into the Challenger disaster revealed how engineering anomalies came to be accepted as normal through organizational pressures and a succession of decisions that appeared reasonable at the time.
-
-The technical failures mattered. So did the institutions that shaped how people understood the risks leading up to them.
 
 People also adapt to the systems meant to govern them. Teams learn what a metric rewards and deliver exactly that. Workarounds become standard practice. Eventually the policy describes an organization that no longer exists.
 
@@ -51,15 +47,11 @@ The result can be an organization that describes its security posture fluently a
 
 ## Automating judgment under uncertainty
 
-Artificial intelligence and increasingly autonomous systems introduce a new dimension to an old problem: organizations can now automate decisions and actions based on assumptions they may not fully understand.
-
-AI is increasingly involved in how organizations interpret information, make decisions, and act on those decisions. Its applications range from systems that assist human judgment to autonomous agents that perform tasks with limited supervision.
+Artificial intelligence and increasingly autonomous systems introduce a new dimension to an old problem: organizations can now delegate interpretation, decisions, and actions to systems operating on assumptions they may not fully understand.
 
 These systems operate within organizations whose taxonomies, permissions, policies, and incentives already reflect years of accumulated decisions and assumptions. Some of those assumptions are encoded directly into the technology; others influence how it is deployed, supervised, and evaluated.
 
 Automation can give these assumptions consequences at a different scale. A classification that once influenced a quarterly report might now determine thousands of automated actions. Those actions may themselves generate reports, assessments, and recommendations consumed by other systems, creating additional distance between a decision and the evidence on which it rests.
-
-The question isn't simply whether an AI system performs its assigned task correctly. It's whether the organization understands the assumptions embedded in that task, the conditions under which those assumptions cease to hold, and how it would recognize the difference.
 
 Before delegating judgment or action to AI, it's worth knowing which beliefs you're encoding into it.
 {: .turn}
@@ -71,9 +63,6 @@ Our work is most useful when an organization faces a consequential decision and 
 That might mean challenging the assumptions behind a major technology investment, examining why an incident occurred despite apparently adequate safeguards, or investigating the gap between what leadership has been told and what people operating the systems actually experience.
 
 It can also mean examining an organization before anything has gone wrong. A security program can be well managed, thoroughly documented, and entirely sincere in its conclusions while still overlooking something important.
-
-We help establish what the organization actually knows, what it has reason to believe, and where the distinction matters.
-{: .turn}
 
 ## What we investigate
 
@@ -106,11 +95,3 @@ The origins of the legend are less certain than its telling. The ravens remain.
 
 We know better than to mistake a good story for evidence. We also know better than to underestimate the power of one.
 {: .turn}
-
----
-
-Technology is where these problems become consequential. The human and institutional systems that produce them are where our work begins.
-{: .closing}
-
-[hello@sixravens.io](mailto:hello@sixravens.io?subject=enquiry)
-{: .contact}
