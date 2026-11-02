@@ -1,0 +1,4 @@
+{%- comment %}Looks up a file in _copy/ by name, e.g. {% include copy.html name="home" %},
+and leaves it in `copy`.{% endcomment -%}
+{%- assign copy = nil -%}
+{%- for d in site.copy -%}{%- assign stem = d.path | split: '/' | last | remove: '.md' -%}{%- if stem == include.name %}{% assign copy = d %}{% endif -%}{%- endfor -%}

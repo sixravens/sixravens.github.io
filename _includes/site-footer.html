@@ -1,4 +1,5 @@
 {% comment %}Shared footer. A layout can pass mark= for its own footer mark.{% endcomment %}
+{%- include copy.html name="site" -%}
 {%- assign foot_mark = include.mark | default: site.foot_mark -%}
 <footer class="foot">
   <div class="foot-in">
@@ -14,7 +15,7 @@
     </ul>
   </div>
   <div class="foot-legal">
-    <p>© {{ site.time | date: "%Y" }} Six Ravens. All rights reserved.</p>
-    <p><strong>Six Ravens</strong>, <strong>one white raven</strong>, <strong>6R</strong>, <strong>1WR</strong>, and their associated bird marks are trademarks of Six Ravens. Original content, artwork, and site design created by Six Ravens are protected by applicable copyright law, except where otherwise noted.</p>
+    <p>© {{ site.time | date: "%Y" }} {{ copy.copyright | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    {{ copy.legal | markdownify | strip }}
   </div>
 </footer>

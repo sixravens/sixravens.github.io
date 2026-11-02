@@ -7,11 +7,13 @@ description: >-
   We build, test, and investigate security capabilities. The technical work
   matters, but so does the organization expected to operate what we've built.
 ---
+{%- comment %}The words are in _copy/work.md and _data/work.yml; this file is only the layout.{% endcomment -%}
+{%- include copy.html name="work" -%}
 <section class="opening">
   <div class="wrap">
-    <h1>Work</h1>
+    <h1>{{ copy.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
     <div class="opening-text">
-      <p class="lede">We build, test, and investigate security capabilities. The technical work matters, but so does the organization expected to operate what we've built.</p>
+      <p class="lede">{{ copy.lede | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
       <nav class="toc" aria-label="On this page">
         <ol>
           {%- for a in site.data.work %}
@@ -34,7 +36,7 @@ description: >-
 
 <section class="sec contact" id="contact" aria-labelledby="close">
   <div class="wrap">
-    <div class="sec-head"><span class="no">&rarr;</span><h2 id="close">Have a problem worth investigating?</h2></div>
+    <div class="sec-head"><span class="no">&rarr;</span><h2 id="close">{{ copy.closing | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2></div>
     <div class="sec-body">
       {% include email.html %}
     </div>

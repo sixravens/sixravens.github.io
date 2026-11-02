@@ -2,10 +2,12 @@
 owr.subscribe_action (the provider's form endpoint) is set, the field and
 button are disabled, so nothing can be sent anywhere.{% endcomment -%}
 {%- if site.owr.subscribe %}
+{%- include copy.html name="site" -%}
+{%- assign rss = 'href="' | append: site.owr_path | append: '/feed.xml"' -%}
 {%- assign live = site.owr.subscribe_action %}
 <section class="subscribe" id="subscribe" data-theme="ink" aria-labelledby="sub-h">
   <div class="subscribe-in">
-    <h2 id="sub-h">Subscribe by email</h2>
+    <h2 id="sub-h">{{ copy.subscribe_heading | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2>
     <form{% if live %} action="{{ live }}" method="post"{% endif %}>
       <div class="form-body">
         <div class="inline-form">
@@ -13,7 +15,7 @@ button are disabled, so nothing can be sent anywhere.{% endcomment -%}
           <input class="input" id="sub-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required{% unless live %} disabled{% endunless %}>
           <button class="btn" type="submit"{% unless live %} disabled{% endunless %}>Subscribe</button>
         </div>
-        <p class="form-note">{% unless live %}Email subscriptions open soon. Until then, follow by <a href="{{ site.owr_path }}/feed.xml">RSS</a>.{% else %}Or follow by <a href="{{ site.owr_path }}/feed.xml">RSS</a>.{% endunless %}</p>
+        <p class="form-note">{% unless live %}{{ copy.subscribe_note_soon | markdownify | remove: '<p>' | remove: '</p>' | strip | replace: 'href="rss"', rss }}{% else %}{{ copy.subscribe_note_live | markdownify | remove: '<p>' | remove: '</p>' | strip | replace: 'href="rss"', rss }}{% endunless %}</p>
       </div>
     </form>
   </div>

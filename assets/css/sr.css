@@ -125,9 +125,11 @@ body { font-size: 16px; line-height: 1.65; }
   letter-spacing: -.005em;
 }
 .pull::before { content: ""; display: block; width: 40px; height: 2px; margin: 0 0 18px; background: var(--amber); }
-.think-aside { position: relative; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
-.think-aside::before { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; }
-.think-aside h3 { margin: 0 0 10px; color: var(--fg); font-size: 1.125rem; font-weight: 500; }
+/* 001's sidebar; 004's card beside the contact text is set the same way, in amber */
+.think-aside, .contact-card { position: relative; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.think-aside::before, .contact-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; }
+.contact-card::before { background: var(--amber); }
+.think-aside h3, .contact-card h3 { margin: 0 0 10px; color: var(--fg); font-size: 1.125rem; font-weight: 500; }
 .think-aside h3 abbr { text-transform: none; text-decoration: none; }
 .think-aside p { margin: 0; }
 
@@ -190,8 +192,6 @@ body { font-size: 16px; line-height: 1.65; }
 /* 004 contact */
 .turn { color: var(--fg); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.45; }
 .contact-main { max-width: 40rem; }
-.contact-card { position: relative; margin-top: 12px; padding-top: 22px; border-top: 1px solid var(--rule); max-width: 30rem; }
-.contact-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; background: var(--amber); }
 .email {
   display: inline-flex;
   align-items: baseline;
@@ -241,8 +241,10 @@ body { font-size: 16px; line-height: 1.65; }
   :root { --col-gap: clamp(24px, 2.4vw, 40px); }
   .opening.raven-top::before { display: block; }
   .opening-text { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  /* The lede, with any intro stacked under it; the work page's contents beside */
   .opening-text .lede { grid-column: 1 / span 6; }
-  .opening-text .intro, .opening-text .toc { grid-column: 8 / span 5; margin-top: 0; padding-top: .35em; }
+  .opening-text .intro { grid-column: 1 / span 6; margin-top: 0; }
+  .opening-text .toc { grid-column: 8 / span 5; margin-top: 0; padding-top: .35em; }
 
   .sec .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
   .sec-head { display: contents; }
@@ -257,7 +259,7 @@ body { font-size: 16px; line-height: 1.65; }
   .think-aside { grid-column: 8 / -1; margin-top: 0; align-self: start; }
   .contact-body { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
   .contact-main { grid-column: 1 / span 6; }
-  .contact-card { grid-column: 7 / -1; margin-top: .35em; }
+  .contact-card { grid-column: 8 / -1; margin-top: 0; align-self: start; }
   .owr-list a { grid-template-columns: 4rem minmax(0, 1fr) auto 13rem; align-items: baseline; }
   .toc-img { grid-column: 4; grid-row: 1; order: 0; width: 100%; height: calc(100% + 38px); margin: -18px 0 -20px; align-self: stretch;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 35%, #000 65%, transparent), linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);

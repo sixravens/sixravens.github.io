@@ -8,19 +8,30 @@ description: >-
   examine what happens when organizations entrust autonomous systems with
   decisions of their own.
 ---
+{%- comment %}The words are in _copy/home.md; this file is only the layout.
+Its five "## " sections are taken in order.{% endcomment -%}
+{%- include copy.html name="home" -%}
+{%- assign secs = copy.content | split: '<h2' -%}
+{%- capture pull_open %}<blockquote>
+  <p>{% endcapture -%}
+{%- capture pull_close %}</p>
+</blockquote>{% endcapture -%}
 <section class="opening">
   <div class="wrap">
-    <h1>Red team your <em>understanding</em>.</h1>
+    <h1>{{ copy.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
     <div class="opening-text">
-      <p class="lede">Organizations make consequential decisions based on what they believe about their security programs. We investigate whether those beliefs survive contact with reality.</p>
-      <p class="intro">Six Ravens is an independent security research and engineering practice. We build defensive capabilities, test preparedness, investigate failures, and examine what happens when organizations entrust increasingly autonomous systems with decisions of their own.</p>
+      <p class="lede">{{ copy.lede | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {%- if copy.intro %}
+      <p class="intro">{{ copy.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {%- endif %}
     </div>
   </div>
 </section>
 
+{% assign sec = secs[1] %}{% include copy-head.html html=sec tag="h2" -%}
 <section class="sec" aria-labelledby="what">
   <div class="wrap">
-    <div class="sec-head"><span class="no">000</span><h2 id="what">What we do</h2></div>
+    <div class="sec-head"><span class="no">000</span><h2 id="what">{{ head }}</h2></div>
     <div class="sec-body">
       <div class="areas">
         {%- for a in site.data.work %}
@@ -34,44 +45,49 @@ description: >-
   </div>
 </section>
 
+{% assign sec = secs[2] %}{% include copy-head.html html=sec tag="h2" -%}
+{%- assign think = rest | split: '<h3' -%}
+{%- assign main = think[0] | replace: pull_open, '<p class="pull">' | replace: pull_close, '</p>' | strip -%}
 <section class="sec alt" aria-labelledby="think">
   <div class="wrap">
-    <div class="sec-head"><span class="no">001</span><h2 id="think">How we think</h2></div>
+    <div class="sec-head"><span class="no">001</span><h2 id="think">{{ head }}</h2></div>
     <div class="sec-body think">
       <div class="think-main">
-        <p>Technology doesn't operate independently of the people and institutions that build and use it. A missed alert may have less to do with the detection than with an analyst who saw it forty times last week. A misconfiguration may have been a reasonable decision by someone working with incomplete information. A control may have passed every assessment without anyone questioning what it was accomplishing.</p>
-        <p class="pull">Fix the alert, correct the configuration, replace the control. Sometimes that's enough. Often the conditions that produced the failure remain.</p>
-        <p>We follow those conditions into the decisions, incentives, assumptions, and habits that shape how an organization operates. The work draws on security engineering, but also on disciplines that have spent much longer studying how people think and act.</p>
+        {{ main }}
       </div>
+      {%- assign aside = think[1] %}{% include copy-head.html html=aside tag="h3" %}
       <aside class="think-aside" aria-labelledby="ai">
-        <h3 id="ai"><abbr>AI</abbr> is not a separate problem</h3>
-        <p>Artificial intelligence gives these questions new consequences. Organizations are granting autonomous systems access and authority that once belonged to people, often without the same ability to understand, challenge, or interrupt their decisions. The technology is new. The underlying problems of trust, judgment, and accountability are not.</p>
+        <h3 id="ai">{{ head | replace_first: 'AI ', '<abbr>AI</abbr> ' }}</h3>
+        {{ rest }}
       </aside>
     </div>
   </div>
 </section>
 
-{%- comment %}PLACEHOLDER: layout only. Replace the lorem ipsum with how an engagement actually runs.{% endcomment %}
+{% assign sec = secs[3] %}{% include copy-head.html html=sec tag="h2" -%}
+{%- assign steps = rest | split: '<h3' -%}
 <section class="sec" aria-labelledby="how">
   <div class="wrap">
-    <div class="sec-head"><span class="no">002</span><h2 id="how">How an engagement runs <span class="tbd">placeholder</span></h2></div>
+    <div class="sec-head"><span class="no">002</span><h2 id="how">{{ head }}{% if copy.placeholder %} <span class="tbd">placeholder</span>{% endif %}</h2></div>
     <div class="sec-body">
       <ol class="steps">
-        <li><h3>Lorem ipsum</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p></li>
-        <li><h3>Dolor sit amet</h3><p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p></li>
-        <li><h3>Consectetur</h3><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis.</p></li>
+        {%- for s in steps offset: 1 %}
+        {%- include copy-head.html html=s tag="h3" %}
+        <li><h3>{{ head }}</h3>{{ rest }}</li>
+        {%- endfor %}
       </ol>
     </div>
   </div>
 </section>
 
+{% assign sec = secs[4] %}{% include copy-head.html html=sec tag="h2" -%}
+{%- assign owr_href = 'href="' | append: site.owr_url | append: '/"' -%}
 <section class="sec alt owr" aria-labelledby="writing">
   <div class="wrap">
-    <div class="sec-head"><span class="no">003</span><h2 id="writing">Selected reading</h2></div>
+    <div class="sec-head"><span class="no">003</span><h2 id="writing">{{ head }}</h2></div>
     <div class="sec-body">
       <div class="owr-intro">
-        <p class="owr-from">From <a href="{{ site.owr_url }}/"><em>one white raven</em></a>, a publication of Six Ravens.</p>
-        <p><em>One White Raven</em> investigates how people create, interact with, and adapt to complex systems—and how those interactions shape what we believe, how we behave, and what ultimately happens. We draw on research across disciplines to examine these relationships, particularly where technology and artificial intelligence are changing their nature.</p>
+        {{ rest | replace_first: '<p>', '<p class="owr-from">' | replace: 'href="owr"', owr_href }}
       </div>
       <ol class="owr-list">
         {%- for p in site.posts limit: 3 %}
@@ -91,19 +107,33 @@ description: >-
   </div>
 </section>
 
+{% assign sec = secs[5] %}{% include copy-head.html html=sec tag="h2" -%}
+{%- assign sec_head = head -%}
+{%- comment %}The card beside the text: everything after a "### " heading, or
+failing that the last paragraph.{% endcomment -%}
+{%- if rest contains '<h3' -%}
+  {%- assign parts = rest | split: '<h3' -%}
+  {%- assign main = parts[0] | strip -%}
+  {%- assign card = parts[1] -%}
+  {%- include copy-head.html html=card tag="h3" -%}
+  {%- capture card %}<h3>{{ head }}</h3>
+        {{ rest }}{% endcapture -%}
+{%- else -%}
+  {%- assign paras = rest | split: '</p>' -%}
+  {%- for p in paras -%}{%- assign t = p | strip -%}{%- if t != '' %}{% assign card = t | append: '</p>' %}{% endif -%}{%- endfor -%}
+  {%- assign main = rest | remove: card | strip -%}
+{%- endif -%}
 <section class="sec contact" id="contact" aria-labelledby="clients">
   <div class="wrap">
-    <div class="sec-head"><span class="no">004</span><h2 id="clients">Who we work with</h2></div>
+    <div class="sec-head"><span class="no">004</span><h2 id="clients">{{ sec_head }}</h2></div>
     <div class="sec-body contact-body">
       <div class="contact-main">
-        <p class="turn">Our best clients have something in common: they'd rather know.</p>
-        <p>They might be building a security capability, questioning assurances that look better on paper than in practice, trying to understand an incident that has already been contained, or giving an AI system meaningful authority. They don't need to know what's wrong before calling us. They do need to care about finding out.</p>
+        {{ main | replace_first: '<p>', '<p class="turn">' }}
       </div>
       <div class="contact-card">
-        <p>We're small by design. We take on focused engagements, don't operate a SOC or provide emergency incident response, and don't sell software or collect referral fees.</p>
+        {{ card }}
         {% include email.html %}
       </div>
     </div>
   </div>
 </section>
-

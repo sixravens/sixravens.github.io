@@ -85,6 +85,12 @@ owr:
   subscribe_action:       # the provider's form endpoint; until set, the form is disabled
 
 # Pieces live in _posts as YYYY-MM-DD-NNN-slug.md, served at /onewhiteraven/NNN-slug/
+# The words on the Six Ravens pages, kept apart from the markup: _copy/*.md.
+# Not pages themselves; the templates read them.
+collections:
+  copy:
+    output: false
+
 defaults:
   - scope: { path: "", type: posts }
     values: { layout: piece, permalink: "/onewhiteraven/:title/" }

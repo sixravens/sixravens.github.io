@@ -1,0 +1,8 @@
+{%- comment %}Splits a chunk of rendered copy that starts just after "<hN" (as
+left by splitting on "<hN") into its heading text, `head`, and what follows the
+heading, `rest`. Pass tag="h2" or tag="h3".{% endcomment -%}
+{%- assign close = '</' | append: include.tag | append: '>' -%}
+{%- assign bits = include.html | split: close -%}
+{%- assign attrs = bits[0] | split: '">' | first | append: '">' -%}
+{%- assign head = bits[0] | remove_first: attrs | strip -%}
+{%- assign rest = include.html | remove_first: bits[0] | remove_first: close | strip -%}
