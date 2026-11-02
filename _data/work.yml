@@ -1,8 +1,34 @@
 # The four areas of work, in order. Home shows `short` under each title, linked
 # to /work#id; the Work page shows `body` (Markdown). Edit copy here.
+# `id` is the link anchor: one short word, no spaces. `id: ai` turns on the
+# canary AI colouring for that area.
+
+- id: ai
+  title: <abbr>AI</abbr> in Detection + Response
+  short: >-
+    What AI changes about what your defenders can see, what evidence an 
+    incident leaves, and how you stop something that acts on its own.
+  body: |
+    AI is changing who—or what—makes decisions inside an organization, impacting D+R programs in ways most haven't anticipated.
+
+    An agent may have permission to read sensitive information, change infrastructure, invoke tools, or direct other systems. Its actions may be technically authorized without being what anyone intended. And the people accountable for those actions may have little ability to explain how a decision was reached.
+
+    Most response programs were built around human adversaries, human operators, and human scale. What an AI-driven incident looks like, what it leaves behind, and how to interrupt or reverse it are open questions for most organizations. We help answer them before an incident forces the issue. The technology is new. The underlying problems of trust, judgment, and accountability are not.
+
+- id: detection
+  title: D+R programs
+  short: >-
+    Building and improving defensive capabilities from technical signal through
+    interpretation, escalation, and action.
+  body: |
+    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. Most organizations spend generously on generating alerts and considerably less thought on what happens after one arrives.
+
+    We design, build, and improve detection and response capabilities starting at that end of the pipeline. What can the organization observe? What reaches an analyst? What does the evidence mean to them? Can they investigate it, make a decision, and act?
+
+    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system.
 
 - id: preparedness
-  title: Preparedness & exercises
+  title: Preparedness + exercises
   short: >-
     Realistic tabletop exercises and adversarial simulations that reveal how
     people and systems make decisions when the plan stops being enough.
@@ -14,32 +40,6 @@
     The interesting moment is when the room stops agreeing: nobody can establish which information is trustworthy, a decision falls between competing authorities, or the plan depends on a capability nobody has tested. An AI agent acting outside its operators' expectations introduces another set of uncertainties.
 
     Those moments reveal how an organization actually makes decisions under pressure. We also help establish the practical foundations of preparedness: decision authority, escalation, response procedures, and the ability to act when information is incomplete.
-
-- id: ai
-  title: <abbr>AI</abbr> & autonomous systems
-  short: >-
-    Investigating the authority we give AI systems, the decisions they make, and
-    whether organizations can understand, challenge, or interrupt their actions.
-  body: |
-    AI is changing who—or what—makes decisions inside an organization.
-
-    An agent may have permission to read sensitive information, change infrastructure, invoke tools, or direct other systems. Its actions may be technically authorized without being what anyone intended. And the people accountable for those actions may have little ability to explain how a decision was reached.
-
-    We investigate these systems as both technical architectures and participants in an organization. What authority have they been given? What assumptions govern their behavior? What can be observed, challenged, interrupted, or reversed?
-
-    We bring those questions into system architecture, defensive engineering, operational testing, and preparedness. We want to understand not only whether an AI system can be compromised, but what happens when it behaves in ways the organization did not anticipate.
-
-- id: detection
-  title: Detection & response
-  short: >-
-    Building and improving defensive capabilities from technical signal through
-    interpretation, escalation, and action.
-  body: |
-    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. Most organizations spend generously on generating alerts and considerably less thought on what happens after one arrives.
-
-    We design, build, and improve detection and response capabilities starting at that end of the pipeline. What can the organization observe? What reaches an analyst? What does the evidence mean to them? Can they investigate it, make a decision, and act?
-
-    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system.
 
 - id: investigations
   title: Independent investigations

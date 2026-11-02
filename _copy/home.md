@@ -39,7 +39,7 @@ We follow those conditions into the decisions, incentives, assumptions, and habi
 
 ### AI is not a separate problem
 
-Artificial intelligence gives these questions new consequences. Organizations are granting autonomous systems access and authority that once belonged to people, often without the same ability to understand, challenge, or interrupt their decisions. The technology is new. The underlying problems of trust, judgment, and accountability are not.
+AI arrives in most security programs the way everything else does: as urgency. A new capability, a new threat, a new headline, each demanding a response. The harder question gets less attention: what actually changes about how you detect and respond, and what doesn’t. We help organizations answer it without the panic.
 
 ## How an engagement runs
 
@@ -63,7 +63,7 @@ From [*one white raven*](owr), a publication of Six Ravens.
 
 ## When we're useful
 
-Most engagements begin when an organization is building out a security capability, doubts an assurance that looks better on paper than in practice, or has contained an incident it doesn’t yet understand. AI is increasingly part of each: in the tools doing the detecting, the systems being given authority, and the adversaries on the other side.
+Most engagements begin when an organization is building out a security capability, doubts an assurance that looks better on paper than in practice, or has contained an incident it doesn’t yet understand. AI is increasingly part of each: in the tools doing the detecting, the systems being given authority, and the adversaries on the other side. Increasingly, they begin with a question few can answer: what does AI change about how we detect and respond?
 
 Whether building or scaling detection and response, running an exercise, or investigating an incident, the work starts with the business: the systems that matter, the people who keep them secure, and what they can observe, investigate, and decide when something goes wrong. No framework or taxonomy knows any of that about your organization. Every detection should land with someone who knows what it means and can act on it. Every response should be steady enough that people can do their jobs instead of reacting to every alarm. We build toward those moments, rehearse them, and reconstruct them when they fail.
 
@@ -71,4 +71,4 @@ A critical vulnerability is disclosed. A vendor issues an advisory. An executive
 
 ### Intentionally biased
 
-We’re small by design. We only accept focused engagements, don’t operate a SOC or provide emergency incident response, and we don’t sell security products or collect referral fees.
+We’re small by design. We only accept focused engagements, don’t operate a SOC or provide emergency incident response, we don’t sell security products, or collect referral fees.
