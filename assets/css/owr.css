@@ -546,7 +546,11 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
    A photograph above the title, set off-centre toward its side and fading
    out on every edge, so it floats over the column instead of hanging off
    the window. The head gets taller and the title drops into the fade. */
-.piece-head.has-hero, .feature.has-hero { position: relative; padding-top: 270px; }
+/* isolation: the header is its own layer, so the picture (z-index -1) sits
+   behind the header's text but never behind the page. Without it, a browser
+   that paints the page background as a layer (colour overrides, some
+   extensions) hides the picture entirely. */
+.piece-head.has-hero, .feature.has-hero { position: relative; isolation: isolate; padding-top: 270px; }
 .piece-hero {
   position: absolute;
   z-index: -1;
