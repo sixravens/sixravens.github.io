@@ -1,0 +1,20 @@
+{% comment %}Shared footer. A layout can pass mark= for its own footer mark.{% endcomment %}
+{%- assign foot_mark = include.mark | default: site.foot_mark -%}
+<footer class="foot">
+  <div class="foot-in">
+    <a href="{{ site.sr_url }}/"><img src="{{ foot_mark }}" alt="Six Ravens"></a>
+    <ul>
+      <li><a href="{{ site.sr_url }}/work">work</a></li>
+      <li><a href="{{ site.owr_url }}/">one white raven</a></li>
+      <li><a href="{{ site.owr_url }}/feed.xml">rss</a></li>
+      <li><a href="{{ site.owr_url }}/ai/">how we use <abbr>AI</abbr></a></li>
+      <li><a href="{{ site.sr_url }}/privacy">privacy</a></li>
+      <li><a href="{{ site.sr_url }}/#contact">contact</a></li>
+      <li><a href="mailto:hello@sixravens.io">hello@sixravens.io</a></li>
+    </ul>
+  </div>
+  <div class="foot-legal">
+    <p>© {{ site.time | date: "%Y" }} Six Ravens. All rights reserved.</p>
+    <p><strong>Six Ravens</strong>, <strong>one white raven</strong>, <strong>6R</strong>, <strong>1WR</strong>, and their associated bird marks are trademarks of Six Ravens. Original content, artwork, and site design created by Six Ravens are protected by applicable copyright law, except where otherwise noted.</p>
+  </div>
+</footer>

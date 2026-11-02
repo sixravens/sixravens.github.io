@@ -1,0 +1,74 @@
+{% capture html %}<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- assign owr_home = site.owr_path | append: '/' %}
+  <title>{% if page.title and page.url != owr_home %}{{ page.title }} · {% endif %}{{ site.owr.title }}</title>
+  {%- assign desc = page.dek | default: page.description | default: site.owr.description | strip_html | normalize_whitespace %}
+  <meta name="description" content="{{ desc }}">
+  <meta name="theme-color" content="#f3f0e8">
+  {%- if site.noindex %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
+  {%- comment %}Link previews (iMessage, Slack, social). URLs must be absolute. A piece
+  can set `image:` (a path under the site) to preview with its own picture.{% endcomment %}
+  <meta property="og:site_name" content="{{ site.owr.title }}">
+  <meta property="og:title" content="{% if page.title and page.url != owr_home %}{{ page.title }}{% else %}{{ site.owr.title }}{% endif %}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:type" content="{% if page.layout == 'piece' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.origin }}{{ page.url | replace: 'index.html', '' }}">
+  <meta property="og:image" content="{{ site.origin }}{{ page.image | default: '/assets/images/og-card.png' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if page.layout == 'piece' %}
+  {%- comment %}Structured data for search engines and AI crawlers. `abstract` is the
+  piece's `summary:`, which is never shown on the page. No people: publisher only.{% endcomment %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ desc | jsonify }},
+    {%- if page.summary %}
+    "abstract": {{ page.summary | normalize_whitespace | jsonify }},
+    {%- endif %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {%- if page.hero.src %}
+    "image": {{ site.origin | append: page.hero.src | jsonify }},
+    {%- endif %}
+    "url": "{{ site.origin }}{{ page.url }}",
+    "isPartOf": { "@type": "Periodical", "name": {{ site.owr.title | downcase | jsonify }}, "url": "{{ site.owr_url }}/" },
+    "publisher": { "@type": "Organization", "name": "Six Ravens", "url": "{{ site.sr_url }}/" }
+  }
+  </script>
+  {%- endif %}
+  <link rel="icon" href="{{ site.owr_path }}/favicon.ico?v=5" sizes="32x32">
+  <link rel="icon" href="{{ site.owr_path }}/icon.svg?v=5" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ site.owr_path }}/apple-touch-icon.png?v=5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/system.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/owr.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.owr.title }}" href="{{ site.owr_path }}/feed.xml">
+</head>
+<body class="look-{{ site.owr.look | default: 'whitepaper' }}">
+  {%- if site.owr.look != 'editorial' %}
+  <div class="bg-raven" aria-hidden="true"></div>
+  {%- endif %}
+  {% include site-nav.html active='owr' mark='/assets/images/mark-1wr.png' alt='One White Raven' home=owr_home %}
+  {% include owr-subnav.html %}
+  {{ content }}
+  {% include site-footer.html mark='/assets/images/mark-6r-paper.png' %}
+  <script>
+    // Subscribe forms are real UI, not yet wired to a provider.
+    document.querySelectorAll('form[data-prototype]').forEach(function (f) {
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        f.classList.add('sent');
+      });
+    });
+  </script>
+</body>
+</html>{% endcapture %}{% include brand-case.html html=html %}

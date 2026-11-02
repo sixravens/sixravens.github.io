@@ -5,3 +5,12 @@
 .DS_Store
 *.swp
 *.swo
+
+# Set aside locally (unlinked prototypes, the old about page), and drafts
+.set-aside/
+_drafts/
+# Local tooling: the 1WR converter and image scripts
+_tools/
+.sass-cache/
+# A local copy of a draft
+/scratch

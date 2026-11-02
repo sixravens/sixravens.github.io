@@ -1,0 +1,7 @@
+{%- comment -%}
+House style: one white raven is always lowercase; Six Ravens is always capitalised. Layouts capture their whole
+page and pass it through here, so capitalised names in copy, markup or titles
+are corrected at build time. Plain Liquid, so it works on the default GitHub Pages build.
+Usage: {% capture html %}…{% endcapture %}{% include brand-case.html html=html %}
+{%- endcomment -%}
+{{ include.html | replace: "six ravens", "Six Ravens" | replace: "SIX RAVENS", "Six Ravens" | replace: "One White Raven", "one white raven" | replace: "ONE WHITE RAVEN", "one white raven" }}

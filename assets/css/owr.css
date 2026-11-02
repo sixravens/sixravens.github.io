@@ -1,0 +1,654 @@
+/* One White Raven — publication layer on top of system.css (paper theme).
+   Layout: one content width. The masthead, text and cards all share it;
+   pull quotes float inside it and the text wraps around them. The band
+   and subscribe block bleed to the window edges. */
+
+body { font-size: 16px; line-height: 1.75; }
+
+/* The main site's raven outline, recoloured to paper's bg-3: the same
+   one-step lift it has on ink. Tucked into the lower-right corner so it
+   stays a signature and doesn't compete with the page. */
+/* One fixed raven, in front of the page (below the nav) and blended with
+   exclusion, so it recolours itself against whatever scrolls under it:
+   paper-grey on paper, a shade darker on the sources panel, dim grey on ink.
+   Its colour (18,22,27) is solved so that on paper it matches the original
+   #e2ddd0 raven. A fixed element is composited, so it holds still through
+   fast scrolls and Safari's overscroll bounce. */
+.bg-raven {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  mix-blend-mode: exclusion;
+  background: url('../images/raven-blend.png') no-repeat right -4vw bottom -6vh / min(48vh, 34vw);
+}
+@media (max-width: 719px) {
+  .bg-raven { background-position: right -10vw bottom -4vh; background-size: 56vw; opacity: .6; }
+  .subnav { display: none; }
+}
+
+.vh {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Sheet ---------- */
+.sheet {
+  --content: 46rem;
+  max-width: calc(var(--content) + 32px);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+/* full-bleed breakout from the centred sheet */
+.band { margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+
+/* ---------- Masthead (intro page only) ---------- */
+.masthead { padding: 40px 0 0; }
+.masthead-lockup { margin: 0; line-height: 0; }
+.masthead-lockup svg { display: block; width: 100%; height: auto; }
+.masthead-lockup text {
+  font-family: var(--font);
+  font-size: 176px;
+  font-weight: 200;
+  fill: #6e6c69;               /* the logo's own raven grey, so the lockup matches */
+}
+.masthead-kicker {
+  margin: 16px 0 0 3.3%;       /* 3.3% = the bar's inset from the logo edge */
+  color: var(--muted);
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+}
+
+/* ---------- Lede ---------- */
+.lede { padding: 56px 0 8px; }
+.lede p {
+  margin: 0 0 .9em;
+  color: var(--fg);
+  font-size: clamp(1.2rem, 4.4vw, 1.5rem);
+  font-weight: 400;   /* Avenir Next has no 300: it would fall to Ultra Light */
+  line-height: 1.55;
+}
+
+/* ---------- Prose ---------- */
+.prose { padding-top: 8px; }
+.prose::after { content: ""; display: table; clear: both; }
+.prose p { margin: 0 0 1.15em; }
+.prose a, .commitments a, .author a, .subscribe a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.prose a:hover, .commitments a:hover, .author a:hover, .subscribe a:hover { color: var(--accent-text); }
+
+.prose h2, .commitments h2, .author h2 {
+  position: relative;
+  clear: both;
+  margin: 64px 0 22px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  color: var(--fg);
+  font-size: clamp(1.4rem, 4vw, 1.75rem);
+  font-weight: 200;
+  line-height: 1.15;
+}
+.prose h2::before, .commitments h2::before, .author h2::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 56px; height: 0;
+  border-top: 2px solid var(--amber);
+}
+p.turn { color: var(--fg); font-size: 1.15rem; }
+
+/* Pull quotes: full width on phones; floated right inside the text from tablet up */
+.note {
+  margin: 32px 0;
+  padding: 6px 0 6px 20px;
+  border-left: 2px solid var(--amber);
+  color: var(--fg);
+  font-size: clamp(1.35rem, 4.6vw, 1.7rem);
+  font-weight: 200;
+  line-height: 1.3;
+}
+
+/* ---------- Band: the one question, inverted to ink ---------- */
+.band { margin-top: 80px; background: var(--fg); color: var(--bg); }
+.band-in { max-width: calc(46rem + 32px); margin: 0 auto; padding: 64px 16px 72px; }
+.band-label { margin: 0 0 28px; color: var(--amber); font-size: 15px; font-weight: 500; }
+.band-pre { margin: 0 0 12px; font-size: 1.1rem; opacity: .8; }
+.band-q {
+  margin: 0;
+  font-size: clamp(1.4rem, 4.4vw, 2rem);
+  font-weight: 200;
+  line-height: 1.25;
+}
+
+/* ---------- Directions: three cards ---------- */
+.directions { padding-top: 48px; }
+.directions-intro { margin: 0 0 18px; color: var(--fg); font-size: 1.1rem; }
+.cards-3 { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.cards-3 .card { padding: 22px 22px 24px; }
+.cards-3 .card-title { font-size: 1.2rem; }
+.card-num {
+  display: block;
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.directions-coda { margin-top: 32px; }
+.directions-coda p { margin: 0 0 1.15em; }
+
+/* ---------- Commitments ---------- */
+.cols-3 { display: grid; gap: 28px; }
+.cols-3 h3 { margin: 0 0 8px; color: var(--fg); font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
+.cols-3 p { margin: 0; }
+
+/* ---------- Author ---------- */
+.author-card { display: flex; gap: 24px; align-items: flex-start; }
+.author-card img { flex: none; width: 96px; height: auto; margin-top: 6px; }
+.author-card p { margin: 0 0 .8em; }
+.author-by { color: var(--fg); font-size: 1.2rem; }
+
+/* ---------- Subscribe ---------- */
+/* Ink, via data-theme="ink" on the section: the tokens flip to Six Ravens
+   ink, so the form, links and button restyle themselves. */
+.subscribe { margin-top: 88px; background: var(--bg); color: var(--fg-2); }   /* ink */
+
+
+.subscribe .form-note { color: var(--fg-2); font-size: 14px; }
+.piece + .subscribe { margin-top: 0; }   /* butts against the sources panel */
+.subscribe-in { max-width: calc(46rem + 32px); margin: 0 auto; padding: 48px 16px 56px; }
+.subscribe h2 { margin: 0 0 18px; color: var(--fg); font-size: clamp(1.5rem, 4vw, 1.75rem); font-weight: 400; }
+.form-done { color: var(--fg); }
+.subscribe + .foot { margin-top: 0; }
+
+/* ---------- Tablet and up ---------- */
+@media (min-width: 720px) {
+  body { font-size: 17px; }
+  .sheet { padding: 0 32px; max-width: calc(var(--content) + 64px); }
+  .masthead { padding-top: 64px; }
+  .note {
+    float: right;
+    clear: right;
+    width: 40%;
+    margin: 6px 0 20px 36px;
+  }
+  .cards-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .band-in { padding: 88px 32px 96px; max-width: calc(46rem + 64px); }
+  .subscribe-in { padding: 64px 32px 72px; max-width: calc(46rem + 64px); }
+}
+
+@media (min-width: 1120px) {
+  body { font-size: 18px; }
+}
+
+/* ======================================================================
+   Reading room: sub-nav, contents page, piece template
+   ====================================================================== */
+
+.pending { color: var(--muted); border-bottom: 1px dashed var(--muted); cursor: help; }
+.sep { margin: 0 .45em; color: var(--rule); }
+
+/* ---------- Sub-nav (1WR only) ---------- */
+.subnav { border-bottom: 1px solid var(--rule); }
+.subnav-in {
+  display: flex;
+  gap: 24px;
+  max-width: calc(46rem + 32px);
+  margin: 0 auto;
+  padding: 0 16px;
+  overflow-x: auto;
+}
+.subnav a {
+  display: block;
+  padding: 12px 0 10px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.subnav a:hover { color: var(--fg); }
+.subnav a[aria-current] { color: var(--fg); border-bottom-color: var(--amber); }
+
+/* ---------- Contents page ---------- */
+.contents-head { padding: 32px 0 8px; }
+.contents-name {
+  margin: 0;
+  font-size: clamp(2.1rem, 7.5vw, 3.6rem);   /* the six ravens tagline scale */
+  line-height: 1;
+  letter-spacing: .06em;
+  color: #6e6c69;
+}
+.contents-head .masthead-kicker { margin: 8px 0 0 2px; color: #85837f; }
+
+.feature {
+  display: block;
+  margin: 48px 0 0;
+  padding: 28px 0 36px;
+  border-top: 2px solid var(--fg);
+  color: var(--fg);
+  text-decoration: none;
+}
+.feature-label { display: block; margin: 0 0 20px; color: var(--accent-text); font-size: 14px; font-weight: 500; }
+.feature-no {
+  display: block;
+  color: var(--amber);
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  font-weight: 200;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+.feature-title {
+  display: block;
+  margin: 10px 0 14px;
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  font-weight: 200;
+  line-height: 1.08;
+}
+.feature-dek { display: block; max-width: 38rem; color: var(--fg-2); font-size: clamp(1.1rem, 3.6vw, 1.3rem); line-height: 1.5; }
+.feature-meta { display: block; margin-top: 18px; color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.feature-go { display: inline-block; margin-top: 18px; color: var(--accent-text); font-size: 15px; font-weight: 500; }
+.feature:hover .feature-title { text-decoration: underline; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+.toc { margin-top: 40px; }
+.toc h2 {
+  margin: 0;
+  padding: 18px 0 14px;
+  border-top: 1px solid var(--rule);
+  color: var(--fg);
+  font-size: 15px;
+  font-weight: 600;
+}
+.toc-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.toc-list li { border-bottom: 1px solid var(--rule); }
+.toc-list a {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 4px 16px;
+  padding: 18px 0 20px;
+  color: var(--fg);
+  text-decoration: none;
+}
+.toc-list a:hover { background: var(--bg-2); }
+.toc-no { color: var(--accent-text); font-size: 1.35rem; font-weight: 400; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.toc-title { display: block; font-size: 1.3rem; font-weight: 400; line-height: 1.25; }
+.toc-dek { display: block; margin-top: 4px; color: var(--fg-2); font-size: .95rem; line-height: 1.5; }
+.toc-meta { grid-column: 2; display: flex; gap: 12px; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* ---------- Piece header ---------- */
+.piece-head { padding: 56px 0 8px; }
+.piece-head-banner { padding-top: 28px; }
+.piece-line { display: flex; align-items: baseline; gap: 14px; margin: 0; }
+.piece-no {
+  color: var(--amber);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 200;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+.piece-head-banner .piece-no { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+.piece-title-inline { color: var(--fg); font-size: clamp(1.4rem, 4.6vw, 1.8rem); font-weight: 200; }
+.piece-title {
+  margin: 14px 0 16px;
+  color: var(--fg);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 200;
+  line-height: 1.06;
+}
+.piece-dek { margin: 0 0 4px; color: var(--fg-2); font-size: clamp(1.15rem, 3.8vw, 1.4rem); line-height: 1.5; }
+.piece-meta {
+  margin: 18px 0 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+.piece-body { padding-top: 32px; }
+
+/* Body elements a piece may use */
+.prose h3 { margin: 40px 0 12px; color: var(--fg); font-size: 1.3rem; font-weight: 500; }
+.prose ul, .prose ol { margin: 0 0 1.3em; padding: 0; }
+.prose ul { list-style: none; }
+.prose ul > li { position: relative; padding-left: 22px; margin: 0 0 .6em; }
+.prose ul > li::before {
+  content: ""; position: absolute; left: 0; top: .85em; width: 10px; height: 0;
+  border-top: 1px solid var(--amber);   /* border, not background: snaps to device pixels */
+}
+.prose ol { padding-left: 1.4em; }
+.prose blockquote {
+  margin: 40px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 2px solid var(--amber);
+  color: var(--fg);
+  font-size: clamp(1.4rem, 4.8vw, 1.85rem);
+  font-weight: 200;
+  line-height: 1.3;
+}
+.prose blockquote p { margin: 0; }
+.prose hr { border: 0; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+/* Epigraph: a quotation set before the first paragraph. Keeps its own case. */
+.prose blockquote.epigraph {
+  margin: 0 0 48px;
+  text-transform: none;
+  font-size: clamp(1.15rem, 3.4vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.45;
+}
+.prose blockquote.epigraph p + p { margin-top: 6px; color: var(--fg-2); }
+.prose blockquote.epigraph footer { margin-top: 14px; color: var(--muted); font-size: 14px; font-weight: 400; }
+
+/* After the essay: the publication note, then sources in a smaller register */
+.piece-end { margin-top: 40px; color: var(--muted); font-size: 15px; }
+.piece-end p { margin: 0 0 12px; }
+/* Sources: reference apparatus, not more essay. A full-width tinted panel
+   (the padding puts the text back on the column), smaller type, plain
+   hanging indents instead of the body's amber dashes, two columns when wide. */
+.sources-panel {
+  margin: 56px calc(50% - 50vw) 0;
+  padding: 40px calc(50vw - 50%) 48px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.piece-sources {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.prose .piece-sources h3 { margin: 0 0 24px; color: var(--fg); font-size: 15px; font-weight: 500; }
+.prose .piece-sources p { margin: 22px 0 8px; break-after: avoid; }
+.prose .piece-sources p strong { color: var(--fg-2); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.prose .piece-sources ul { margin: 0; }
+.prose .piece-sources ul > li { padding-left: 1em; text-indent: -1em; margin: 0 0 .45em; break-inside: avoid; }
+.prose .piece-sources ul > li::before { display: none; }
+.prose .piece-sources a { color: var(--fg-2); overflow-wrap: anywhere; text-decoration-color: color-mix(in srgb, var(--amber) 55%, var(--bg-2)); text-decoration-thickness: 1px; }
+.prose .piece-sources a:hover { text-decoration-color: var(--amber); }
+@media (min-width: 1040px) {
+  .piece-sources { column-count: 2; column-gap: 48px; }
+  .piece-sources h3 { column-span: all; }
+  .prose .piece-sources > p:first-of-type { margin-top: 0; }
+}
+
+/* Figures: never wider than the text, never upscaled past their own size */
+.fig { margin: 40px 0; }
+.fig img { display: block; max-width: 100%; height: auto; }
+.fig figcaption { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.prose em { font-style: italic; }
+
+.editorial-note {
+  clear: both;
+  margin: 48px 0 0;
+  padding: 16px 18px;
+  background: var(--bg-2);
+  border-left: 2px solid var(--muted);
+  color: var(--fg-2);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.corrections { margin: 28px 0 0; padding: 14px 18px; background: var(--bg-2); border-left: 2px solid var(--amber); font-size: 15px; }
+.corrections h2 { margin: 0 0 4px; color: var(--fg); font-size: 15px; font-weight: 600; }
+.corrections ul { margin: 0; padding: 0; list-style: none; }
+.corrections time { margin-right: .4em; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- Previous / next ---------- */
+.piece-nav {
+  clear: both;
+  display: grid;
+  gap: 12px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 2px solid var(--fg);
+}
+.piece-nav a { display: block; padding: 4px 0; color: var(--fg); text-decoration: none; }
+.piece-nav-dir { display: block; color: var(--muted); font-size: 13px; }
+.piece-nav-no { color: var(--accent-text); font-size: 1.3rem; font-weight: 400; margin-right: 10px; font-variant-numeric: tabular-nums; }
+.piece-nav-title { font-size: 1.2rem; }
+.piece-nav a:hover .piece-nav-title { text-decoration: underline; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.piece-nav-next { text-align: right; }
+
+@media (min-width: 720px) {
+  .subnav-in { padding: 0 32px; max-width: calc(46rem + 64px); gap: 32px; }
+  .piece-nav { grid-template-columns: 1fr 1fr; }
+  .toc-list a { grid-template-columns: 4rem 1fr auto; align-items: baseline; }
+  .toc-meta { grid-column: 3; grid-row: 1; flex-direction: column; align-items: flex-end; gap: 2px; }
+}
+
+/* ======================================================================
+   Editorial look (site.look: editorial): the start-here treatment carried
+   into the contents page and every piece. Ink bands open the page, the
+   raven outline sits inside them one step above ink, and the text gets
+   the lede, pull quotes and band that 000 has.
+   ====================================================================== */
+
+/* ---------- Ink band, shared by the piece header and the latest feature ---------- */
+.look-editorial .piece-head:not(.piece-head-banner),
+.look-editorial .feature {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: max(16px, calc(50vw - 23rem));
+  padding-right: max(16px, calc(50vw - 23rem));
+  background: var(--fg);
+  color: var(--bg);
+  border-top: 0;
+}
+.look-editorial .head-raven {
+  position: absolute;
+  z-index: -1;
+  top: 24px;
+  right: max(-14vw, -120px);
+  width: min(560px, 78vw);
+  aspect-ratio: 1;
+  background: url('../images/raven-ink.png') no-repeat center / contain;
+  pointer-events: none;
+}
+
+/* piece header */
+.look-editorial .piece-head:not(.piece-head-banner) { padding-top: 72px; padding-bottom: 0; }
+.look-editorial .piece-head .piece-title { color: var(--bg); }
+.look-editorial .piece-head .piece-dek { max-width: 38rem; color: color-mix(in srgb, var(--bg) 82%, var(--fg)); }
+.look-editorial .piece-head:not(.piece-head-banner) .piece-meta {
+  margin-top: 40px;
+  padding: 16px 0 18px;
+  border-top-color: color-mix(in srgb, var(--bg) 18%, var(--fg));
+  border-bottom: 0;
+  color: color-mix(in srgb, var(--bg) 62%, var(--fg));
+}
+.look-editorial .piece-head .sep { color: color-mix(in srgb, var(--bg) 30%, var(--fg)); }
+.look-editorial .piece-head .pending { color: inherit; border-bottom-color: currentColor; }
+
+/* latest feature on the contents page */
+.look-editorial .feature { margin-top: 56px; padding-top: 56px; padding-bottom: 64px; color: var(--bg); }
+.look-editorial .feature-label { color: var(--amber); }
+.look-editorial .feature-dek { color: color-mix(in srgb, var(--bg) 82%, var(--fg)); }
+.look-editorial .feature-meta { color: color-mix(in srgb, var(--bg) 62%, var(--fg)); }
+.look-editorial .feature .sep { color: color-mix(in srgb, var(--bg) 30%, var(--fg)); }
+.look-editorial .feature-go { color: var(--amber); }
+
+/* ---------- Text: lede, pulls, band, last line ---------- */
+.look-editorial .piece-body { padding-top: 56px; }
+.look-editorial .piece-body > p:first-of-type {
+  color: var(--fg);
+  font-size: clamp(1.2rem, 4.4vw, 1.5rem);
+  line-height: 1.55;
+}
+.look-editorial .piece-body > p:last-of-type {
+  margin-top: 1.6em;
+  color: var(--fg);
+  font-size: clamp(1.35rem, 4.6vw, 1.7rem);
+  font-weight: 200;
+  line-height: 1.35;
+}
+.look-editorial .piece-body .band { clear: both; margin-top: 72px; margin-bottom: 8px; }
+.look-editorial .prose .band p.band-label { margin: 0 0 28px; }
+.look-editorial .prose .band p.band-q { margin: 0; color: var(--bg); }
+
+/* ---------- Contents as cards ---------- */
+.look-editorial .toc { margin-top: 56px; }
+.look-editorial .toc h2 { border-top: 0; padding-top: 0; }
+.look-editorial .toc-list { display: grid; gap: 12px; border-top: 0; }
+.look-editorial .toc-list li { border-bottom: 0; }
+.look-editorial .toc-list a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 22px 22px 24px;
+  background: var(--bg-2);
+  border-top: 2px solid var(--amber);
+}
+.look-editorial .toc-list a:hover { background: var(--bg-3); }
+.look-editorial .toc-no {
+  margin: 0 0 14px;
+  color: var(--amber);
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 1;
+}
+.look-editorial .toc-title { font-size: 1.2rem; font-weight: 500; line-height: 1.3; }
+.look-editorial .toc-dek { margin-top: 8px; font-size: .92rem; }
+.look-editorial .toc-meta { margin-top: auto; padding-top: 16px; flex-direction: row; gap: 12px; }
+
+@media (min-width: 720px) {
+  .look-editorial .piece-head:not(.piece-head-banner),
+  .look-editorial .feature {
+    padding-left: max(32px, calc(50vw - 23rem));
+    padding-right: max(32px, calc(50vw - 23rem));
+  }
+  .look-editorial .piece-head:not(.piece-head-banner) { padding-top: 96px; }
+  .look-editorial .toc-list { grid-template-columns: repeat(3, 1fr); }
+  .look-editorial .toc-list a { display: flex; }
+  .look-editorial .toc-meta { flex-direction: row; align-items: center; }
+}
+
+/* ---------- How we use AI (/ai/) ---------- */
+.ai-head { padding: 56px 0 8px; }
+.ai-head h1 { margin: 0; color: var(--fg); font-size: clamp(2rem, 6vw, 2.8rem); font-weight: 200; line-height: 1.15; }
+.ai-dek { margin: 16px 0 0; color: var(--fg-2); font-size: clamp(1.1rem, 3vw, 1.25rem); font-weight: 400; line-height: 1.5; }
+.draft-tag { margin-left: 8px; padding: 2px 6px; border: 1px dashed var(--muted); color: var(--muted); font-size: 12px; font-weight: 400; vertical-align: middle; }
+
+/* ---------- Piece header image (front matter `hero`) ----------
+   A photograph above the title, set off-centre toward its side and fading
+   out on every edge, so it floats over the column instead of hanging off
+   the window. The head gets taller and the title drops into the fade. */
+.piece-head.has-hero, .feature.has-hero { position: relative; padding-top: 270px; }
+.piece-hero {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  height: 430px; /* fixed, so a long title or dek doesn't stretch the picture */
+  background: no-repeat center / cover;
+  pointer-events: none;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.hero-right {
+  left: -18%;
+  right: -30%;
+  mask-image: linear-gradient(to right, transparent, #000 38%, #000 66%, transparent), linear-gradient(to bottom, transparent, #000 16%, #000 30%, transparent 72%);
+}
+.hero-left {
+  left: -30%;
+  right: -18%;
+  mask-image: linear-gradient(to left, transparent, #000 38%, #000 66%, transparent), linear-gradient(to bottom, transparent, #000 16%, #000 30%, transparent 72%);
+}
+.hero-center {
+  left: -24%;
+  right: -24%;
+  mask-image: linear-gradient(to right, transparent, #000 30%, #000 70%, transparent), linear-gradient(to bottom, transparent, #000 16%, #000 30%, transparent 72%);
+}
+/* phones: same treatment, the picture above and the title in its fade */
+@media (max-width: 719px) {
+  .piece-head.has-hero, .feature.has-hero { padding-top: 62vw; }
+  .piece-hero { height: 82vw; }
+  .hero-right, .hero-left, .hero-center { left: -16px; right: -16px; }
+  .hero-right { mask-image: linear-gradient(to right, transparent, #000 30%, #000 75%, transparent), linear-gradient(to bottom, transparent, #000 14%, #000 38%, transparent); }
+  .hero-left { mask-image: linear-gradient(to left, transparent, #000 30%, #000 75%, transparent), linear-gradient(to bottom, transparent, #000 14%, #000 38%, transparent); }
+  .hero-center { mask-image: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent), linear-gradient(to bottom, transparent, #000 14%, #000 38%, transparent); }
+}
+/* editorial: the photo sits in the ink band, fading to ink */
+.look-editorial .piece-head.has-hero, .look-editorial .feature.has-hero { padding-top: 270px; }
+/* the band is full width, so place the picture against the column, not the box */
+.look-editorial .hero-right { left: calc(50% - 31.3rem); right: calc(50% - 36.8rem); }
+.look-editorial .hero-left { left: calc(50% - 36.8rem); right: calc(50% - 31.3rem); }
+.look-editorial .hero-center { left: calc(50% - 34rem); right: calc(50% - 34rem); }
+@media (max-width: 719px) {
+  .look-editorial .piece-head.has-hero, .look-editorial .feature.has-hero { padding-top: 62vw; }
+  .look-editorial .piece-hero { left: 0; right: 0; }
+}
+/* every piece has a header image; the number and title carry more weight
+   so they hold up against it */
+.piece-no, .feature-no, .piece-title, .feature-title { font-weight: 400; }
+
+/* ---------- Contents: the header image, small ----------
+   List rows get it as a last column fading in from the left; editorial
+   cards get it across the top, fading into the card. */
+.toc-img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.toc-list a.has-img { grid-template-columns: 3.2rem 1fr 6.5rem; }
+.toc-list a.has-img .toc-img {
+  grid-column: 3; grid-row: 1 / span 2;
+  height: calc(100% + 38px);
+  margin: -18px 0 -20px;
+  mask-image: linear-gradient(to right, transparent, #000 35%, #000 65%, transparent), linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+}
+@media (max-width: 719px) {
+  .toc-list a.has-img { grid-template-columns: 3.2rem 1fr; }
+  .toc-list a.has-img .toc-img {
+    grid-column: 1 / -1; grid-row: auto;
+    order: -1;
+    height: 30vw;
+    width: calc(100% + 32px);
+    margin: -18px -16px 6px;
+    mask-image: linear-gradient(to right, transparent, #000 30%, #000 70%, transparent), linear-gradient(to bottom, transparent, #000 20%, #000 40%, transparent);
+  }
+}
+@media (min-width: 720px) {
+  .toc-list a.has-img { grid-template-columns: 4rem 1fr auto 13rem; }
+  .toc-list a.has-img .toc-img { grid-column: 4; grid-row: 1; }
+}
+.look-editorial .toc-list a.has-img { overflow: hidden; }
+.look-editorial .toc-list a.has-img .toc-img {
+  order: -1;
+  flex: none;
+  align-self: stretch;
+  height: 140px;
+  width: auto;
+  margin: -22px -22px 18px;
+  mask-image: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent), linear-gradient(to bottom, transparent, #000 20%, #000 40%, transparent);
+}
+
+/* ---------- End mark ----------
+   The white raven closes every piece, set after the last word of the body
+   (before the notes and sources, when a piece has them). */
+.piece-body > p:last-child::after,
+.piece-body > p:has(+ .piece-end)::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1.15em;
+  margin-left: .45em;
+  vertical-align: -.22em;
+  background: url('../images/end-raven.svg') no-repeat center / contain;
+}
+.placeholder-note p { margin: 0; color: var(--fg-2); }

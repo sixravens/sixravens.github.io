@@ -1,0 +1,54 @@
+# The four areas of work, in order. Home shows `short` under each title, linked
+# to /work#id; the Work page shows `body` (Markdown). Edit copy here.
+
+- id: preparedness
+  title: Preparedness & exercises
+  short: >-
+    Realistic tabletop exercises and adversarial simulations that reveal how
+    people and systems make decisions when the plan stops being enough.
+  body: |
+    Most organizations have a plan for what happens when things go wrong. Fewer know how well that plan describes what their people will actually do.
+
+    We design tabletop exercises and adversarial simulations to find out. Some are focused discussions around difficult decisions. Others are immersive scenarios with purpose-built infrastructure, realistic evidence, and events that unfold over days or weeks in response to participants' actions. At the far end, they have more in common with alternate reality games than conference-room exercises.
+
+    The interesting moment is when the room stops agreeing: nobody can establish which information is trustworthy, a decision falls between competing authorities, or the plan depends on a capability nobody has tested. An AI agent acting outside its operators' expectations introduces another set of uncertainties.
+
+    Those moments reveal how an organization actually makes decisions under pressure. We also help establish the practical foundations of preparedness: decision authority, escalation, response procedures, and the ability to act when information is incomplete.
+
+- id: ai
+  title: <abbr>AI</abbr> & autonomous systems
+  short: >-
+    Investigating the authority we give AI systems, the decisions they make, and
+    whether organizations can understand, challenge, or interrupt their actions.
+  body: |
+    AI is changing who—or what—makes decisions inside an organization.
+
+    An agent may have permission to read sensitive information, change infrastructure, invoke tools, or direct other systems. Its actions may be technically authorized without being what anyone intended. And the people accountable for those actions may have little ability to explain how a decision was reached.
+
+    We investigate these systems as both technical architectures and participants in an organization. What authority have they been given? What assumptions govern their behavior? What can be observed, challenged, interrupted, or reversed?
+
+    We bring those questions into system architecture, defensive engineering, operational testing, and preparedness. We want to understand not only whether an AI system can be compromised, but what happens when it behaves in ways the organization did not anticipate.
+
+- id: detection
+  title: Detection & response
+  short: >-
+    Building and improving defensive capabilities from technical signal through
+    interpretation, escalation, and action.
+  body: |
+    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. Most organizations spend generously on generating alerts and considerably less thought on what happens after one arrives.
+
+    We design, build, and improve detection and response capabilities starting at that end of the pipeline. What can the organization observe? What reaches an analyst? What does the evidence mean to them? Can they investigate it, make a decision, and act?
+
+    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system.
+
+- id: investigations
+  title: Independent investigations
+  short: >-
+    Looking beyond the immediate cause of an incident to understand the
+    decisions and conditions that made it possible.
+  body: |
+    The usual account of a security incident begins with what failed and ends with what was fixed. That may resolve the immediate problem without explaining much about how it came to exist.
+
+    We investigate what happened before the failure became obvious. What did people know? What did they reasonably believe? Which decisions followed from those beliefs, and what made those decisions sensible at the time? What warnings were available, and why did they fail to change the outcome?
+
+    The point isn't to assign blame with the benefit of hindsight. It's to reconstruct the conditions that made the failure possible, including those that may still exist elsewhere. We work after the immediate crisis, not as an emergency incident response provider.

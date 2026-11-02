@@ -1,0 +1,42 @@
+---
+layout: sr
+title: Work
+nav: work
+permalink: /next/work
+description: >-
+  We build, test, and investigate security capabilities. The technical work
+  matters, but so does the organization expected to operate what we've built.
+---
+<section class="opening">
+  <div class="wrap">
+    <h1>Work</h1>
+    <div class="opening-text">
+      <p class="lede">We build, test, and investigate security capabilities. The technical work matters, but so does the organization expected to operate what we've built.</p>
+      <nav class="toc" aria-label="On this page">
+        <ol>
+          {%- for a in site.data.work %}
+          <li{% if a.id == 'ai' %} class="is-ai"{% endif %}><a href="#{{ a.id }}"><span class="no">{{ forloop.index0 | prepend: '00' }}</span><span>{{ a.title }}</span></a></li>
+          {%- endfor %}
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>
+
+{% for a in site.data.work %}
+<section class="sec work-area{% if a.id == 'ai' %} is-ai{% endif %}" aria-labelledby="{{ a.id }}">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">{{ forloop.index0 | prepend: '00' }}</span><h2 id="{{ a.id }}">{{ a.title }}</h2></div>
+    <div class="sec-body prose">{{ a.body | markdownify }}</div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="sec contact" id="contact" aria-labelledby="close">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">&rarr;</span><h2 id="close">Have a problem worth investigating?</h2></div>
+    <div class="sec-body">
+      {% include email.html %}
+    </div>
+  </div>
+</section>

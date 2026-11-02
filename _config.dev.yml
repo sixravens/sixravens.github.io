@@ -1,0 +1,4 @@
+# Local preview only: jekyll serve --config _config.yml,_config.dev.yml
+origin: "http://127.0.0.1:4000"
+sr_url: "http://127.0.0.1:4000/next"
+owr_url: "http://127.0.0.1:4000/onewhiteraven"

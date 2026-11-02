@@ -1,0 +1,20 @@
+{% comment %}Shared nav for Six Ravens and one white raven. The mark defaults to
+  Six Ravens; a layout can pass mark=, alt= and home= for its own.
+  Pass contact="#contact" on pages that end in their own contact block.{% endcomment %}
+{%- assign mark = include.mark | default: site.nav_mark -%}
+{%- assign alt = include.alt | default: site.nav_alt -%}
+{%- assign home = include.home -%}
+{%- unless home %}{% assign home = site.sr_url | append: '/' %}{% endunless -%}
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-mark" href="{{ home }}"><img src="{{ mark }}" alt="{{ alt }}"></a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="{{ site.sr_url }}/"{% if include.active == 'home' %} aria-current="page"{% endif %}>home</a></li>
+        <li><a href="{{ site.sr_url }}/work"{% if include.active == 'work' %} aria-current="page"{% endif %}>work</a></li>
+        <li><a href="{{ site.owr_url }}/"{% if include.active == 'owr' %} aria-current="page"{% endif %}>one white raven</a></li>
+        <li><a class="btn btn-sm" href="{% if include.contact %}{{ include.contact }}{% else %}{{ site.sr_url }}/#contact{% endif %}">contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

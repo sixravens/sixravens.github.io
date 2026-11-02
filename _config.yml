@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: six ravens 
+title: six ravens   # as live; the new layouts set the case via brand-case
 email: hello@sixravens.io 
 description: >- # this means to ignore newlines until "baseurl:"
   security is culture
@@ -27,8 +27,11 @@ url: "sixravens.io" # the base hostname & protocol for your site, e.g. http://ex
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
+plugins: []
+# The minima theme loads jekyll-feed anyway; pointing it at the hand-written
+# 1WR feed (which already exists) stops it writing a second one.
+feed:
+  path: onewhiteraven/feed.xml
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -49,3 +52,46 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# ---------------------------------------------------------------------------
+# The new site, staged. Until launch:
+#   /                the original home page (index.markdown), untouched
+#   /next/           the new Six Ravens site (next/)
+#   /onewhiteraven/  one white raven, at its permanent address
+#   /about           redirects to /next/
+# At launch: move next/* to the root (and their permalinks), point sr_url at
+# the origin, turn noindex off, and retire index.markdown and _layouts/default.html.
+# ---------------------------------------------------------------------------
+origin: "https://www.sixravens.io"              # absolute links (feeds, link previews)
+sr_url: "https://www.sixravens.io/next"         # Six Ravens pages
+owr_path: "/onewhiteraven"                      # one white raven, site-relative
+owr_url: "https://www.sixravens.io/onewhiteraven"
+noindex: true                                   # staged pages stay out of search engines
+
+# Shared nav/footer marks (see _includes/site-nav.html, site-footer.html).
+nav_mark: "/assets/images/mark-6r.png"
+nav_alt: "Six Ravens"
+foot_mark: "/assets/images/mark-6r.png"
+
+# one white raven
+owr:
+  title: One White Raven
+  tagline: A publication of Six Ravens
+  description: >-
+    Observations that don't fit what people and organizations believe about
+    their technology, and about themselves.
+  look: whitepaper        # whitepaper or editorial
+  subscribe: true         # show the subscribe band
+  subscribe_action:       # the provider's form endpoint; until set, the form is disabled
+
+# Pieces live in _posts as YYYY-MM-DD-NNN-slug.md, served at /onewhiteraven/NNN-slug/
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: piece, permalink: "/onewhiteraven/:title/" }
+
+markdown: kramdown
+exclude:
+  - scratch
+  - README.md
+  - Gemfile
+  - Gemfile.lock

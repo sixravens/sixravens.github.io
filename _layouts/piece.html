@@ -1,0 +1,147 @@
+---
+layout: owr
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | at_least: 1 -%}
+{%- comment -%}
+  Editorial look: set the pull quotes (front matter `pulls`, each floated
+  before the paragraph that opens with `at`) and the ink band (`band`,
+  placed before the closing section). The whitepaper look ignores both.
+{%- endcomment -%}
+{%- assign body = content -%}
+{%- if site.owr.look == 'editorial' -%}
+  {%- for q in page.pulls -%}
+    {%- capture needle %}<p>{{ q.at }}{% endcapture -%}
+    {%- capture pulled %}<aside class="note pull" aria-hidden="true">{{ q.text }}</aside>
+{{ needle }}{% endcapture -%}
+    {%- assign body = body | replace_first: needle, pulled -%}
+  {%- endfor -%}
+  {%- if page.band -%}
+    {%- assign chunks = body | split: '<h2' -%}
+    {%- capture body -%}
+      {%- for c in chunks -%}
+        {%- if forloop.last and forloop.length > 1 -%}
+<section class="band" aria-label="{{ page.band.label }}">
+  <div class="band-in">
+    <p class="band-label">{{ page.band.label }}</p>
+    <p class="band-q">{{ page.band.q }}</p>
+  </div>
+</section>
+        {%- endif -%}
+        {%- unless forloop.first -%}<h2{%- endunless -%}{{ c }}
+      {%- endfor -%}
+    {%- endcapture -%}
+  {%- endif -%}
+{%- endif -%}
+<article class="sheet piece">
+
+  {% if page.banner %}{% include masthead.html %}{% endif %}
+
+  <header class="piece-head{% if page.banner %} piece-head-banner{% endif %}{% if page.hero %} has-hero{% endif %}">
+    {%- comment %}Header image, required on every piece: `hero: {src, side: right|left|center,
+    position, credit, credit_url}`. A missing image or credit shows as pending.
+    Decorative only; it fades into the page on its open edges.{% endcomment %}
+    {% if page.hero %}<div class="piece-hero hero-{{ page.hero.side | default: 'right' }}" aria-hidden="true" style="background-image:url('{{ page.hero.src | relative_url }}');{% if page.hero.position %}background-position:{{ page.hero.position }};{% endif %}"></div>{% endif %}
+    {% if site.owr.look == 'editorial' and page.banner != true and page.hero == nil %}<div class="head-raven" aria-hidden="true"></div>{% endif %}
+    <p class="piece-line">
+      <span class="piece-no">{% include piece-no.html n=page.number %}</span>
+      {% if page.banner %}<span class="piece-title-inline">{{ page.title }}</span>{% endif %}
+    </p>
+    {% unless page.banner %}
+    <h1 class="piece-title">{{ page.title }}</h1>
+    {% endunless %}
+    <p class="piece-meta">
+      {% if page.placeholder %}<span>coming soon</span>{% else %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>{% endif %}
+      {% if page.form %}<span class="sep">·</span><span>{{ page.form }}</span>{% endif %}
+      <span class="sep">·</span><span>{{ minutes }} min</span>
+    </p>
+  </header>
+
+  {%- comment %}`placeholder:` marks a stand-in piece whose text is lorem ipsum
+  (the real text is kept in _drafts).{% endcomment %}
+  {% if page.placeholder %}
+  <aside class="corrections placeholder-note" aria-label="Placeholder">
+    <h2>Placeholder</h2>
+    <p>{{ page.placeholder }}</p>
+  </aside>
+  {% endif %}
+
+  {% if page.corrections %}
+  <aside class="corrections" aria-label="Corrections">
+    <h2>Corrections</h2>
+    <ul>
+      {% for c in page.corrections %}
+      <li><time datetime="{{ c.date | date_to_xmlschema }}">{{ c.date | date: "%-d %B %Y" }}</time> {{ c.note | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+
+  {%- comment -%}
+    End of a piece, in order: the essay, previous/next, then the closing
+    matter (the .piece-end note, any editorial note, and the sources). The
+    header image credit is appended to the sources as an "Images" group; a
+    piece with no sources gets a panel holding just that credit.
+  {%- endcomment -%}
+  {%- capture hero_credit -%}
+    {%- if page.hero -%}
+      {%- if page.hero.credit -%}
+        {%- if page.hero.credit_url %}<a href="{{ page.hero.credit_url }}">{{ page.hero.credit }}</a>{% else %}{{ page.hero.credit }}{% endif -%}
+      {%- else %}<span class="pending" title="Set hero.credit (and hero.credit_url) in this piece's front matter">credit needed</span>{% endif -%}
+    {%- else %}<span class="pending" title="Every piece gets a header image: set hero (src, credit, credit_url) in this piece's front matter">header image needed</span>{% endif -%}
+  {%- endcapture -%}
+  {%- capture images -%}<p><strong>Images</strong></p>
+<ul><li>Header image: {{ hero_credit }}.</li></ul>{%- endcapture -%}
+  {%- if page.banner -%}{%- assign body = content -%}{%- endif -%}
+  {%- assign parts = body | split: '<div class="piece-end">' -%}
+  {%- assign essay = parts[0] -%}
+  {%- assign closing = '' -%}
+  {%- if parts.size > 1 -%}{%- capture closing %}<div class="piece-end">{{ parts[1] }}{% endcapture -%}{%- endif -%}
+  {%- assign halves = closing | split: '<div class="piece-sources">' -%}
+  {%- if halves.size > 1 -%}
+    {%- assign end_note = halves[0] -%}
+    {%- assign src = halves[1] | strip -%}
+    {%- assign n = src.size | minus: 6 -%}
+    {%- assign src = src | slice: 0, n -%}
+    {%- capture sources %}<section class="sources-panel"><div class="piece-sources">{{ src }}
+{{ images }}
+</div></section>{% endcapture -%}
+  {%- else -%}
+    {%- assign end_note = closing -%}
+    {%- capture sources %}<section class="sources-panel"><div class="piece-sources"><h3>Credits</h3>
+{{ images }}
+</div></section>{% endcapture -%}
+  {%- endif %}
+  {% if page.banner %}
+  {{ essay }}
+  {% else %}
+  <div class="prose piece-body">
+    {{ essay }}
+  </div>
+  {% endif %}
+
+  <nav class="piece-nav" aria-label="More from one white raven">
+    {% if page.previous %}
+    <a class="piece-nav-prev" href="{{ page.previous.url | relative_url }}">
+      <span class="piece-nav-dir">&larr; previous</span>
+      <span class="piece-nav-no">{% include piece-no.html n=page.previous.number %}</span>
+      <span class="piece-nav-title">{{ page.previous.title }}</span>
+    </a>
+    {% else %}<span></span>{% endif %}
+    {% if page.next %}
+    <a class="piece-nav-next" href="{{ page.next.url | relative_url }}">
+      <span class="piece-nav-dir">next &rarr;</span>
+      <span class="piece-nav-no">{% include piece-no.html n=page.next.number %}</span>
+      <span class="piece-nav-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
+
+  <div class="prose piece-closing">
+    {{ end_note }}
+    {% if page.editorial_note %}<p class="editorial-note">{{ page.editorial_note }}</p>{% endif %}
+    {{ sources }}
+  </div>
+</article>
+
+{% include subscribe.html %}

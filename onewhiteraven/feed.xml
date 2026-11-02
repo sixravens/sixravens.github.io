@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /onewhiteraven/feed.xml
+---
+{%- comment %}Atom feed for one white raven, written by hand so it carries the
+publication's own name (jekyll-feed would title it Six Ravens).{% endcomment -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.owr.title | downcase | xml_escape }}</title>
+  <subtitle>{{ site.owr.description | normalize_whitespace | xml_escape }}</subtitle>
+  <link href="{{ site.origin }}{{ page.url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.owr_url }}/" rel="alternate" type="text/html"/>
+  <id>{{ site.owr_url }}/</id>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author><name>Six Ravens</name></author>
+  {%- for post in site.posts limit: 20 %}
+  <entry>
+    <title type="html">{{ post.title | xml_escape }}</title>
+    <link href="{{ site.origin }}{{ post.url }}" rel="alternate" type="text/html"/>
+    <id>{{ site.origin }}{{ post.url }}</id>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+    {%- if post.dek %}
+    <summary type="html">{{ post.dek | normalize_whitespace | xml_escape }}</summary>
+    {%- endif %}
+    <content type="html" xml:base="{{ site.origin }}{{ post.url }}">{{ post.content | xml_escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

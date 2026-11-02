@@ -1,0 +1,2 @@
+{%- comment -%}Zero-padded piece number: 0 → 000.{%- endcomment -%}
+{{- include.n | prepend: "00" | slice: -3, 3 -}}

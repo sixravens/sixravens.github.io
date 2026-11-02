@@ -1,0 +1,34 @@
+{% capture html %}<!DOCTYPE html>
+<html lang="en" data-theme="ink">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {%- if site.noindex %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
+  <meta name="description" content="{{ page.description | normalize_whitespace }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | normalize_whitespace }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.origin }}{{ page.url | replace: 'index.html', '' }}">
+  <meta property="og:image" content="https://www.sixravens.io/assets/images/metalogo.png">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/system.css">
+  <link rel="stylesheet" href="/assets/css/sr.css">
+</head>
+<body>
+  <div class="bg-raven" aria-hidden="true"></div>
+  {% include site-nav.html active=page.nav contact="#contact" %}
+  <main class="sr">
+    {{ content }}
+  </main>
+  {% include site-footer.html %}
+</body>
+</html>{% endcapture %}{% include brand-case.html html=html %}

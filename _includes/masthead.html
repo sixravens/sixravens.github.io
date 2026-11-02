@@ -1,0 +1,11 @@
+<header class="masthead">
+  {% comment %}Logo and wordmark share one coordinate system, so the name spans
+  the amber bar exactly (bar: x 52–1545 of the 1601-wide logo).{% endcomment %}
+  <h1 class="masthead-lockup">
+    <svg viewBox="0 0 1601 989" role="img" aria-label="One White Raven">
+      <image href="{{ '/assets/images/logo-1wr.png' | relative_url }}" x="0" y="0" width="1601" height="794"/>
+      <text x="52" y="965" textLength="1493" lengthAdjust="spacing">one white raven</text>
+    </svg>
+  </h1>
+  <p class="masthead-kicker"><em>{{ site.owr.tagline }}</em></p>
+</header>

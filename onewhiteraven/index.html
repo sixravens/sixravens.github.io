@@ -1,0 +1,56 @@
+---
+layout: owr
+title: Contents
+---
+{%- assign latest = site.posts | first -%}
+<div class="sheet contents">
+  {% if site.owr.look == 'editorial' %}
+  {% include masthead.html %}
+  {% else %}
+  <header class="contents-head">
+    <h1 class="contents-name wordmark">One White Raven</h1>
+    <p class="masthead-kicker"><em>{{ site.owr.tagline }}</em></p>
+  </header>
+  {% endif %}
+
+  {% if latest %}
+  <a class="feature{% if latest.hero %} has-hero{% endif %}" href="{{ latest.url | relative_url }}">
+    {% if latest.hero %}<span class="piece-hero hero-{{ latest.hero.side | default: 'right' }}" aria-hidden="true" style="background-image:url('{{ latest.hero.src | relative_url }}');{% if latest.hero.position %}background-position:{{ latest.hero.position }};{% endif %}"></span>
+    {% elsif site.owr.look == 'editorial' %}<span class="head-raven" aria-hidden="true"></span>{% endif %}
+    <span class="feature-label">latest</span>
+    <span class="feature-no">{% include piece-no.html n=latest.number %}</span>
+    <span class="feature-title">{{ latest.title }}</span>
+    {% if latest.dek %}<span class="feature-dek">{{ latest.dek }}</span>{% endif %}
+    <span class="feature-meta">
+      {% if latest.placeholder %}<span>coming soon</span>{% else %}<time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: "%-d %B %Y" }}</time>{% endif %}
+      {% if latest.form %}<span class="sep">·</span>{{ latest.form }}{% endif %}
+      <span class="sep">·</span>{{ latest.content | strip_html | number_of_words | divided_by: 230 | at_least: 1 }} min
+    </span>
+    <span class="feature-go">read &rarr;</span>
+  </a>
+  {% endif %}
+
+  <section class="toc" aria-labelledby="toc-h">
+    <h2 id="toc-h">contents</h2>
+    <ol class="toc-list">
+      {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}"{% if post.hero %} class="has-img"{% endif %}>
+          {% if post.hero %}<img class="toc-img" src="{{ post.hero.src | relative_url }}" alt="" loading="lazy" style="{% if post.hero.position %}object-position:{{ post.hero.position }}{% endif %}">{% endif %}
+          <span class="toc-no">{% include piece-no.html n=post.number %}</span>
+          <span class="toc-main">
+            <span class="toc-title">{{ post.title }}</span>
+            {% if post.dek %}<span class="toc-dek">{{ post.dek }}</span>{% endif %}
+          </span>
+          <span class="toc-meta">
+            {% if post.form %}<span>{{ post.form }}</span>{% endif %}
+            {% if post.placeholder %}<span>coming soon</span>{% else %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>{% endif %}
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</div>
+
+{% include subscribe.html %}

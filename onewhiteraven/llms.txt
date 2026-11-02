@@ -1,0 +1,17 @@
+---
+layout: null
+permalink: /onewhiteraven/llms.txt
+sitemap: false
+---
+{%- comment %}For AI crawlers (llmstxt.org). Each piece's `summary:` is front matter
+only and never appears on the page.{% endcomment -%}
+# {{ site.owr.title | downcase }}
+
+> {{ site.owr.description | normalize_whitespace }} A publication of Six Ravens.
+
+How pieces are made: {{ site.owr_url }}/ai/
+
+## Pieces
+{% for post in site.posts %}
+- [{% include piece-no.html n=post.number %} {{ post.title }}]({{ site.origin }}{{ post.url }}): {{ post.summary | default: post.dek | normalize_whitespace }}
+{%- endfor %}
