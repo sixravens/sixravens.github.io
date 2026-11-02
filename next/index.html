@@ -9,7 +9,9 @@ description: >-
   decisions of their own.
 ---
 {%- comment %}The words are in _copy/home.md; this file is only the layout.
-Its five "## " sections are taken in order.{% endcomment -%}
+Each "## " section is laid out by the tag on its heading ({#what}, {#think},
+{#how}, {#reading}, {#contact}, {#name}); any other section is set as plain text.
+Sections are numbered, and alternate panels, in the order they come.{% endcomment -%}
 {%- include copy.html name="home" -%}
 {%- assign secs = copy.content | split: '<h2' -%}
 {%- capture pull_open %}<blockquote>
@@ -28,11 +30,32 @@ Its five "## " sections are taken in order.{% endcomment -%}
   </div>
 </section>
 
-{% assign sec = secs[1] %}{% include copy-head.html html=sec tag="h2" -%}
-<section class="sec" aria-labelledby="what">
+{%- assign owr_href = 'href="' | append: site.owr_url | append: '/"' -%}
+{%- for sec in secs offset: 1 -%}
+{%- include copy-head.html html=sec tag="h2" -%}
+{%- assign kind = attrs | remove: 'id="' | remove: '">' | strip -%}
+{%- assign s_head = head -%}
+{%- assign s_rest = rest | replace: pull_open, '<p class="pull">' | replace: pull_close, '</p>' -%}
+{%- assign no = forloop.index0 | prepend: '00' -%}
+{%- assign odd = forloop.index0 | modulo: 2 -%}
+{%- case kind -%}
+  {%- when 'reading' %}{% assign hid = 'writing' -%}
+  {%- when 'contact' %}{% assign hid = 'clients' -%}
+  {%- else %}{% assign hid = kind -%}
+{%- endcase %}
+<section class="sec{% if odd == 1 %} alt{% endif %}{% if kind == 'reading' %} owr{% endif %}{% if kind == 'contact' %} contact" id="contact{% endif %}{% if kind == 'name' %} name{% endif %}" aria-labelledby="{{ hid }}">
   <div class="wrap">
-    <div class="sec-head"><span class="no">000</span><h2 id="what">{{ head }}</h2></div>
+    <div class="sec-head"><span class="no">{{ no }}</span><h2 id="{{ hid }}">{{ s_head }}{% if kind == 'how' and copy.placeholder %} <span class="tbd">placeholder</span>{% endif %}</h2></div>
+{%- case kind -%}
+
+{%- when 'what' %}
     <div class="sec-body">
+      {%- if s_rest contains '<h3' %}{% assign side = s_rest | split: '<h3' | last %}{% include copy-head.html html=side tag="h3" %}
+      <aside class="think-aside what-aside">
+        <h3>{{ head | replace_first: 'AI ', '<abbr>AI</abbr> ' }}</h3>
+        {{ rest }}
+      </aside>
+      {%- endif %}
       <div class="areas">
         {%- for a in site.data.work %}
         <a class="area{% if a.id == 'ai' %} is-ai{% endif %}" href="{{ site.sr_url }}/work#{{ a.id }}">
@@ -42,52 +65,36 @@ Its five "## " sections are taken in order.{% endcomment -%}
         {%- endfor %}
       </div>
     </div>
-  </div>
-</section>
 
-{% assign sec = secs[2] %}{% include copy-head.html html=sec tag="h2" -%}
-{%- assign think = rest | split: '<h3' -%}
-{%- assign main = think[0] | replace: pull_open, '<p class="pull">' | replace: pull_close, '</p>' | strip -%}
-<section class="sec alt" aria-labelledby="think">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">001</span><h2 id="think">{{ head }}</h2></div>
+{%- when 'think' %}
+    {%- assign parts = s_rest | split: '<h3' %}
     <div class="sec-body think">
       <div class="think-main">
-        {{ main }}
+        {{ parts[0] | strip }}
       </div>
-      {%- assign aside = think[1] %}{% include copy-head.html html=aside tag="h3" %}
-      <aside class="think-aside" aria-labelledby="ai">
-        <h3 id="ai">{{ head | replace_first: 'AI ', '<abbr>AI</abbr> ' }}</h3>
+      {%- if parts.size > 1 %}{% assign side = parts[1] %}{% include copy-head.html html=side tag="h3" %}
+      <aside class="think-aside">
+        <h3>{{ head | replace_first: 'AI ', '<abbr>AI</abbr> ' }}</h3>
         {{ rest }}
       </aside>
+      {%- endif %}
     </div>
-  </div>
-</section>
 
-{% assign sec = secs[3] %}{% include copy-head.html html=sec tag="h2" -%}
-{%- assign steps = rest | split: '<h3' -%}
-<section class="sec" aria-labelledby="how">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">002</span><h2 id="how">{{ head }}{% if copy.placeholder %} <span class="tbd">placeholder</span>{% endif %}</h2></div>
+{%- when 'how' %}
+    {%- assign steps = s_rest | split: '<h3' %}
     <div class="sec-body">
       <ol class="steps">
-        {%- for s in steps offset: 1 %}
-        {%- include copy-head.html html=s tag="h3" %}
+        {%- for st in steps offset: 1 %}
+        {%- include copy-head.html html=st tag="h3" %}
         <li><h3>{{ head }}</h3>{{ rest }}</li>
         {%- endfor %}
       </ol>
     </div>
-  </div>
-</section>
 
-{% assign sec = secs[4] %}{% include copy-head.html html=sec tag="h2" -%}
-{%- assign owr_href = 'href="' | append: site.owr_url | append: '/"' -%}
-<section class="sec alt owr" aria-labelledby="writing">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">003</span><h2 id="writing">{{ head }}</h2></div>
+{%- when 'reading' %}
     <div class="sec-body">
       <div class="owr-intro">
-        {{ rest | replace_first: '<p>', '<p class="owr-from">' | replace: 'href="owr"', owr_href }}
+        {{ s_rest | replace_first: '<p>', '<p class="owr-from">' | replace: 'href="owr"', owr_href }}
       </div>
       <ol class="owr-list">
         {%- for p in site.posts limit: 3 %}
@@ -104,28 +111,22 @@ Its five "## " sections are taken in order.{% endcomment -%}
       </ol>
       <a class="more" href="{{ site.owr_url }}/">All writing<span aria-hidden="true"> &rarr;</span></a>
     </div>
-  </div>
-</section>
 
-{% assign sec = secs[5] %}{% include copy-head.html html=sec tag="h2" -%}
-{%- assign sec_head = head -%}
-{%- comment %}The card beside the text: everything after a "### " heading, or
-failing that the last paragraph.{% endcomment -%}
-{%- if rest contains '<h3' -%}
-  {%- assign parts = rest | split: '<h3' -%}
-  {%- assign main = parts[0] | strip -%}
-  {%- assign card = parts[1] -%}
-  {%- include copy-head.html html=card tag="h3" -%}
-  {%- capture card %}<h3>{{ head }}</h3>
+{%- when 'contact' %}
+    {%- comment %}The card beside the text: everything after a "### " heading, or
+    failing that the last paragraph.{% endcomment -%}
+    {%- if s_rest contains '<h3' -%}
+      {%- assign parts = s_rest | split: '<h3' -%}
+      {%- assign main = parts[0] | strip -%}
+      {%- assign side = parts[1] -%}
+      {%- include copy-head.html html=side tag="h3" -%}
+      {%- capture card %}<h3>{{ head }}</h3>
         {{ rest }}{% endcapture -%}
-{%- else -%}
-  {%- assign paras = rest | split: '</p>' -%}
-  {%- for p in paras -%}{%- assign t = p | strip -%}{%- if t != '' %}{% assign card = t | append: '</p>' %}{% endif -%}{%- endfor -%}
-  {%- assign main = rest | remove: card | strip -%}
-{%- endif -%}
-<section class="sec contact" id="contact" aria-labelledby="clients">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">004</span><h2 id="clients">{{ sec_head }}</h2></div>
+    {%- else -%}
+      {%- assign paras = s_rest | split: '</p>' -%}
+      {%- for p in paras -%}{%- assign t = p | strip -%}{%- if t != '' %}{% assign card = t | append: '</p>' %}{% endif -%}{%- endfor -%}
+      {%- assign main = s_rest | remove: card | strip -%}
+    {%- endif %}
     <div class="sec-body contact-body">
       <div class="contact-main">
         {{ main | replace_first: '<p>', '<p class="turn">' }}
@@ -135,5 +136,24 @@ failing that the last paragraph.{% endcomment -%}
         {% include email.html %}
       </div>
     </div>
+
+{%- when 'name' %}
+    {%- comment %}Here "six ravens" means the birds, so it is kept out of the
+    house capitalisation (brand-case.html) with a non-breaking space.{% endcomment -%}
+    {%- assign s_rest = s_rest | replace: 'six ravens', 'six&nbsp;ravens' | replace: 'Six ravens', 'Six&nbsp;ravens' -%}
+    {%- assign paras = s_rest | split: '</p>' -%}
+    {%- assign last = '' -%}
+    {%- for p in paras -%}{%- assign t = p | strip -%}{%- if t != '' %}{% assign last = t | append: '</p>' %}{% endif -%}{%- endfor %}
+    <div class="sec-body name-body">
+      {{ s_rest | remove: last | strip }}
+      {{ last | replace_first: '<p>', '<p class="coda">' }}
+    </div>
+
+{%- else %}
+    <div class="sec-body prose">
+      {{ s_rest }}
+    </div>
+{%- endcase %}
   </div>
 </section>
+{% endfor -%}

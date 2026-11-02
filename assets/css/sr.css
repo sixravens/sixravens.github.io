@@ -58,12 +58,16 @@ body { font-size: 16px; line-height: 1.65; }
   font-variant-numeric: tabular-nums;
 }
 .band .no { color: var(--accent-text); }
+.sec-head .no { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 200; line-height: 1.2; letter-spacing: -.015em; }
+/* Section headers: the heading at regular weight, with its number beside it
+   at the same size, light, in amber */
 .sec-head h2 {
   margin: 0;
   color: var(--fg);
-  font-weight: 300;
-  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
   line-height: 1.2;
+  letter-spacing: -.015em;
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 .tbd {
@@ -132,6 +136,7 @@ body { font-size: 16px; line-height: 1.65; }
 .think-aside h3, .contact-card h3 { margin: 0 0 10px; color: var(--fg); font-size: 1.125rem; font-weight: 500; }
 .think-aside h3 abbr { text-transform: none; text-decoration: none; }
 .think-aside p { margin: 0; }
+.think-aside.what-aside { max-width: 40rem; margin: 0 0 clamp(32px, 4vw, 56px); }
 
 /* 002 engagement steps */
 .steps { display: grid; gap: 0 var(--col-gap); margin: 0; padding: 0; list-style: none; counter-reset: step -1; }
@@ -188,6 +193,21 @@ body { font-size: 16px; line-height: 1.65; }
 .toc-title { display: block; font-size: 1.3rem; font-weight: 400; line-height: 1.25; }
 .toc-dek { display: block; margin-top: 4px; color: var(--fg-2); font-size: .95rem; line-height: 1.5; }
 .toc-meta { grid-column: 2; display: flex; gap: 12px; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* Sections carry their own padding, so the footer sits straight under the
+   last one (no ink strip under a raven panel) */
+main.sr + .foot { margin-top: 0; }
+
+/* On the name: plain text; the last line in paper, under a short amber rule */
+.name-body { max-width: 40rem; }
+.name-body .coda { margin-top: 1.6em; color: var(--fg); }
+.name-body .coda::before { content: ""; display: block; width: 40px; height: 2px; margin: 0 0 16px; background: var(--amber); }
+/* KEPT, switched off: On the name as an amber band. Add `name-amber` to the
+   section to try it.
+.sec.name-amber { background: var(--amber); color: var(--on-accent); border-top: 0; }
+.sec.name-amber .no, .sec.name-amber h2, .sec.name-amber p { color: var(--on-accent); }
+.sec.name-amber p { font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.45; }
+.sec.name-amber .coda::before { background: var(--on-accent); } */
 
 /* 004 contact */
 .turn { color: var(--fg); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.45; }
@@ -248,7 +268,7 @@ body { font-size: 16px; line-height: 1.65; }
 
   .sec .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
   .sec-head { display: contents; }
-  .sec-head .no { grid-column: 1 / span 2; padding-top: .7em; }
+  .sec-head .no { grid-column: 1 / span 2; }
   .sec-head > :not(.no) { grid-column: 3 / -1; margin-bottom: 28px; }
   .sec-body { grid-column: 3 / -1; }
 
