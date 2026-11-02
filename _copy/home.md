@@ -39,23 +39,23 @@ We read the rest: the decisions, incentives, assumptions, and habits that shape 
 
 ### AI is not a separate problem
 
-AI arrives in most organizations the way everything else does: as urgency. A new capability, a new competitor, a new headline, each demanding a response, until agents are acting throughout the business. What rarely arrives with them is a way to think about them. Most responders have no working model for an incident in which the actor was authorized, its reasoning can’t be inspected, and its own account of events can’t be trusted. Handing the problem to more AI doesn’t supply one. It moves the same question up a layer. We help organizations build that model, and the detection and response that follow from it.
+AI arrives in most organizations the way everything else does: as urgency. A new capability, a new competitor, a new headline, each demanding a response, until agents are acting throughout the business. What rarely arrives with them is a way to think about them. Most responders have no working model for an incident in which the actor was authorized, with reasoning that can’t be inspected, and with its own account of events that can’t be trusted. Handing the problem to more AI doesn’t supply one, it moves the same questions up a layer. We help organizations build that mental model, and the detection and response tools that follow from it.
 
 ## What we do {#what}
 
 ## How an engagement runs {#how}
 
-### Lorem ipsum
+### we begin with a conversation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+You tell us what prompted the call. We ask about the business: what it depends on, who keeps it running, and what has changed recently. Together we settle on a scope small enough to finish and specific enough to matter.
 
-### Dolor sit amet
+### We work alongside your people
 
-Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+Most of the work happens with the people who run your systems and respond when something goes wrong. We read what they read, test what they rely on, and learn how decisions actually get made. What we need from you is access to people and systems.
 
-### Consectetur
+### You get a plain accounting of what we find
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis.
+A written report for the people who have to act on it: what we found, how it came to be, what it means for your business, and what to change first. We walk through it with you and stay available while you act on it.
 
 ## Selected reading {#reading}
 

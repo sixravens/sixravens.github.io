@@ -25,7 +25,7 @@
 
     We design, build, and improve detection and response capabilities starting at that end of the pipeline. What can the organization observe? What reaches an analyst? What does the evidence mean to them? Can they investigate it, make a decision, and act?
 
-    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system.
+    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system, with its own incentives, authority, and habits. They matter too.
 
 - id: preparedness
   title: Preparedness + exercises
