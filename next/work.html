@@ -33,12 +33,3 @@ description: >-
   </div>
 </section>
 {% endfor %}
-
-<section class="sec contact" id="contact" aria-labelledby="close">
-  <div class="wrap">
-    <div class="sec-head"><span class="no">&rarr;</span><h2 id="close">{{ copy.closing | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2></div>
-    <div class="sec-body">
-      {% include email.html %}
-    </div>
-  </div>
-</section>

@@ -1,7 +1,8 @@
 # The four areas of work, in order. Home shows `short` under each title, linked
 # to /work#id; the Work page shows `body` (Markdown). Edit copy here.
 # `id` is the link anchor: one short word, no spaces. `id: ai` turns on the
-# canary AI colouring for that area.
+# canary AI colouring for that area. Every line of a `body` starts with exactly
+# four spaces (bullets too: "    - "); three or five breaks the build.
 
 - id: ai
   title: <abbr>AI</abbr> in Detection + Response
@@ -9,11 +10,14 @@
     What AI changes about what your defenders can see, what evidence an 
     incident leaves, and how you stop something that acts on its own.
   body: |
-    AI is changing who—or what—makes decisions inside an organization, impacting D+R programs in ways most haven't anticipated.
+    AI is changing who—or what—makes decisions inside an organization, and most response programs were built for human adversaries, human operators, and human scale.
 
-    An agent may have permission to read sensitive information, change infrastructure, invoke tools, or direct other systems. Its actions may be technically authorized without being what anyone intended. And the people accountable for those actions may have little ability to explain how a decision was reached.
+    - **Mapping where agents act:** what they can reach, what they're permitted to do, and what evidence their actions leave.
+    - **Responding to agent-driven incidents:** what to watch, how to interrupt an agent mid-action, and how to reconstruct what it did without relying on its own account.
+    - **AI inside your detection pipeline:** what it decides on your behalf, and how you'd know when it's wrong.
+    - **Exercises with agents in them,** including agents behaving in ways their operators didn't expect.
 
-    Most response programs were built around human adversaries, human operators, and human scale. What an AI-driven incident looks like, what it leaves behind, and how to interrupt or reverse it are open questions for most organizations. We help answer them before an incident forces the issue. The technology is new. The underlying problems of trust, judgment, and accountability are not.
+    The technology is new. The underlying problems of trust, judgment, and accountability are not.
 
 - id: detection
   title: D+R programs
@@ -21,11 +25,14 @@
     Building and improving defensive capabilities from technical signal through
     interpretation, escalation, and action.
   body: |
-    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. Most organizations spend generously on generating alerts and considerably less thought on what happens after one arrives.
+    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. We start at that end of the pipeline.
 
-    We design, build, and improve detection and response capabilities starting at that end of the pipeline. What can the organization observe? What reaches an analyst? What does the evidence mean to them? Can they investigate it, make a decision, and act?
+    - **Building detection and response** where it's thin or missing: what to watch, how alerts are triaged, who escalates to whom, and what happens next.
+    - **Repairing a program that has stopped earning trust:** noise, coverage that exists mostly on paper, runbooks nobody follows.
+    - **Assessing an outsourced program:** what your provider actually covers, and what your organization gives them to work with.
+    - **Writing and tuning detections alongside your engineers,** so the capability stays when we leave.
 
-    The answers involve engineering, but also staffing, incentives, authority, and the habits a team develops over time. We work across those boundaries rather than treating the human parts as somebody else's problem. Increasingly, the analyst may be an AI system, with its own incentives, authority, and habits. They matter too.
+    What you keep: working detections and processes, written down and owned by your people.
 
 - id: preparedness
   title: Preparedness + exercises
@@ -33,13 +40,13 @@
     Realistic tabletop exercises and adversarial simulations that reveal how
     people and systems make decisions when the plan stops being enough.
   body: |
-    Most organizations have a plan for what happens when things go wrong. Fewer know how well that plan describes what their people will actually do.
+    Most organizations have a plan for what happens when things go wrong. Fewer know how well it describes what their people will actually do.
 
-    We design tabletop exercises and adversarial simulations to find out. Some are focused discussions around difficult decisions. Others are immersive scenarios with purpose-built infrastructure, realistic evidence, and events that unfold over days or weeks in response to participants' actions. At the far end, they have more in common with alternate reality games than conference-room exercises.
+    - **Focused tabletop sessions** built around a single hard decision.
+    - **Full simulations** with purpose-built infrastructure and realistic evidence, prepared over weeks and run in a day or two. At the far end, they have more in common with alternate reality games than conference-room exercises.
+    - **Preparedness foundations:** decision authority, escalation, and response procedures that hold up when information is incomplete.
 
-    The interesting moment is when the room stops agreeing: nobody can establish which information is trustworthy, a decision falls between competing authorities, or the plan depends on a capability nobody has tested. An AI agent acting outside its operators' expectations introduces another set of uncertainties.
-
-    Those moments reveal how an organization actually makes decisions under pressure. We also help establish the practical foundations of preparedness: decision authority, escalation, response procedures, and the ability to act when information is incomplete.
+    What you get: where decisions broke down, why, and what would make them hold next time.
 
 - id: investigations
   title: Independent investigations
@@ -47,8 +54,10 @@
     Looking beyond the immediate cause of an incident to understand the
     decisions and conditions that made it possible.
   body: |
-    The usual account of a security incident begins with what failed and ends with what was fixed. That may resolve the immediate problem without explaining much about how it came to exist.
+    The usual account of an incident begins with what failed and ends with what was fixed. We reconstruct what came before.
 
-    We investigate what happened before the failure became obvious. What did people know? What did they reasonably believe? Which decisions followed from those beliefs, and what made those decisions sensible at the time? What warnings were available, and why did they fail to change the outcome?
+    - **Post-incident reconstruction:** what people knew, what they reasonably believed, and which decisions followed.
+    - **Independent review of an internal post-mortem,** when leadership wants a second account.
+    - **Near-miss reviews,** before a close call becomes the real thing.
 
-    The point isn't to assign blame with the benefit of hindsight. It's to reconstruct the conditions that made the failure possible, including those that may still exist elsewhere. We work after the immediate crisis, not as an emergency incident response provider.
+    What you get: an account that's fair to the people involved, and the conditions that may still exist elsewhere. We work after the immediate crisis, not as an emergency incident response provider.

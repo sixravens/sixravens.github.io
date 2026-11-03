@@ -14,8 +14,9 @@
 #               to (owr) goes to one white raven. The latest three pieces are
 #               listed after the text.
 #   {#contact}  The first paragraph is the large line. The card beside it,
-#               above the email address, is a "### " heading and what follows
-#               it; with no heading, the last paragraph goes in the card.
+#               is a "### " heading and what follows it; with no heading, the
+#               last paragraph goes in the card. (The email address is in the
+#               amber contact band at the foot of the page: _copy/site.md.)
 #   {#name}     Plain text; the last paragraph is set off by a short amber rule.
 title: Red team your *understanding*.
 lede: >-
@@ -24,7 +25,7 @@ lede: >-
   with reality.
 intro: >-   # optional; sits under the lede, quieter. Delete it to leave the lede alone.
 
-placeholder: true   # tags "How an engagement runs" as a placeholder; delete when the real copy is in
+placeholder: false   # tags "How an engagement runs" as a placeholder; delete when the real copy is in
 ---
 ## How we think {#think}
 
@@ -34,18 +35,18 @@ Technology doesn’t operate independently of the people and institutions that b
 
 > Every failure has a history. Most organizations read only the last page.
 
-We read the rest: the decisions, incentives, assumptions, and habits that shape how an organization operates. The work draws on security engineering, and on psychology, sociology, economics, and history, fields that studied how people think and act long before security existed.
+We read the rest: the culture, decisions, incentives, assumptions, and habits that shape how an organization operates. The work draws on security engineering, and on psychology, sociology, economics, and history, fields that studied how people think and act long before security existed.
 
 
 ### AI is not a separate problem
 
-AI arrives in most organizations the way everything else does: as urgency. A new capability, a new competitor, a new headline, each demanding a response, until agents are acting throughout the business. What rarely arrives with them is a way to think about them. Most responders have no working model for an incident in which the actor was authorized, with reasoning that can’t be inspected, and with its own account of events that can’t be trusted. Handing the problem to more AI doesn’t supply one, it moves the same questions up a layer. We help organizations build that mental model, and the detection and response tools that follow from it.
+AI arrives in most organizations the way everything else does: as urgency. A new capability, a new competitor, a new headline, each demanding a response, until agents are acting throughout the business. What rarely arrives with them is a way to think about them. Most responders have no working model for an incident in which the actor was authorized, its reasoning that can’t be inspected, and its own account of events that can’t be trusted. Handing the problem to more AI doesn’t supply one, it moves the same questions up a layer. We help organizations build that mental model, and the detection and response capabiities that follow from it.
 
 ## What we do {#what}
 
 ## How an engagement runs {#how}
 
-### we begin with a conversation
+### We begin with a conversation
 
 You tell us what prompted the call. We ask about the business: what it depends on, who keeps it running, and what has changed recently. Together we settle on a scope small enough to finish and specific enough to matter.
 
@@ -65,15 +66,15 @@ From [*one white raven*](owr), a publication of Six Ravens.
 
 ## When we're useful {#contact}
 
-Most engagements begin when an organization is building out a security capability, doubts an assurance that looks better on paper than in practice, or has contained an incident it doesn’t yet understand. AI is increasingly part of each: in the tools doing the detecting, the systems being given authority, and the adversaries on the other side. Increasingly, they begin with a question few can answer: what does AI change about how we detect and respond?
+Most engagements begin when an organization is building out a security capability, doubts an assurance that looks better on paper than in practice, or has contained an incident it doesn’t yet understand. Increasingly, they begin with a question few can answer: what does AI change about how we detect and respond?
 
 Whether building or scaling detection and response, running an exercise, or investigating an incident, the work starts with the business: the systems that matter, the people who keep them secure, and what they can observe, investigate, and decide when something goes wrong. No framework or taxonomy knows any of that about your organization. Every detection should land with someone who knows what it means and can act on it. Every response should be steady enough that people can do their jobs instead of reacting to every alarm. We build toward those moments, rehearse them, and reconstruct them when they fail.
 
 A critical vulnerability is disclosed. A vendor issues an advisory. An executive forwards an article. In a lot of organizations, each one turns into a two-week scramble that pulls people off the work that would actually make the organization safer. That reflex has causes, and they’re rarely technical. We spend a lot of time studying them. We help organizations build the judgment to decide what deserves a response, and the standing to say so. Programs improve in the quiet stretches between emergencies. We help create more of them.
 
-### Intentionally biased
+### The Fine Print
 
-We’re small by design. We only accept focused engagements, don’t operate a SOC or provide emergency incident response, we don’t sell security products, or collect referral fees.
+We’re small by design. We take on focused engagements, don’t operate a SOC or provide emergency incident response, and don’t sell security products or collect referral fees.
 
 ## On the name {#name}
 

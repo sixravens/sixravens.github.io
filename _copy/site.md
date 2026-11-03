@@ -7,6 +7,10 @@ subscribe_heading: Subscribe by email
 subscribe_note_soon: Email subscriptions open soon. Until then, follow by [RSS](rss).
 subscribe_note_live: Or follow by [RSS](rss).
 
+# The amber contact band at the foot of the Six Ravens pages, above the email address.
+contact_heading: Rather know?
+contact_text: Tell us what prompted the question. We'll tell you plainly whether we can help.
+
 # The footer. "©" and the year are added in front of the copyright line.
 copyright: Six Ravens. All rights reserved.
 legal: >-

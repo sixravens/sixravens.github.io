@@ -6,5 +6,4 @@ title: Work
 lede: >-
   We build, test, and investigate security capabilities. The technical work
   matters, but so does the organization expected to operate what we've built.
-closing: Have a problem worth investigating?
 ---

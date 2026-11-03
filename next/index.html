@@ -43,7 +43,7 @@ Sections are numbered, and alternate panels, in the order they come.{% endcommen
   {%- when 'contact' %}{% assign hid = 'clients' -%}
   {%- else %}{% assign hid = kind -%}
 {%- endcase %}
-<section class="sec{% if odd == 1 %} alt{% endif %}{% if kind == 'reading' %} owr{% endif %}{% if kind == 'contact' %} contact" id="contact{% endif %}{% if kind == 'name' %} name{% endif %}" aria-labelledby="{{ hid }}">
+<section class="sec{% if odd == 1 %} alt{% endif %}{% if kind == 'reading' %} owr{% endif %}{% if kind == 'contact' %} contact{% endif %}{% if kind == 'name' %} name{% endif %}" aria-labelledby="{{ hid }}">
   <div class="wrap">
     <div class="sec-head"><span class="no">{{ no }}</span><h2 id="{{ hid }}">{{ s_head }}{% if kind == 'how' and copy.placeholder %} <span class="tbd">placeholder</span>{% endif %}</h2></div>
 {%- case kind -%}
@@ -133,7 +133,6 @@ Sections are numbered, and alternate panels, in the order they come.{% endcommen
       </div>
       <div class="contact-card">
         {{ card }}
-        {% include email.html %}
       </div>
     </div>
 

@@ -1,0 +1,15 @@
+{%- comment %}The amber contact band that closes the Six Ravens pages, the same
+on each. Its words are in _copy/site.md.{% endcomment -%}
+{%- include copy.html name="site" %}
+<section class="contact-bar" id="contact" aria-labelledby="contact-h">
+  <div class="bar-raven" aria-hidden="true"></div>
+  <div class="wrap contact-bar-in">
+    <div class="contact-bar-text">
+      <h2 id="contact-h">{{ copy.contact_heading | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2>
+      {%- if copy.contact_text %}
+      <p>{{ copy.contact_text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {%- endif %}
+      {% include email.html %}
+    </div>
+  </div>
+</section>

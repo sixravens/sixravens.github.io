@@ -205,6 +205,34 @@ main.sr + .foot { margin-top: 0; }
 .sec.name-amber p { font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.45; }
 .sec.name-amber .coda::before { background: var(--on-accent); } */
 
+/* ---------- Contact band ----------
+   Amber, full width, the same at the foot of every Six Ravens page */
+.contact-bar { position: relative; z-index: 41; clip-path: inset(0); background: var(--amber); color: var(--on-accent); padding: clamp(48px, 7vw, 96px) 0; }
+.contact-bar-in { position: relative; display: grid; }
+/* The corner raven (system.css .bg-raven) passes over the band in ink. The band
+   sits above that layer, and this copy of the bird, fixed in the same place and
+   clipped to the band, is drawn in the text colour. Keep the two in step. */
+.bar-raven {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: var(--on-accent);
+  -webkit-mask: url('../images/raven-line.png') no-repeat right -4vw bottom -6vh / min(48vh, 34vw);
+  mask: url('../images/raven-line.png') no-repeat right -4vw bottom -6vh / min(48vh, 34vw);
+}
+@media (max-width: 719px) {
+  .bar-raven { -webkit-mask-position: right -10vw bottom -4vh; mask-position: right -10vw bottom -4vh; -webkit-mask-size: 56vw; mask-size: 56vw; }
+}
+.contact-bar h2 { margin: 0 0 .35em; color: var(--on-accent); font-size: clamp(2.25rem, 4.4vw, 3.75rem); font-weight: 400; line-height: 1.05; letter-spacing: -.025em; }
+.contact-bar .email { margin-top: clamp(24px, 3vw, 36px); }
+.contact-bar p { margin: 0; max-width: 34rem; color: var(--on-accent); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.5; }
+.contact-bar .email, .contact-bar .email-go { color: var(--on-accent); }
+.contact-bar .email:hover { color: var(--on-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+@media (min-width: 1040px) {
+  .contact-bar-in { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  .contact-bar-text { grid-column: 3 / span 6; }
+}
+
 /* 004 contact */
 .turn { color: var(--fg); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.45; }
 .contact-main { max-width: 40rem; }
@@ -243,7 +271,15 @@ main.sr + .foot { margin-top: 0; }
 .toc a:hover { color: var(--fg); }
 .toc .no { padding-top: .1em; }
 .prose { max-width: 40rem; }
-.work-area .prose > p:first-child { color: var(--fg); font-size: clamp(1.125rem, 1.5vw, 1.3rem); line-height: 1.5; }
+.work-area .prose ul { margin: 0 0 1.1em; padding-left: 1.1em; }
+.work-area .prose li { margin: 0 0 .6em; }
+.work-area .prose li::marker { color: var(--muted); }
+/* Work: each area opens on a big, solid heading; the lead under it steps back
+   to grey so the heading carries the section */
+.work-area .sec-head h2, .work-area .sec-head .no { font-size: clamp(2.4rem, 4.6vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
+.work-area .sec-head h2 { font-weight: 500; }
+.work-area .sec-head { margin-bottom: clamp(28px, 3.5vw, 52px); }
+.work-area .prose > p:first-child { color: var(--fg-2); font-size: clamp(1.125rem, 1.5vw, 1.3rem); line-height: 1.5; }
 
 /* ---------- Wider screens ---------- */
 @media (min-width: 720px) {
@@ -266,6 +302,7 @@ main.sr + .foot { margin-top: 0; }
   .sec-head { display: contents; }
   .sec-head .no { grid-column: 1 / span 2; }
   .sec-head > :not(.no) { grid-column: 3 / -1; margin-bottom: 28px; }
+  .work-area .sec-head > :not(.no) { margin-bottom: clamp(28px, 3.5vw, 52px); }
   .sec-body { grid-column: 3 / -1; }
 
   .areas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -295,5 +332,5 @@ main.sr + .foot { margin-top: 0; }
     align-items: start;
   }
   .work-area .prose > p:first-child { grid-column: 1 / span 4; grid-row: 1 / span 9; margin: 0; }
-  .work-area .prose > p:not(:first-child) { grid-column: 6 / -1; }
+  .work-area .prose > :not(:first-child) { grid-column: 6 / -1; }
 }
