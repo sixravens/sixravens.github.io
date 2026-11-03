@@ -1,7 +1,7 @@
 ---
 number: 2
 title: Fear Inflation
-date: 2026-10-21 15:00:00
+date: 2026-10-20 15:00:00
 dek: >-
   How competition for attention incentivizes hyperbole, manufactures urgency,
   and distorts our understanding of ordinary risks.

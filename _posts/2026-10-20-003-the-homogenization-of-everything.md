@@ -1,13 +1,13 @@
 ---
-number: 1
+number: 3
 title: The Homogenization of Everything
-date: 2026-10-21 12:00:00
+date: 2026-10-20 12:00:00
 dek: >-
   How comparison culture, optimization, and market incentives produce
   increasingly interchangeable products, practices, and ideas.
 form: essay
 hero:
-  src: /assets/pieces/001/hero-cars.jpg
+  src: /assets/pieces/003/hero-cars.jpg
   side: right
   position: 50% 55%
   credit: Denis / Unsplash

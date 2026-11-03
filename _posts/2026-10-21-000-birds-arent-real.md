@@ -15,6 +15,8 @@ summary: >-
   borrowed, made to feel true by repetition, and quietly patched rather than
   abandoned, and because whether a fact matters depends on who finds it and
   what ignoring it would cost them.
+# link-preview card; rebuild with: python _tools/og-card.py <this file>
+image: /assets/pieces/000/og.png
 hero:
   src: /assets/pieces/000/hero-black-swan.jpg
   side: right

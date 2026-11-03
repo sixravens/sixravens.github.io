@@ -99,6 +99,10 @@ body { font-size: 16px; line-height: 1.75; }
   width: 56px; height: 0;
   border-top: 2px solid var(--amber);
 }
+/* a piece that opens on a section heading: the meta rule above already
+   divides it from the header, so the heading doesn't draw a second one */
+.piece-body > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.piece-body > h2:first-child::before { content: none; }
 p.turn { color: var(--fg); font-size: 1.15rem; }
 
 /* Pull quotes: full width on phones; floated right inside the text from tablet up */
@@ -111,6 +115,165 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
   font-weight: 200;
   line-height: 1.3;
 }
+
+/* Timeline: "#### " headings are times. From the first of them to the end
+   of its section (wrapped in .timeline by the piece layout) the text moves
+   onto an ink panel that runs the width of the window: the essay changes
+   gear into the incident and back. The times are set large on a paper line
+   with amber dots, ticked at an even interval so it reads as a clock
+   running. Documents from the story (.doc) sit on it as paper.
+   Phones and tablets: line at the left of the column, the text inset beside
+   it. Wide screens: line and times out in the left margin. */
+.timeline {
+  --tl-ink: #0d0c0d;         /* Six Ravens ink, as the subscribe band */
+  --tl-paper: var(--bg);
+  --tl-line: color-mix(in srgb, var(--tl-paper) 32%, transparent);
+  --tl-tick: color-mix(in srgb, var(--amber) 55%, transparent);
+  --tl-x: 9px;               /* centre of the line, from the column's left */
+  --tl-pad: clamp(48px, 7vw, 80px);
+  position: relative;
+  clear: both;
+  margin: 48px 0;
+  padding: var(--tl-pad) 0 var(--tl-pad) 30px;
+  background: var(--tl-ink);
+  /* full width without overflowing the page: paint out, clip to the sides */
+  box-shadow: 0 0 0 100vmax var(--tl-ink);
+  clip-path: inset(0 -100vmax);
+  color: color-mix(in srgb, var(--tl-paper) 84%, transparent);
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--tl-pad) + 14px);
+  bottom: 0;
+  left: calc(var(--tl-x) - 5px);
+  width: 10px;
+  background:
+    linear-gradient(var(--tl-line), var(--tl-line)) center / 2px 100% no-repeat,
+    repeating-linear-gradient(to bottom, var(--tl-tick) 0 2px, transparent 2px 14px);
+  /* trails off after the last time */
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 120px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 120px), transparent);
+  pointer-events: none;
+}
+.prose h4 {
+  position: relative;
+  margin: 32px 0 4px;
+  color: var(--fg);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .03em;
+  font-variant-numeric: tabular-nums;
+}
+.timeline h4 {
+  margin: 44px 0 10px;
+  color: var(--tl-paper);
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+.timeline h4 .ampm { margin-left: .12em; color: var(--tl-line); font-size: .42em; font-weight: 400; letter-spacing: .06em; }
+.timeline > h4:first-child { margin-top: 0; }
+/* the dot on the line, cut out of it by a ring of panel colour */
+.timeline h4::before {
+  content: "";
+  position: absolute;
+  top: calc(.55em - 5px);
+  left: calc(var(--tl-x) - 30px - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px var(--tl-ink);
+}
+.prose h4 + p { margin-top: 0; }
+.timeline > p:last-child { margin-bottom: 0; }
+
+/* Calm: a section whose heading carries {: .calm}, set on a warm light
+   panel the width of the window. The counterpart to the timeline's ink:
+   the same kind of day, handled to plan. */
+.calm {
+  --calm: color-mix(in srgb, var(--amber) 14%, var(--bg));
+  position: relative;
+  clear: both;
+  margin: 64px 0;
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: var(--calm);
+  box-shadow: 0 0 0 100vmax var(--calm);
+  clip-path: inset(0 -100vmax);
+}
+.prose .calm > h2:first-child { margin-top: 0; }
+.calm > p:last-child { margin-bottom: 0; }
+/* Cast: a .role label before a paragraph that opens on a bold name. On
+   wide screens the label hangs in the left margin, where the timeline hangs
+   its times, and the name in the sentence loses its bold. Narrower, there's
+   no margin: the label is hidden and the bold name does the work. */
+.role { display: none; }
+.calm .doc {
+  background: var(--field);
+  border: 1px solid var(--rule);
+  box-shadow: 0 8px 24px rgba(32, 41, 46, .06);
+}
+.doc-status { border-left: 4px solid var(--amber); }
+.doc.doc-status dl { grid-template-columns: 5.5rem 1fr; }   /* both lists on one column edge */
+.doc-status .mail-head { padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.doc-status dd b { color: var(--fg); font-weight: 600; letter-spacing: .04em; }
+
+/* Pull styles, so a long piece doesn't repeat one. On a .note pull:
+   (none)  floats right beside the text, as above
+   .left   hangs left, mirrored: right-aligned, the rule on its right
+   .wide   a statement across the column, larger, under a short amber rule */
+.note.wide {
+  float: none;
+  clear: both;
+  width: auto;
+  margin: 56px 0;
+  padding: 26px 0 0;
+  border-left: 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+  font-size: clamp(1.7rem, 5.4vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -.01em;
+}
+.note.wide::before { content: ""; position: absolute; top: -1px; left: 0; width: 56px; border-top: 2px solid var(--amber); }
+
+/* Documents from the story: an advisory, a chat thread, an email. Set as
+   paper on the timeline's ink; aria-hidden, since the text tells it too. */
+.doc {
+  margin: 28px 0 36px;
+  max-width: 34rem;
+  padding: 18px 22px 20px;
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--fg-2);
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+.doc p { margin: 0; }
+.doc-kicker {
+  margin-bottom: 10px !important;
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.doc dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0; }
+.doc dt { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.doc dd { margin: 0; color: var(--fg); }
+.doc-advisory { border-top: 4px solid var(--amber); }
+.doc-advisory .doc-title { margin-bottom: 14px; color: var(--fg); font-size: 17px; font-weight: 500; line-height: 1.35; }
+.doc-chat .msg { padding: 10px 0; border-top: 1px solid var(--rule); }
+.doc-chat .msg:last-child { padding-bottom: 0; }
+.msg-by { margin-bottom: 2px !important; font-size: 13px; }
+.msg-by b { color: var(--fg); font-weight: 600; }
+.msg-by time { margin-left: 6px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.doc-mail .mail-head { padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.doc-mail mark { padding: 0 2px; background: color-mix(in srgb, var(--amber) 45%, transparent); color: var(--fg); }
 
 /* ---------- Band: the one question, inverted to ink ---------- */
 .band { margin-top: 80px; background: var(--fg); color: var(--bg); }
@@ -176,6 +339,15 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
     width: 40%;
     margin: 6px 0 20px 36px;
   }
+  .note.left {
+    float: left;
+    clear: left;
+    margin: 6px 36px 20px 0;
+    padding: 6px 20px 6px 0;
+    border-left: 0;
+    border-right: 2px solid var(--amber);
+    text-align: right;
+  }
   .cards-3 { grid-template-columns: repeat(3, 1fr); }
   .cols-3 { grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .band-in { padding: 88px 32px 96px; max-width: calc(46rem + 64px); }
@@ -184,6 +356,36 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
 
 @media (min-width: 1120px) {
   body { font-size: 18px; }
+}
+/* wide enough for the margin to hold the line and times (the column is 46rem) */
+@media (min-width: 1200px) {
+  .timeline { --tl-x: -2rem; padding-left: 0; }
+  .role {
+    display: block;
+    color: var(--fg);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    float: left;
+    width: 7.5rem;
+    margin: 0 0 0 -10.75rem;
+    padding-top: .4em;         /* first line level with the text beside it */
+    line-height: 1.45;
+    text-align: right;
+  }
+  .role + strong { color: inherit; font-weight: inherit; }
+  .note.left { width: calc(40% + 5rem); margin-left: -5rem; }
+  .note.wide { margin-left: -5rem; margin-right: -5rem; }
+  /* a float with a negative margin takes no room, so the text doesn't move */
+  .timeline h4 {
+    float: left;
+    clear: left;
+    width: 7.5rem;
+    margin: -2px 0 0 -10.75rem;
+    text-align: right;
+  }
+  .timeline > h4:first-child { margin-top: -2px; }
+  .timeline h4::before { left: calc(100% + 1.25rem - 5px); }
 }
 
 /* ======================================================================
@@ -336,7 +538,16 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
   line-height: 1.3;
 }
 .prose blockquote p { margin: 0; }
-.prose hr { border: 0; border-top: 1px solid var(--rule); margin: 48px 0; }
+/* Separator ("---" or "* * *" in the text): a pause inside a section, not a
+   new one. Three amber dots, centred. */
+.prose hr {
+  clear: both;
+  width: 54px;
+  height: 6px;
+  margin: 56px auto;
+  border: 0;
+  background: radial-gradient(circle, var(--amber) 2.5px, transparent 3px) center / 18px 6px repeat-x;
+}
 
 /* Epigraph: a quotation set before the first paragraph. Keeps its own case. */
 .prose blockquote.epigraph {

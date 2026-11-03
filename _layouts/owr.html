@@ -19,6 +19,9 @@
   <meta property="og:type" content="{% if page.layout == 'piece' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ site.origin }}{{ page.url | replace: 'index.html', '' }}">
   <meta property="og:image" content="{{ site.origin }}{{ page.image | default: '/assets/images/og-card.png' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{% if page.image %}{{ page.title }}, one white raven{% else %}One White Raven{% endif %}">
   <meta name="twitter:card" content="summary_large_image">
   {%- if page.layout == 'piece' %}
   {%- comment %}Structured data for search engines and AI crawlers. `abstract` is the

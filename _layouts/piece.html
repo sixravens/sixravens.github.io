@@ -33,6 +33,43 @@ layout: owr
     {%- endcapture -%}
   {%- endif -%}
 {%- endif -%}
+{%- comment -%}
+  Panels, section by section:
+  - Timeline: in a section with "#### " headings (times), everything from the
+    first of them to the end of the section is wrapped in .timeline, the ink
+    panel with the line the times sit on.
+  - Calm: a section whose heading is followed by `{: .calm}` is wrapped,
+    heading and all, in .calm, the light panel.
+{%- endcomment -%}
+{%- if body contains '<h4' or body contains 'class="calm"' -%}
+  {%- assign chunks = body | split: '<h2' -%}
+  {%- capture body -%}
+    {%- for c in chunks -%}
+      {%- if forloop.first -%}{{ c }}{%- continue -%}{%- endif -%}
+      {%- assign ends = c | split: '<div class="piece-end"' -%}
+      {%- assign sec = ends[0] -%}
+      {%- assign open = sec | split: '>' | first -%}
+      {%- if open contains 'calm' -%}
+<div class="calm"><h2{{ sec | remove_first: ' class="calm"' }}</div>
+      {%- elsif sec contains '<h4' -%}
+        {%- assign before = sec | split: '<h4' | first -%}
+        {%- assign rest = sec | remove_first: before | replace: 'am</h4>', '<span class="ampm">am</span></h4>' | replace: 'pm</h4>', '<span class="ampm">pm</span></h4>' -%}
+<h2{{ before }}<div class="timeline">{{ rest }}</div>
+      {%- else -%}<h2{{ sec }}{%- endif -%}
+      {%- if ends.size > 1 %}<div class="piece-end"{{ ends[1] }}{% endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+{%- endif -%}
+{%- comment -%}
+  Previous and next skip placeholder pieces: they have no text to go to.
+{%- endcomment -%}
+{%- assign real = site.posts | where_exp: "p", "p.placeholder == nil" -%}
+{%- assign newer = nil -%}{%- assign older = nil -%}{%- assign hit = false -%}
+{%- for p in real -%}
+  {%- if hit -%}{%- assign older = p -%}{%- break -%}{%- endif -%}
+  {%- if p.url == page.url -%}{%- assign hit = true -%}{%- else -%}{%- assign newer = p -%}{%- endif -%}
+{%- endfor -%}
+{%- unless hit -%}{%- assign newer = nil -%}{%- endunless -%}
 <article class="sheet piece">
 
   {% if page.banner %}{% include masthead.html %}{% endif %}
@@ -121,18 +158,18 @@ layout: owr
   {% endif %}
 
   <nav class="piece-nav" aria-label="More from one white raven">
-    {% if page.previous %}
-    <a class="piece-nav-prev" href="{{ page.previous.url | relative_url }}">
+    {% if older %}
+    <a class="piece-nav-prev" href="{{ older.url | relative_url }}">
       <span class="piece-nav-dir">&larr; previous</span>
-      <span class="piece-nav-no">{% include piece-no.html n=page.previous.number %}</span>
-      <span class="piece-nav-title">{{ page.previous.title }}</span>
+      <span class="piece-nav-no">{% include piece-no.html n=older.number %}</span>
+      <span class="piece-nav-title">{{ older.title }}</span>
     </a>
     {% else %}<span></span>{% endif %}
-    {% if page.next %}
-    <a class="piece-nav-next" href="{{ page.next.url | relative_url }}">
+    {% if newer %}
+    <a class="piece-nav-next" href="{{ newer.url | relative_url }}">
       <span class="piece-nav-dir">next &rarr;</span>
-      <span class="piece-nav-no">{% include piece-no.html n=page.next.number %}</span>
-      <span class="piece-nav-title">{{ page.next.title }}</span>
+      <span class="piece-nav-no">{% include piece-no.html n=newer.number %}</span>
+      <span class="piece-nav-title">{{ newer.title }}</span>
     </a>
     {% endif %}
   </nav>
