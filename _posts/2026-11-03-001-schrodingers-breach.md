@@ -30,13 +30,13 @@ hero:
 
 Physicists have had an in-joke for over 90 years about a cat in a box. It's so well-known that it has long outlived the argument it was made for. 
 
-In 1935, Einstein -- unconvinced by a theory that described unmeasured systems as holding all their possibilities at once -- wrote to Erwin Schrödinger about a keg of unstable gunpowder. Left alone for a year, the keg would by that theory's arithmetic be both exploded and unexploded. Einstein found this absurd. A keg has gone off or it has not.
+In 1935, Einstein -- unconvinced by a theory that described unmeasured systems as holding all their possibilities at once -- wrote to Erwin Schrödinger about a keg of unstable gunpowder. Left alone for a year, the keg would, according to the arithmetic of this theory, be both exploded and unexploded simultaneously. Einstein found this to be absurd. A keg has either gone off or it hasn't.
 
-Schrödinger agreed, and sharpened the point with a cat in a sealed box whose survival hinged on a single atom. He meant it as ridicule. If the theory required a cat to be alive and dead until someone looked, the theory had mistaken the limits of its own description for a property of the world.
+Schrödinger agreed with Einstein, and took the example even further: a cat in a sealed box whose survival hinged on a single atom. He meant it as ridicule a la *reductio ad absurdum*. If the theory required a cat to be alive and dead until someone looked, the theory had mistaken the limits of its own description for a property of the world.
 
-People who respond to security incidents borrowed the cat long ago. When something ambiguous surfaces, the organization often cannot say whether it has been compromised. It may have missed the evidence. The evidence may never have been recorded. There may be no evidence because nothing happened. Practitioners call this Schrödinger's breach, usually with a laugh, because they have all been inside the box.
+Incident Responders borrowed the cat long ago to describe a common occurrence in their world. When something ambiguous surfaces, an organization often cannot say whether it has been compromised. It may have missed the evidence. The evidence may never have been recorded. There may be no evidence because nothing happened. Practitioners call this Schrödinger's breach, usually with a laugh, because they have all been the one inside the box.
 
-The borrowed version repeats the error Schrödinger was mocking. An intrusion occurred or it did not. What is genuinely undecided is the organization: what it knows about its own systems, and what its people will do when they cannot find out. Some organizations settle that long before anything happens. Most try to settle it in the middle of an event, under pressure, with whoever happens to be in the room. The difference between the two has little to do with tools or frameworks and a great deal to do with culture, which is a vague word until one watches it operate on an ordinary Tuesday.
+This borrowed version repeats the error Schrödinger was mocking. An intrusion occurred or it did not. What is genuinely undecided is the organization: what it knows about its own systems, and what its people will do when they cannot find out. Some organizations settle that long before anything happens. Most try to settle it in the middle of an event, under pressure, with whoever happens to be in the room. The difference between the two has little to do with tools or frameworks and a great deal to do with culture, which is a vague word until one watches it operate on an ordinary Tuesday.
 
 ## Tuesday
 
@@ -161,7 +161,7 @@ Most of Tuesday's ingredients share this structure. The integration plan that pr
 
 Technology organizations reward exactly that horizon. Work is planned and judged in quarters. People are promoted for launches and landings, for migrations completed and systems deprecated, for visible delivery. Multi-year strategy has largely disappeared; roadmaps survive as a slide at the end of a planning deck, gesturing at a future nobody expects to be held to. Almost nobody tracks whether the organization actually became better at anything over five years, because the people who would be asked have, by then, moved to other roles, or other companies, carrying with them whatever they learned.
 
-The sociologist Diane Vaughan spent years on the decision to launch the space shuttle Challenger in 1986. Her background was in corporate misconduct, and she expected to find some. What she found instead was a slow process in which engineers and managers saw the boosters' seals behave in ways the design did not anticipate, analyzed the behavior, and accepted it, and every subsequent flight that came home safely made the acceptance more secure. Over years, a deviation became the normal state of things. Her conclusion was that the disaster grew out of ordinary organizational life rather than anyone's wrongdoing.
+The sociologist Diane Vaughan spent years analyzing the decisions that led to the explosion of the space shuttle *Challenger* in 1986. Her background was in corporate misconduct, and she expected to find some. What she found instead was a slow process by which engineers and managers saw the booster rockets' seals behave in ways the design did not anticipate, analyzed the behavior, and accepted it, and every subsequent flight that came home safely legitimized acceptance through lived experience. Over years, a deviation became the normal state of things. Her conclusion was that the disaster grew out of ordinary, large-scale organizational life rather than anyone's wrongdoing.
 
 The subsidiary's gateway sat outside central security's control for eighteen months, and for eighteen months nothing happened. Each month made the arrangement feel more like the way things were. The logging decision produced no visible harm for eight months, and so it was never revisited. "Those were all upgraded in September" had been the right answer to every previous advisory about those devices, which is why it came so easily on Tuesday. An organization without memory cannot see this kind of drift, because seeing it requires someone positioned to compare this year with five years ago, and almost nobody is.
 
@@ -171,7 +171,7 @@ The bulk of security, by a wide margin, is ordinary technology hygiene. Events l
 
 The first is not knowing what the organization has. The inventory listed two gateways because the inventory was populated from the central network team's records, and the subsidiary had never been folded into those records. This is the normal condition of large organizations, not a peculiar failing of this one. Infrastructure appears whenever a team has a project and a budget, through acquisitions, through cloud accounts opened on a corporate card, through a vendor who sets something up and leaves. "We aren't running that version" is only as good as the list it was checked against.
 
-The second is not knowing what the organization can observe. The gateway's logs were local and short-lived because forwarding them had been judged too expensive. Elsewhere the gap might be logging configured at a level that records connections but not commands, or a collector that has quietly failed and taken a week of events with it. The question "would we have seen it?" is a question about these details, and most organizations cannot answer it for any given system without first spending hours finding out.
+The second is not knowing what the organization can observe. The gateway's logs were local and short-lived because forwarding them had been deemed too expensive relative to their value. Elsewhere the gap might be logging configured at a level that records connections but not commands, or a collector that has quietly failed and taken a week of events with it. The question "would we have seen it?" is a question about these details, and most organizations cannot answer it for any given system without first spending hours finding out.
 
 The third is not knowing where to look. The investigation on Tuesday centered on the gateway, because that was where the advisory pointed. An attacker who compromised it, though, would have had access to everything passing through it, including the credentials and session tokens of employees logging in from home. The more consequential evidence, if any existed, might sit in the authentication logs of systems three steps removed, which nobody examined, because nobody had thought through in advance what a compromised gateway would reach.
 
@@ -181,7 +181,7 @@ The fourth is the hardest to admit: not knowing what one is looking at. The anal
 
 None of this is unusual. Every organization has gaps of each kind. What separates mature organizations from immature ones is not the absence of gaps but whether the organization knows where they are and has decided in advance what it will do about them. The immature organization discovers its gaps on a Tuesday, each time as though for the first time, and responds to each discovery by improvising.
 
-## The view from above
+## The room above
 
 On Tuesday the requests from leadership looked like an interruption to the real work. They were closer to its center.
 
@@ -272,7 +272,7 @@ The company never learned whether the fourth gateway had been compromised. The e
 
 ## The cat, again
 
-Schrödinger built his box to show what happens when a description gets mistaken for the world. Organizations facing an unanswerable question make their own version of the mistake. They treat their uncertainty as though it were a fact about the attack, and then try to resolve it by force, under pressure, with whatever explanation lies closest to hand.
+Schrödinger built his box to highlight, with absurdism, what happens when an academic theory is mistaken for the real world. Organizations facing an unanswerable question make their own version of the mistake. They treat their uncertainty as though it were a fact about the attack, and then try to resolve it by force, under pressure, with whatever explanation lies closest to hand.
 
 The first company spent Tuesday trying to open the box, and could not, and wrote three summaries implying it had. The second company never opened its box either. The difference was that its course of action had been settled before the box was closed, by people with the authority to settle it, at a cost they had agreed to pay. It did not need to look in order to know what it would do. It had planned for the cat to have a long life, and for what it would do if it didn't.
 
