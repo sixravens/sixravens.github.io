@@ -1,9 +1,11 @@
+{%- comment %}Subscribe jumps to the band on pages that have one (contents, pieces);
+elsewhere it goes to the band on contents.{% endcomment -%}
 {% assign start = site.posts | where: "number", 0 | first %}
 {%- assign owr_home = site.owr_path | append: '/' %}
 <nav class="subnav" aria-label="One White Raven">
   <div class="subnav-in">
     <a href="{{ owr_home }}"{% if page.url == owr_home %} aria-current="page"{% endif %}>contents</a>
     {% if start %}<a href="{{ start.url | relative_url }}"{% if page.url == start.url %} aria-current="page"{% endif %}>start here</a>{% endif %}
-    {% if site.owr.subscribe %}<a href="#subscribe">subscribe</a>{% endif %}
+    {% if site.owr.subscribe %}<a href="{% unless page.layout == 'piece' or page.url == owr_home %}{{ owr_home }}{% endunless %}#subscribe">subscribe</a>{% endif %}
   </div>
 </nav>

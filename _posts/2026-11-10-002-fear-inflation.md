@@ -1,7 +1,7 @@
 ---
 number: 2
 title: Fear Inflation
-date: 2026-10-20 15:00:00
+date: 2026-11-10 09:00:00
 dek: >-
   How competition for attention incentivizes hyperbole, manufactures urgency, and distorts our understanding of ordinary risks.
 form: essay
@@ -24,18 +24,9 @@ hero:
   credit: Marek Piwnicki / Unsplash
   credit_url: https://unsplash.com/photos/NrYtkqNMRok
 ---
-## I. The siren
+## The siren
 
 A suburban municipality in the upper Midwest recently changed the condition under which its outdoor sirens sound. The old trigger was a funnel cloud spotted near town. The new one is a measured wind of forty miles an hour or more. Nothing went out to residents explaining the change, and the sirens sound the same as they always have.
-
-<figure class="doc doc-change" aria-hidden="true">
-  <p class="doc-kicker">Outdoor warning sirens</p>
-  <dl>
-    <dt>Sounds for</dt><dd><del>A funnel cloud spotted near town</del><br>A measured wind of 40&nbsp;mph or more</dd>
-    <dt>Notice to residents</dt><dd>None</dd>
-    <dt>The sound</dt><dd>Unchanged</dd>
-  </dl>
-</figure>
 
 A forty-mile-an-hour wind is an unremarkable spring afternoon in that part of the country. It bends trees and knocks over garbage cans, and almost never hurts anyone who is indoors. The sirens now sound for it. Most of the people who live there learned as children that the siren meant a tornado, and that is still what they hear. They will hear it many more times now, and nearly every time there will be no tornado.
 
@@ -49,21 +40,11 @@ Two economists, Kevin Simmons and Daniel Sutter, had already put a number on tha
 
 Nobody in Joplin who could be identified had made an indefensible decision. A severe thunderstorm can kill someone, and an emergency manager who declined to sound the sirens and then lost a resident to a falling tree would have had to explain that choice in public. An emergency manager who sounds the sirens for a storm that passes harmlessly has to explain nothing. The same arithmetic applies to whoever changed the trigger in the suburb. The protection they gained, against criticism for a siren that did not sound, was real and immediate. The cost was paid by residents, a little at a time, in a form that nobody will notice until a tornado arrives and they wait for confirmation.
 
-## II. The umbrella
+## The umbrella
 
 The same arithmetic shows up, with much less at stake, in an ordinary forecast for rain.
 
 When the National Weather Service says there is a twenty percent chance of rain, it rains about twenty percent of the time. The Weather Service is measured on that and has no audience to keep, and its forecasts are well calibrated. In the early 2000s a programmer named Eric Floehr began collecting forecasts from the Weather Service and from commercial providers and checking them against what actually fell. The commercial forecasts were wetter than the weather. When The Weather Channel forecast a twenty percent chance of rain, it had historically rained about five percent of the time. Local television stations were wetter still, at times forecasting near-certain rain on days when it rained about seven times in ten. A team at Texas A&M later checked fourteen months of The Weather Channel's forecasts across forty-two cities and found the same tilt at the low end.
-
-<figure class="doc doc-calib" aria-hidden="true">
-  <p class="doc-kicker">Forecast: 20% chance of rain</p>
-  <p class="calib-q">How often it actually rained</p>
-  <div class="calib">
-    <div class="bar" style="--v:20"><span class="bar-l">National Weather Service</span><span class="bar-v">about 20%</span></div>
-    <div class="bar" style="--v:5"><span class="bar-l">The Weather Channel</span><span class="bar-v">about 5%</span></div>
-  </div>
-  <p class="calib-key"><span></span>what was forecast</p>
-</figure>
 
 The forecasters were not confused, and The Weather Channel acknowledged doing it on purpose. A viewer who carries an umbrella on a dry day does not write in to complain. A viewer whose picnic was ruined by rain forecast at ten percent remembers it, and remembers who said ten percent. One error costs the forecaster nothing and the other costs credibility with the person who relied on the forecast, so any forecaster who wants to keep an audience leans wet.
 
@@ -73,7 +54,7 @@ Anyone who issues a warning can be wrong in two ways: by warning about something
 
 An unnecessary umbrella costs almost nothing. A siren that sounds for wind costs more, but slowly, and the bill comes due on a single afternoon years later.
 
-## III. The scan
+## The scan
 
 Few people make warnings under more pressure than physicians, and few have studied their own behavior as closely.
 
@@ -85,33 +66,19 @@ These are the people with the most training and the most direct knowledge of the
 
 The more troubling part of the medical story is what happens when the extra testing finds something. In the late 1990s South Korea began offering cancer screening broadly, and many clinics added thyroid ultrasound for a small fee. Over the following two decades, diagnoses of thyroid cancer in Korea rose roughly fifteenfold. Deaths from thyroid cancer stayed about where they had been. H. Gilbert Welch and two Korean colleagues, reviewing the numbers in 2014, concluded that the screening had not found a hidden epidemic. It had found small tumors that would never have harmed the people who had them. Nearly all of those patients were treated anyway, most by removing all or part of the thyroid. In one national claims analysis of more than fifteen thousand Koreans who had the surgery, eleven percent were left with damage to the glands that regulate calcium and two percent with paralysis of a vocal cord.
 
-<figure class="doc doc-stat" aria-hidden="true">
-  <p class="doc-kicker">Thyroid cancer in South Korea, two decades of screening</p>
-  <div class="stats">
-    <p><b>~15&times;</b><span>diagnoses</span></p>
-    <p><b>Flat</b><span>deaths</span></p>
-  </div>
-</figure>
-
 Each step in that sequence was reasonable on its own terms. A test was available and cheap, and it found something real. A cancer, once found, is very hard for anyone to leave alone, because if it is left alone and later kills the patient, everyone involved will have known it was there. The result was tens of thousands of people harmed by treatment for a disease that was not going to hurt them, while the measure everyone could see, the number of cancers detected and treated, went steadily up and looked like progress.
 
 Some of the pressure toward more comes from the people who sell the tests and the treatments. In 2002 three researchers, Ray Moynihan, Iona Heath, and David Henry, collected cases for the *BMJ* in which drug companies had helped shape how a condition was defined and how common it seemed. A pharmaceutical firm funded a hair-loss research institute whose study announced that a third of men had hair loss, and a public-relations agency supplied the experts quoted in the press. Another company's press release put the number of Australians with social phobia at more than a million when government figures suggested closer to 370,000, and the company funded a patient group devoted to the condition. A World Health Organization meeting that set the diagnostic threshold for osteoporosis was partly funded by three drug companies. The authors were careful to call their examples anecdotal. But the pattern they described is the one a reader would expect: when the people who profit from treatment also help decide what counts as a disease and how much of it there is, the boundaries tend to move outward.
 
 Most readers past a certain age have sat in a waiting room with a result they did not understand, or beside someone who did. Medicine is the field where these costs are hardest to see as abstractions. It is also the field that has done the most to measure them, which is where this piece returns at the end.
 
-## IV. The business case
+## The business case
 
 Large organizations are attention economies too. Budgets, headcount, and the time of the people who approve them are limited, and every team competes for them. The arguments a team can make fall roughly into two kinds.
 
 A growth case argues that spending money now will produce more money later. It can be exaggerated, and usually is, but eventually it gets checked. A product either sells or it does not, and the person who promised the revenue is asked where it went. A risk case argues that spending money now will prevent a loss, and it is checked much less, because a loss that was prevented looks exactly like a loss that was never going to happen. A team that asked for money to prevent a disaster, received it, and saw no disaster can claim success, and nobody can prove otherwise. A team that was refused money and then saw a disaster has a story that will be retold for years. A risk case has to clear a lower bar of evidence than a growth case, and it carries less risk for the person making it.
 
 Consider a budget cycle in a company of a few thousand people. A director needs to justify a team twice its current size. The request cites an industry report estimating the average cost of a serious incident at a figure with many zeros. The report's method is a survey of companies that agreed to participate, its sample is not the director's industry, and its estimate includes categories of cost the company does not have. The request includes a heat map that places the risk in the upper right corner, in red, on the basis of a workshop in which a dozen people assigned scores from one to five. Nobody in the workshop had data on how often the event occurs in companies like this one, so the scores reflect how alarming the event felt to the people in the room. The heat map looks like analysis and gets read as analysis.
-
-<figure class="doc doc-heat" aria-hidden="true">
-  <p class="doc-kicker">Risk heat map &middot; workshop scores, 1&ndash;5</p>
-  <div class="heat-plot"><span class="heat-y">Impact</span><div class="heat"><i style="--h:52%"></i><i style="--h:63%"></i><i style="--h:74%"></i><i style="--h:85%"></i><i class="hit" style="--h:96%"></i><i style="--h:41%"></i><i style="--h:52%"></i><i style="--h:63%"></i><i style="--h:74%"></i><i style="--h:85%"></i><i style="--h:30%"></i><i style="--h:41%"></i><i style="--h:52%"></i><i style="--h:63%"></i><i style="--h:74%"></i><i style="--h:19%"></i><i style="--h:30%"></i><i style="--h:41%"></i><i style="--h:52%"></i><i style="--h:63%"></i><i style="--h:8%"></i><i style="--h:19%"></i><i style="--h:30%"></i><i style="--h:41%"></i><i style="--h:52%"></i></div><span class="heat-x">Likelihood</span></div>
-  <p class="heat-note">Data on how often this happens to companies like ours: none</p>
-</figure>
 
 The request is approved. The following year, the approval is cited as evidence that leadership regards the risk as serious, and the industry report is cited again, alongside a vendor briefing that cited the same report, and a board presentation that cited the request. Four documents now say the risk is severe, and they read as four confirmations when they are one estimate repeated by people who had reasons to repeat it. The director is promoted for building a function that meets a critical need. If the money was misallocated, the cost is spread across every team that did not get funded, every risk that was real but less alarming, and the shareholders, none of whom will ever be able to trace it back to that request.
 
@@ -121,61 +88,47 @@ The people who produce requests like this are a mixed group. Some know exactly w
 
 The thyroid clinics and the budget request share a further feature. Both produce a number that rises when the activity rises, cancers found or risks identified, and both let that number stand in for the outcome nobody can easily see. A team that finds more risks looks more diligent than one that finds fewer, whether or not anything was ever going to happen.
 
-## V. The cynic
+## The cynic
+{: .ink-panel}
 
 Joplin's residents were not alarmists. When the sirens sounded on May 22, most of them did the opposite of panicking. They had learned, from years of evidence, that the siren usually meant nothing, and they acted on what they had learned. In the ordinary sense of the word they were being skeptical, and their skepticism was well founded right up to the afternoon it killed some of them.
 
 Inflated warnings are usually discussed as a problem of fear: too much worry, money spent on the wrong things, children kept indoors. Fear is the first cost. The second, which arrives later and does more damage, is the cynicism that inflation produces in everyone downstream of it. Hospitals learned this from their monitors. Bedside equipment in a busy unit can generate hundreds of alarms per patient per day, and when the Joint Commission, which accredits American hospitals, issued an alert on the problem in 2013, it cited estimates that between eighty-five and ninety-nine percent of those alarms did not require any clinical response. Nurses and doctors learned to silence them, turn them down, or stop hearing them. The Joint Commission's database recorded eighty alarm-related deaths between 2009 and mid-2012, and the Food and Drug Administration's device database recorded several hundred more over a similar period. The term the field uses is alarm fatigue.
 
-<aside class="note pull wide" aria-hidden="true">A cynic and an alarmist look like opposites, but they make the same error.</aside>
-
 A cynic and an alarmist look like opposites, but they make the same error. Each has stopped reading the content of a warning and started responding to how often warnings come. The alarmist treats every warning as real because some are, and the cynic treats every warning as noise because most are. Neither is asking which warning this is. An organization full of cynics is not safer than one full of alarmists. In some respects it is worse off, because the alarmist at least shows up when the real warning comes.
+
+<aside class="note pull wide" aria-hidden="true">A cynic and an alarmist look like opposites, but they make the same error.</aside>
 
 This matters for anyone who has read this far and is inclined to start discounting warnings. Discounting is what inflation teaches, and it is the wrong lesson. The response that actually works is the harder one: telling one warning from another, more often and with more care, which requires knowing something about who is sending it and what they would lose by being quieter. Calm is not the aim. Discrimination is.
 
-## VI. What two fields learned
-{: .calm}
+## What two fields learned
 
 Weather forecasting and medicine both run on warnings issued under uncertainty, and both have spent decades dealing with the costs described here. Neither has solved the problem, but each has developed practices that put some of the cost of a false alarm back on the person who sounds it. Those practices carry over, with little modification, to anyone inside an organization who sends warnings, receives them, or designs the process that carries them.
 
-<span class="role num" aria-hidden="true">01</span>**Keep score.** The Weather Service checks every forecast against what happened. That is the only reason anyone can say its twenty percent means twenty percent, and the only reason the wet bias in commercial forecasts could be measured at all. A warning that is never checked against an outcome has no track record, and a warning without a track record can only be judged by its volume. Organizations almost never do this with risk. The heat map from last year's budget cycle is not reopened to ask how many of its red squares produced anything. Doing so is not complicated. It requires writing down, at the time of the request, what the sender expects to happen and over what period, and then looking again when the period ends. Over a few years the people whose warnings tend to come true become visible, and so do the people whose warnings never do.
+**Keep score.** The Weather Service checks every forecast against what happened. That is the only reason anyone can say its twenty percent means twenty percent, and the only reason the wet bias in commercial forecasts could be measured at all. A warning that is never checked against an outcome has no track record, and a warning without a track record can only be judged by its volume. Organizations almost never do this with risk. The heat map from last year's budget cycle is not reopened to ask how many of its red squares produced anything. Doing so is not complicated. It requires writing down, at the time of the request, what the sender expects to happen and over what period, and then looking again when the period ends. Over a few years the people whose warnings tend to come true become visible, and so do the people whose warnings never do.
+{: .hang}
 
-<span class="role num" aria-hidden="true">02</span>**Count the harm of a false alarm.** Medicine's screening guidelines now weigh the costs of a test against its benefits in explicit terms. When the U.S. Preventive Services Task Force recommended against routine PSA screening for prostate cancer in 2012, it set the benefit, somewhere between zero and one death avoided for every thousand men screened, beside the harms: roughly four in five positive results turning out to be false, biopsies with complications, and a substantial share of men treated for cancers that would never have hurt them, many of whom were left incontinent or impotent. In 2018 the Task Force revised its position to leave the decision to each man in his late fifties and sixties and his doctor, and the new guidance still lists the harms alongside the benefit. The point is not which recommendation was right. It is that the harm of acting on a warning is written down as a cost, with numbers, in the same document as the benefit. Most organizational risk cases treat a false alarm as free. A request that has to state what it will cost if the risk never materializes, in money, attention, and the other work that will not get done, is a different document from one that does not.
+**Count the harm of a false alarm.** Medicine's screening guidelines now weigh the costs of a test against its benefits in explicit terms. When the U.S. Preventive Services Task Force recommended against routine PSA screening for prostate cancer in 2012, it set the benefit, somewhere between zero and one death avoided for every thousand men screened, beside the harms: roughly four in five positive results turning out to be false, biopsies with complications, and a substantial share of men treated for cancers that would never have hurt them, many of whom were left incontinent or impotent. In 2018 the Task Force revised its position to leave the decision to each man in his late fifties and sixties and his doctor, and the new guidance still lists the harms alongside the benefit. The point is not which recommendation was right. It is that the harm of acting on a warning is written down as a cost, with numbers, in the same document as the benefit. Most organizational risk cases treat a false alarm as free. A request that has to state what it will cost if the risk never materializes, in money, attention, and the other work that will not get done, is a different document from one that does not.
+{: .hang}
 
-<span class="role num" aria-hidden="true">03</span>**Narrow who hears it.** In 2007 the Weather Service stopped issuing warnings for whole counties and began drawing them around the path of the storm itself, a change it estimated could shrink the warned area by as much as seventy percent. The danger was the same, but far fewer people were told about a danger that did not apply to them, and so far fewer people learned to ignore the next one. Inside an organization the equivalent is resisting the urge to escalate every concern to the widest possible audience. A warning sent only to the people who can act on it costs the rest of the organization nothing.
+**Narrow who hears it.** In 2007 the Weather Service stopped issuing warnings for whole counties and began drawing them around the path of the storm itself, a change it estimated could shrink the warned area by as much as seventy percent. The danger was the same, but far fewer people were told about a danger that did not apply to them, and so far fewer people learned to ignore the next one. Inside an organization the equivalent is resisting the urge to escalate every concern to the widest possible audience. A warning sent only to the people who can act on it costs the rest of the organization nothing.
+{: .hang}
 
-<span class="role num" aria-hidden="true">04</span>**Name your own overuse.** In 2012 the ABIM Foundation asked medical specialty societies to publish lists of tests and treatments that their own members ordered too often. More than eighty societies have since done so, producing several hundred recommendations: imaging for routine back pain, antibiotics for most sinus infections, and many others. The campaign has never measured its own effect, and its critics have noted that the lists are easier to publish than to follow. But the gesture is unusual and valuable. Practitioners stated publicly, in their own field and against their own financial interest, which of their warnings were inflated. There is no equivalent in most professions that sell protection, and nothing prevents one.
+**Name your own overuse.** In 2012 the ABIM Foundation asked medical specialty societies to publish lists of tests and treatments that their own members ordered too often. More than eighty societies have since done so, producing several hundred recommendations: imaging for routine back pain, antibiotics for most sinus infections, and many others. The campaign has never measured its own effect, and its critics have noted that the lists are easier to publish than to follow. But the gesture is unusual and valuable. Practitioners stated publicly, in their own field and against their own financial interest, which of their warnings were inflated. There is no equivalent in most professions that sell protection, and nothing prevents one.
+{: .hang}
 
-<span class="role num" aria-hidden="true">05</span>**Let warnings expire.** When the Department of Homeland Security retired its color-coded terror alert scale in 2011, the scale had spent its nine years without once dropping to its two lowest levels. The system that replaced it issues specific alerts that end on a stated date unless someone renews them. A warning that lapses by default forces whoever wants it continued to make the case again, with whatever has been learned since, and to put a name to it. A risk that was urgent enough to fund last year can be required to show it is still urgent this year.
+**Let warnings expire.** When the Department of Homeland Security retired its color-coded terror alert scale in 2011, the scale had spent its nine years without once dropping to its two lowest levels. The system that replaced it issues specific alerts that end on a stated date unless someone renews them. A warning that lapses by default forces whoever wants it continued to make the case again, with whatever has been learned since, and to put a name to it. A risk that was urgent enough to fund last year can be required to show it is still urgent this year.
+{: .hang}
 
-For someone receiving a warning, all of this reduces to a few questions that need no expertise in the subject. Who pays if this turns out to be wrong in each direction, and are they the same people? Has this source been right before, and would anyone know if it had not? Is the evidence independent, or is it one claim repeated by people with reasons to repeat it? Has this warning ever gone down, and what would make it go down? What would the situation look like if the warning were overstated?
+<span class="role" aria-hidden="true">Receiving</span>For someone receiving a warning, all of this reduces to a few questions that need no expertise in the subject. Who pays if this turns out to be wrong in each direction, and are they the same people? Has this source been right before, and would anyone know if it had not? Is the evidence independent, or is it one claim repeated by people with reasons to repeat it? Has this warning ever gone down, and what would make it go down? What would the situation look like if the warning were overstated?
 
-For someone sending one, the same questions turn into commitments. State what you expect to happen and when, so that someone can check later. State what it will cost if you are wrong in the alarming direction. State what evidence would lower the alarm, and look for it. Send it to the people who can act on it.
+<span class="role" aria-hidden="true">Sending</span>For someone sending one, the same questions turn into commitments. State what you expect to happen and when, so that someone can check later. State what it will cost if you are wrong in the alarming direction. State what evidence would lower the alarm, and look for it. Send it to the people who can act on it.
 
-<figure class="doc doc-status doc-form" aria-hidden="true">
-  <p class="doc-kicker">Risk request</p>
-  <dl>
-    <dt>Expected</dt><dd><i>What will happen, and by when</i></dd>
-    <dt>If overstated</dt><dd><i>What it costs: money, attention, the work not done</i></dd>
-    <dt>Would lower it</dt><dd><i>The evidence, and who is looking for it</i></dd>
-    <dt>Sent to</dt><dd><i>The people who can act on it</i></dd>
-    <dt>Expires</dt><dd><i>On a stated date, unless renewed by name</i></dd>
-  </dl>
-</figure>
+<span class="role" aria-hidden="true">Running it</span>For someone who runs the process, the most effective change is also the least comfortable. At some point in the next budget cycle, someone will look at a risk that has been rated critical for three years and say that the evidence does not support it and the money would do more good elsewhere. If that person is right, the organization should make sure it is known that they were right, and that saying so did them no harm. Every system described in this piece drifted toward louder warnings because silence could be punished and noise could not. Rewarding the accurate, quiet call is the only intervention that addresses that directly.
 
-For someone who runs the process, the most effective change is also the least comfortable. At some point in the next budget cycle, someone will look at a risk that has been rated critical for three years and say that the evidence does not support it and the money would do more good elsewhere. If that person is right, the organization should make sure it is known that they were right, and that saying so did them no harm. Every system described in this piece drifted toward louder warnings because silence could be punished and noise could not. Rewarding the accurate, quiet call is the only intervention that addresses that directly.
-
-## VII. A siren that means one thing
+## A siren that means one thing
 
 Sedgwick County, Kansas, which includes Wichita, sounds its outdoor sirens for tornado warnings and for an attack on the country, and for nothing else. In 2002 the county turned down a proposal to rebuild the system so that only the sirens near a tornado's path would sound; the cost was close to $650,000, and nobody in charge considered it a priority. It approved the work in stages over the following years, and in 2012 the system went live: when the Weather Service drew a warning around a storm, the sirens inside it sounded and the rest of the county stayed quiet. Aging hardware has since forced a temporary return to sounding by larger zones while the equipment is replaced. But for a decade, a siren in Sedgwick County meant one thing, in one place, and the county paid real money to keep it that way.
-
-<figure class="doc doc-change" aria-hidden="true">
-  <p class="doc-kicker">Outdoor warning sirens &middot; Sedgwick County</p>
-  <dl>
-    <dt>Sounds for</dt><dd>A tornado warning<br>An attack on the country<br><b>Nothing else</b></dd>
-    <dt>Where</dt><dd>Inside the storm&rsquo;s warned path, 2012 on</dd>
-  </dl>
-</figure>
 
 The suburb that changed its trigger to forty miles an hour could make the opposite choice tomorrow. It could tell residents what the siren now means, publish how often it has sounded in the past year and for what, and decide whether it wants its residents to keep listening. That decision costs nothing to make, and it is available to anyone who sends warnings for a living.
 

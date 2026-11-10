@@ -97,7 +97,8 @@ Sections are numbered, and alternate panels, in the order they come.{% endcommen
         {{ s_rest | replace_first: '<p>', '<p class="owr-from">' | replace: 'href="owr"', owr_href }}
       </div>
       <ol class="owr-list">
-        {%- for p in site.posts limit: 3 %}
+        {%- include owr-order.html -%}
+        {%- for p in pieces limit: 3 %}
         <li><a href="{{ p.url | relative_url }}">
           {% if p.hero %}<img class="toc-img" src="{{ p.hero.src | relative_url }}" alt="" loading="lazy" style="object-position:{{ p.hero.position }}">{% endif %}
           <span class="toc-no">{% include piece-no.html n=p.number %}</span>

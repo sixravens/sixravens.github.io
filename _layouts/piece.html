@@ -40,8 +40,9 @@ layout: owr
     panel with the line the times sit on.
   - Calm: a section whose heading is followed by `{: .calm}` is wrapped,
     heading and all, in .calm, the light panel.
+  - Ink: likewise `{: .ink-panel}`, wrapped in .ink-panel, the dark one.
 {%- endcomment -%}
-{%- if body contains '<h4' or body contains 'class="calm"' -%}
+{%- if body contains '<h4' or body contains 'class="calm"' or body contains 'class="ink-panel"' -%}
   {%- assign chunks = body | split: '<h2' -%}
   {%- capture body -%}
     {%- for c in chunks -%}
@@ -51,6 +52,8 @@ layout: owr
       {%- assign open = sec | split: '>' | first -%}
       {%- if open contains 'calm' -%}
 <div class="calm"><h2{{ sec | remove_first: ' class="calm"' }}</div>
+      {%- elsif open contains 'ink-panel' -%}
+<div class="ink-panel"><h2{{ sec | remove_first: ' class="ink-panel"' }}</div>
       {%- elsif sec contains '<h4' -%}
         {%- assign before = sec | split: '<h4' | first -%}
         {%- assign rest = sec | remove_first: before | replace: 'am</h4>', '<span class="ampm">am</span></h4>' | replace: 'pm</h4>', '<span class="ampm">pm</span></h4>' -%}

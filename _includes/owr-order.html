@@ -1,0 +1,7 @@
+{%- comment -%}
+  Reading order for listings: published pieces newest first, then the
+  placeholders ("coming soon") by number, whatever their dates. Sets `pieces`.
+{%- endcomment -%}
+{%- assign published = site.posts | where_exp: "p", "p.placeholder == nil" -%}
+{%- assign soon = site.posts | where_exp: "p", "p.placeholder" | sort: "number" -%}
+{%- assign pieces = published | concat: soon -%}

@@ -99,6 +99,7 @@ markdown: kramdown
 exclude:
   - scratch
   - _inbox
+  - _tools
   - README.md
   - Gemfile
   - Gemfile.lock

@@ -2,7 +2,8 @@
 layout: owr
 title: Contents
 ---
-{%- assign latest = site.posts | first -%}
+{%- include owr-order.html -%}
+{%- assign latest = pieces | first -%}
 <div class="sheet contents">
   {% if site.owr.look == 'editorial' %}
   {% include masthead.html %}
@@ -33,7 +34,7 @@ title: Contents
   <section class="toc" aria-labelledby="toc-h">
     <h2 id="toc-h">contents</h2>
     <ol class="toc-list">
-      {% for post in site.posts %}
+      {% for post in pieces %}
       <li>
         <a href="{{ post.url | relative_url }}"{% if post.hero %} class="has-img"{% endif %}>
           {% if post.hero %}<img class="toc-img" src="{{ post.hero.src | relative_url }}" alt="" loading="lazy" style="{% if post.hero.position %}object-position:{{ post.hero.position }}{% endif %}">{% endif %}
