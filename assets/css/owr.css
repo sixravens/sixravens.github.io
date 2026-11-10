@@ -625,6 +625,19 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
 .fig { margin: 40px 0; }
 .fig img { display: block; max-width: 100%; height: auto; }
 .fig figcaption { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+/* Photo band: a photograph the width of the window between passages, as the
+   panels are; cropped to a band, the caption back in the column. */
+.fig.bleed { clear: both; margin: 64px 0; }
+.fig.bleed img {
+  width: 100vw;
+  max-width: none;
+  height: clamp(240px, 46vw, 620px);
+  margin-left: calc(50% - 50vw);
+  object-fit: cover;
+}
+html:has(.fig.bleed) { overflow-x: clip; }   /* 100vw counts a classic scrollbar */
+.ink-panel .fig figcaption { color: color-mix(in srgb, var(--bg) 60%, transparent); }
+.ink-panel .fig figcaption a, .fig figcaption a { color: inherit; }
 .prose em { font-style: italic; }
 
 .editorial-note {

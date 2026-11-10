@@ -32,6 +32,11 @@ A forty-mile-an-hour wind is an unremarkable spring afternoon in that part of th
 
 There is a recent record of where that leads. On the afternoon of May 22, 2011, the outdoor sirens sounded in Joplin, Missouri, about twenty minutes before a tornado reached the city. The National Weather Service had issued its warning in time. The tornado killed 158 people directly and injured more than a thousand.
 
+<figure class="fig bleed">
+  <img src="{{ '/assets/pieces/002/joplin-aerial.jpg' | relative_url }}" alt="Aerial view of a Joplin neighbourhood flattened by the tornado, a road running through debris where houses stood" style="object-position:50% 55%" loading="lazy">
+  <figcaption>Joplin, Missouri, ten days after the tornado. Photo: <a href="https://commons.wikimedia.org/wiki/File:Joplin_2011_tornado_damage.jpg">Bob Webster</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>; cropped.</figcaption>
+</figure>
+
 Afterward the Weather Service sent a team to find out how people had responded. Most residents did not take shelter when they first heard the sirens. They waited for something else to confirm the danger: a television report, a call from a relative, the sight of the storm itself. Asked why, residents described sirens that went off all the time, for thunderstorms, for dark clouds, so often that nobody paid attention anymore. Joplin's policy at the time was to sound the sirens for tornadoes and also for thunderstorms with expected winds over seventy-five miles an hour. The assessment concluded that the perceived frequency of activations had left most of the people surveyed desensitized to them.
 
 Two economists, Kevin Simmons and Daniel Sutter, had already put a number on that effect. They compared tornado casualties across regions of the United States with different false alarm rates for tornado warnings over roughly two decades, and found that in places where recent false alarms were more common, the same tornado killed and injured more people. A one-standard-deviation increase in the local false alarm ratio raised expected fatalities by somewhere between twelve and twenty-nine percent.
@@ -39,6 +44,11 @@ Two economists, Kevin Simmons and Daniel Sutter, had already put a number on tha
 <aside class="note pull" aria-hidden="true">The cost was paid by residents, a little at a time.</aside>
 
 Nobody in Joplin who could be identified had made an indefensible decision. A severe thunderstorm can kill someone, and an emergency manager who declined to sound the sirens and then lost a resident to a falling tree would have had to explain that choice in public. An emergency manager who sounds the sirens for a storm that passes harmlessly has to explain nothing. The same arithmetic applies to whoever changed the trigger in the suburb. The protection they gained, against criticism for a siren that did not sound, was real and immediate. The cost was paid by residents, a little at a time, in a form that nobody will notice until a tornado arrives and they wait for confirmation.
+
+<figure class="fig bleed">
+  <img src="{{ '/assets/pieces/002/umbrella.jpg' | relative_url }}" alt="Black-and-white photograph from above of a man with an umbrella crossing a wet road" style="object-position:30% 18%" loading="lazy">
+  <figcaption>Ducie Street, Manchester. Photo: <a href="https://commons.wikimedia.org/wiki/File:Man_with_umbrella_crossing_road_in_the_rain.jpg">Benjamin Shaw</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; cropped.</figcaption>
+</figure>
 
 ## The umbrella
 
@@ -95,6 +105,11 @@ Joplin's residents were not alarmists. When the sirens sounded on May 22, most o
 
 Inflated warnings are usually discussed as a problem of fear: too much worry, money spent on the wrong things, children kept indoors. Fear is the first cost. The second, which arrives later and does more damage, is the cynicism that inflation produces in everyone downstream of it. Hospitals learned this from their monitors. Bedside equipment in a busy unit can generate hundreds of alarms per patient per day, and when the Joint Commission, which accredits American hospitals, issued an alert on the problem in 2013, it cited estimates that between eighty-five and ninety-nine percent of those alarms did not require any clinical response. Nurses and doctors learned to silence them, turn them down, or stop hearing them. The Joint Commission's database recorded eighty alarm-related deaths between 2009 and mid-2012, and the Food and Drug Administration's device database recorded several hundred more over a similar period. The term the field uses is alarm fatigue.
 
+<figure class="fig bleed">
+  <img src="{{ '/assets/pieces/002/monitor.jpg' | relative_url }}" alt="A bedside patient monitor in a hospital room, its screen showing ALL ALARMS OFF" style="object-position:30% 30%" loading="lazy">
+  <figcaption>A bedside monitor, its screen reading &ldquo;all alarms off.&rdquo; Photo: <a href="https://commons.wikimedia.org/wiki/File:Hospital_Patient_Monitor_(17239884329).jpg">Tony Webster</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>; cropped.</figcaption>
+</figure>
+
 A cynic and an alarmist look like opposites, but they make the same error. Each has stopped reading the content of a warning and started responding to how often warnings come. The alarmist treats every warning as real because some are, and the cynic treats every warning as noise because most are. Neither is asking which warning this is. An organization full of cynics is not safer than one full of alarmists. In some respects it is worse off, because the alarmist at least shows up when the real warning comes.
 
 <aside class="note pull wide" aria-hidden="true">A cynic and an alarmist look like opposites, but they make the same error.</aside>
@@ -125,6 +140,11 @@ Weather forecasting and medicine both run on warnings issued under uncertainty, 
 <span class="role" aria-hidden="true">Sending</span>For someone sending one, the same questions turn into commitments. State what you expect to happen and when, so that someone can check later. State what it will cost if you are wrong in the alarming direction. State what evidence would lower the alarm, and look for it. Send it to the people who can act on it.
 
 <span class="role" aria-hidden="true">Running it</span>For someone who runs the process, the most effective change is also the least comfortable. At some point in the next budget cycle, someone will look at a risk that has been rated critical for three years and say that the evidence does not support it and the money would do more good elsewhere. If that person is right, the organization should make sure it is known that they were right, and that saying so did them no harm. Every system described in this piece drifted toward louder warnings because silence could be punished and noise could not. Rewarding the accurate, quiet call is the only intervention that addresses that directly.
+
+<figure class="fig bleed">
+  <img src="{{ '/assets/pieces/002/siren-greensburg.jpg' | relative_url }}" alt="A storm warning siren on a pole against a blue sky" style="object-position:50% 4%" loading="lazy">
+  <figcaption>A storm warning siren at temporary housing in Greensburg, Kansas, after the town was destroyed by a tornado in 2007. Photo: Leif Skoogfors, FEMA <a href="https://commons.wikimedia.org/wiki/File:FEMA_-_31188_-_A_storm_warning_siren_in_Kansas.jpg">via Wikimedia Commons</a>. Public domain; cropped.</figcaption>
+</figure>
 
 ## A siren that means one thing
 
