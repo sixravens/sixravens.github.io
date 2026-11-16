@@ -391,6 +391,16 @@ p.turn { color: var(--fg); font-size: 1.15rem; }
     text-align: right;
   }
   .role + strong { color: inherit; font-weight: inherit; }
+  /* a year beside a paragraph of evidence */
+  .role.year {
+    padding-top: .1em;
+    color: var(--accent-text);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .ink-panel .role.year { color: var(--amber); }
   /* a paragraph marked {: .hang}: its bold lead moves out to the margin */
   .prose p.hang > strong:first-child {
     float: left;
