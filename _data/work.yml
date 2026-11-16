@@ -1,63 +1,112 @@
-# The four areas of work, in order. Home shows `short` under each title, linked
-# to /work#id; the Work page shows `body` (Markdown). Edit copy here.
-# `id` is the link anchor: one short word, no spaces. `id: ai` turns on the
-# canary AI colouring for that area. Every line of a `body` starts with exactly
-# four spaces (bullets too: "    - "); three or five breaks the build.
-
-- id: ai
-  title: <abbr>AI</abbr> in Detection + Response
-  short: >-
-    What AI changes about what your defenders can see, what evidence an 
-    incident leaves, and how you stop something that acts on its own.
-  body: |
-    AI is changing who—or what—makes decisions inside an organization, and most response programs were built for human adversaries, human operators, and human scale.
-
-    - **Mapping where agents act:** what they can reach, what they're permitted to do, and what evidence their actions leave.
-    - **Responding to agent-driven incidents:** what to watch, how to interrupt an agent mid-action, and how to reconstruct what it did without relying on its own account.
-    - **AI inside your detection pipeline:** what it decides on your behalf, and how you'd know when it's wrong.
-    - **Exercises with agents in them,** including agents behaving in ways their operators didn't expect.
-
-    The technology is new. The underlying problems of trust, judgment, and accountability are not.
+# The areas of work, in order. Each follows the same format:
+#   opening     recognition, then investigation; set in two columns
+#   engagement  one bullet each, opening on a bold sentence
+#               ("- **The lead.** The rest."); each becomes a card
+#   pull        the pull, set large under the cards
+#   result      artifact, then value; set in one column under the pull
+# Each part is Markdown and can run to several paragraphs. Every line inside
+# a part starts with exactly four spaces; three or five breaks the build.
+# `short` is the line under the area's tile on home, linked to /work#id.
+# `id` is the link anchor: one short word, no spaces.
 
 - id: detection
-  title: D+R programs
+  title: Detection + response
   short: >-
-    Building and improving defensive capabilities from technical signal through
-    interpretation, escalation, and action.
-  body: |
-    A detection program competes for a finite resource: the attention and judgment of whoever is expected to act on its output. We start at that end of the pipeline.
+    Examining how technical capabilities, people and organizational decisions interact to influence what security teams recognize, how they respond and how effectively their programs perform.
+  opening: |
+    Detection and response is where a great deal of the security program's accumulated thinking becomes consequential. Architecture, intelligence, staffing, governance and years of decisions about tools and processes ultimately influence what an organization recognizes, what it believes is happening, and what it can do about it. These relationships become particularly important when events depart from expectations.
 
-    - **Building detection and response** where it's thin or missing: what to watch, how alerts are triaged, who escalates to whom, and what happens next.
-    - **Repairing a program that has stopped earning trust:** noise, coverage that exists mostly on paper, runbooks nobody follows.
-    - **Assessing an outsourced program:** what your provider actually covers, and what your organization gives them to work with.
-    - **Writing and tuning detections alongside your engineers,** so the capability stays when we leave.
-
-    What you keep: working detections and processes, written down and owned by your people.
-
-- id: preparedness
-  title: Preparedness + exercises
-  short: >-
-    Realistic tabletop exercises and adversarial simulations that reveal how
-    people and systems make decisions when the plan stops being enough.
-  body: |
-    Most organizations have a plan for what happens when things go wrong. Fewer know how well it describes what their people will actually do.
-
-    - **Focused tabletop sessions** built around a single hard decision.
-    - **Full simulations** with purpose-built infrastructure and realistic evidence, prepared over weeks and run in a day or two. At the far end, they have more in common with alternate reality games than conference-room exercises.
-    - **Preparedness foundations:** decision authority, escalation, and response procedures that hold up when information is incomplete.
-
-    What you get: where decisions broke down, why, and what would make them hold next time.
+    This is our deepest specialization. We investigate the interactions between technical capabilities, people, judgment, incentives and institutional structures that influence detection and response outcomes. A detection rule might work exactly as written while the surrounding program produces results nobody anticipated. The alert may lack the context an analyst needs, a workflow may reward quick closure over investigation, or the metrics presented to leadership may bear little relationship to the decisions being made.
+  engagement: |
+    - **The numbers look good, but the program feels wrong.** Performance measures suggest success while analysts, responders or leadership have reason to question the results.
+    - **Detection and response capabilities have grown difficult to manage.** Tools, workflows, responsibilities and accumulated decisions have created friction, inconsistency or unexpected behavior.
+    - **AI is making decisions inside the program.** Vendor models, automated triage and machine-generated interpretations influence what gets investigated, escalated or ignored, sometimes without an independent basis for evaluating those judgments.
+    - **The organization is changing.** New leadership, acquisitions, restructuring or significant investments have altered the conditions under which existing capabilities were designed to operate.
+  pull: |
+    Know what makes your detection and response program effective, what works against it, and where change will matter most.
+  result: |
+    An engagement might examine a single capability or the relationships across an entire program. We trace technical evidence alongside the decisions, incentives and institutional arrangements surrounding it, establishing which conditions influence performance and where changes would matter. The findings give practitioners and leadership a basis for challenging misleading measures of success, clarifying decision authority, reconsidering investments and addressing the circumstances that keep known issues unresolved.
 
 - id: investigations
   title: Independent investigations
   short: >-
-    Looking beyond the immediate cause of an incident to understand the
-    decisions and conditions that made it possible.
-  body: |
-    The usual account of an incident begins with what failed and ends with what was fixed. We reconstruct what came before.
+    Reconstructing incidents and near misses beyond their immediate technical causes, including the decisions and organizational conditions that made them possible.
+  opening: |
+    An incident investigation can establish how an attacker succeeded without fully explaining why the organization was susceptible to the event. Technical findings are essential, but they may leave unanswered questions about the decisions, accumulated assumptions and organizational conditions that contributed to what happened.
 
-    - **Post-incident reconstruction:** what people knew, what they reasonably believed, and which decisions followed.
-    - **Independent review of an internal post-mortem,** when leadership wants a second account.
-    - **Near-miss reviews,** before a close call becomes the real thing.
+    We reconstruct those circumstances alongside the technical sequence. What did people know? What did they reasonably believe? What information was available when consequential decisions were made? Why did those decisions make sense at the time? An accurate reconstruction must account for the circumstances people faced, rather than judging their actions exclusively through hindsight.
+  engagement: |
+    - **Post-incident reconstruction.** Examining the technical, human and institutional conditions surrounding an incident after the immediate crisis has passed.
+    - **Independent post-mortem review.** Revisiting an internal investigation, its evidence and its conclusions when leadership, the board or counsel needs an independent account.
+    - **Near misses and recurring incidents.** Investigating events whose consequences were limited, or whose recurrence suggests conditions that remain unresolved.
+    - **Incidents involving AI systems and agents.** Establishing what authorized, automated or autonomous systems did, using evidence independent of their own explanations where available.
+  pull: |
+    An incident should leave an organization with more than an explanation of what happened. It should change what happens next.
+  result: |
+    These engagements produce an independently supported account of what happened, why it happened in that particular organization, and what remains uncertain. The investigation connects the event to conditions that may still exist elsewhere: relationships, incentives, decisions and assumptions that no technical remediation alone would necessarily address. Leadership gains an evidentiary basis for deciding what deserves attention beyond the immediate incident, including changes whose relevance may extend throughout the organization.
 
-    What you get: an account that's fair to the people involved, and the conditions that may still exist elsewhere. We work after the immediate crisis, not as an emergency incident response provider.
+    We undertake this work after the immediate response, and separate from it.
+
+- id: preparedness
+  title: Preparedness + exercises
+  short: >-
+    Realistic exercises that put plans, people and judgment under pressure, revealing how organizations make decisions when circumstances depart from expectations.
+  opening: |
+    A response plan describes how an organization intends to behave during an incident. The experience of responding is considerably messier. Information arrives incomplete or contradictory, authority becomes uncertain, and the executive asking for an update may need an answer before anyone has enough evidence to provide one.
+
+    We design exercises that reproduce those conditions, giving participants opportunities to work through difficult decisions without the consequences of a real incident. The format depends on the question. Some exercises are conversations about a single consequential choice. Others involve realistic evidence, purpose-built infrastructure and scenarios unfolding over hours or days, occasionally within ordinary operations rather than a conference room.
+  engagement: |
+    - **Plans that haven't been exercised under realistic conditions.** Exploring how escalation, authority, information-sharing and decision-making hold up when events don't follow the expected sequence.
+    - **Leadership confronting unfamiliar decisions.** Exercises for executives and boards involving uncertainty, competing obligations, external communication and decisions with significant business consequences.
+    - **Complex incidents involving multiple teams or providers.** Understanding how technical responders, business leadership, outside firms and other participants coordinate under pressure.
+    - **New kinds of incidents.** Scenarios involving AI agents, delegated authority, opaque automated decisions and business systems whose behavior existing response plans may not adequately address.
+  pull: |
+    The first time people confront their most difficult decisions shouldn't be during a real incident.
+  result: |
+    Exercises produce a record of consequential decisions, the information available when they were made, and the circumstances that influenced them. We examine how information moved, how interpretations changed and where expectations differed from experience. That can establish whether escalation paths work, whether the right people have authority to act, or whether an outside provider and the organization it serves understand their responsibilities differently.
+
+    Participants leave with experience they can draw upon during a real incident. Leadership gains evidence for decisions about preparedness that previously rested largely on plans and assurances. Engagements can involve a single exercise or a separately scoped series examining different scenarios, participants or changes over time.
+
+- id: third-party
+  title: Third-party relationships
+  short: >-
+    Investigating the security consequences of relying on SaaS platforms, managed providers and outside organizations whose systems, decisions and commitments have become part of your own.
+  opening: |
+    Modern organizations depend on technology and expertise they don't own. SaaS platforms, cloud services, managed security providers and outside specialists often deliver capabilities more effectively than an organization could provide for itself. Those advantages come with relationships that introduce their own constraints, incentives and consequences.
+
+    Consider an application that depends on an external identity provider, exchanges information through several integrations and relies on vendor-controlled infrastructure. An incident affecting any part of that arrangement can have consequences far beyond the service immediately involved. Contracts may allocate liability without resolving the operational consequences, and the organization may have little influence over when a provider changes its behavior.
+  engagement: |
+    - **SaaS and cloud dependencies that have accumulated over time.** Understanding the implications of interconnected services, identity relationships, data access, integrations and vendor-controlled changes.
+    - **Managed providers making decisions on the organization's behalf.** Investigating the information, authority, incentives and operating arrangements governing outsourced security capabilities.
+    - **Incident response retainers and contractual commitments.** Examining what outside parties have agreed to provide, what the organization expects, and how those arrangements function under pressure.
+    - **AI and automation introduced by vendors.** Understanding changes to the decisions external systems make, the evidence available to evaluate them, and the consequences of relying on their output.
+  pull: |
+    Understand what you've entrusted to others, what you can reasonably expect in return, and the consequences when those expectations aren't met.
+  result: |
+    We examine the technical arrangements, contractual commitments, operating history and institutional relationships involved. This establishes which services share consequential dependencies, where decision-making has effectively been delegated, and what a provider's assurances mean in practice.
+
+    The findings support decisions about architectural alternatives, vendor relationships, contractual commitments and the contingencies needed when an outside service becomes unavailable or unreliable. They also clarify where the organization retains meaningful control, where it depends on the judgment of others, and which consequences remain its responsibility regardless of what the contracts say.
+
+- id: culture
+  title: Security culture + identity
+  short: >-
+    Helping security teams build an identity of their own, with shared traditions, technical challenges and experiences that strengthen trust, camaraderie and the confidence to challenge one another.
+  opening: |
+    Security is culture. The people who make up a security organization develop their own expectations, values, habits and ways of working. Those qualities influence how readily someone challenges a decision, whether colleagues trust one another, what the team considers good work and how people respond when circumstances become difficult.
+
+    Culture develops with or without anyone's permission. The question is whether an organization gives its people the opportunity and encouragement to make something meaningful of it.
+
+    A strong security team can also be a community. It can have a name, an identity, shared traditions, recognizable symbols and a sense of purpose that extends beyond reporting structures and job descriptions. Internal conferences, guest speakers, technical challenges, puzzles, games, investigations and even a well-earned challenge coin can become part of that identity. Their value comes from what they mean to the people involved.
+
+    Teams that feel like communities can develop the trust and psychological safety to challenge decisions, escalate concerns, disagree productively and learn from mistakes. These qualities matter when the work demands judgment under pressure, and when the consequences of staying quiet can be significant.
+  engagement: |
+    - **A new team is finding its identity.** Establishing a shared purpose, name, visual language and traditions that reflect the people and work of the organization.
+    - **Teams are growing, merging or changing.** Bringing people together across established boundaries and creating experiences that help them develop a shared history.
+    - **Trust, collaboration or enthusiasm has suffered.** Working with practitioners and leadership to understand the culture that has developed and create opportunities to strengthen it.
+    - **A capable team wants to invest in its people.** Developing internal communities, technical events, shared challenges and opportunities for practitioners to teach, contribute and earn recognition from their peers.
+  pull: |
+    Build something people want to belong to, where trust, pride and shared purpose make a difference in the work they do.
+  result: |
+    We begin with the people involved: what interests them, what motivates them and what kind of organization they want to belong to. Together, we can establish an identity, design experiences, introduce traditions and bring the first activities to life. We find the people who want to carry those efforts forward and help give them the support and resources to do so.
+
+    The work leaves a team with an identity its members helped create, traditions and activities they want to participate in, and internal champions with the resources and support to keep them going. Those investments build relationships, trust and a shared sense of purpose that carry into the work itself: how people collaborate, challenge one another, exercise judgment and respond when it matters.

@@ -1,9 +1,24 @@
 {%- comment %}The amber contact band that closes the Six Ravens pages, the same
-on each. Its words are in _copy/site.md.{% endcomment -%}
+on each. Its words are in _copy/site.md. A page can open the band with a
+section of its own: lead="work" puts the text after the front matter of
+_copy/work.md (a "## " heading and its paragraphs) above the contact line.{% endcomment -%}
+{%- if include.lead -%}
+  {%- include copy.html name=include.lead -%}
+  {%- assign lead_html = copy.content | split: '<h2' | last -%}
+  {%- include copy-head.html html=lead_html tag="h2" -%}
+  {%- assign lead_head = head -%}
+  {%- assign lead_rest = rest -%}
+{%- endif -%}
 {%- include copy.html name="site" %}
 <section class="contact-bar" id="contact" aria-labelledby="contact-h">
   <div class="bar-raven" aria-hidden="true"></div>
   <div class="wrap contact-bar-in">
+    {%- if include.lead %}
+    <div class="contact-bar-lead">
+      <h2>{{ lead_head }}</h2>
+      <div class="cols">{{ lead_rest }}</div>
+    </div>
+    {%- endif %}
     <div class="contact-bar-text">
       <h2 id="contact-h">{{ copy.contact_heading | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2>
       {%- if copy.contact_text %}

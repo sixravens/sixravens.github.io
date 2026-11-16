@@ -2,22 +2,30 @@
 layout: sr
 title: Work
 nav: work
+band: work   # the text below the front matter of _copy/work.md opens the amber contact band
 permalink: /next/work
 description: >-
-  We build, test, and investigate security capabilities. The technical work
-  matters, but so does the organization expected to operate what we've built.
+  Six Ravens investigates the whole system: the people, technology and
+  institutional forces whose interactions produce outcomes that no one
+  necessarily anticipated.
 ---
-{%- comment %}The words are in _copy/work.md and _data/work.yml; this file is only the layout.{% endcomment -%}
+{%- comment %}The words are in _copy/work.md and _data/work.yml; this file is only the layout.
+Each area is in four parts (see the head of _data/work.yml), each in its own place:
+the opening in two columns, the engagement as cards, then the pull and the
+result in one column.{% endcomment -%}
 {%- include copy.html name="work" -%}
 <section class="opening">
   <div class="wrap">
     <h1>{{ copy.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
     <div class="opening-text">
       <p class="lede">{{ copy.lede | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {%- if copy.intro %}
+      <p class="intro">{{ copy.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      {%- endif %}
       <nav class="toc" aria-label="On this page">
         <ol>
           {%- for a in site.data.work %}
-          <li{% if a.id == 'ai' %} class="is-ai"{% endif %}><a href="#{{ a.id }}"><span class="no">{{ forloop.index0 | prepend: '00' }}</span><span>{{ a.title }}</span></a></li>
+          <li><a href="#{{ a.id }}"><span class="no">{{ forloop.index0 | prepend: '00' }}</span><span>{{ a.title }}</span></a></li>
           {%- endfor %}
         </ol>
       </nav>
@@ -26,10 +34,28 @@ description: >-
 </section>
 
 {% for a in site.data.work %}
-<section class="sec work-area{% if a.id == 'ai' %} is-ai{% endif %}" aria-labelledby="{{ a.id }}">
+{%- assign odd = forloop.index0 | modulo: 2 %}
+<section class="sec work-area{% if odd == 1 %} alt{% endif %}" aria-labelledby="{{ a.id }}">
   <div class="wrap">
     <div class="sec-head"><span class="no">{{ forloop.index0 | prepend: '00' }}</span><h2 id="{{ a.id }}">{{ a.title }}</h2></div>
-    <div class="sec-body prose">{{ a.body | markdownify }}</div>
+    <div class="sec-body wa">
+      <div class="cols">
+        {{ a.opening | markdownify }}
+      </div>
+      <ul class="cases">
+        {%- assign items = a.engagement | markdownify | split: '<li>' -%}
+        {%- for li in items offset: 1 %}
+        {%- assign it = li | remove: '</li>' | remove: '</ul>' | strip -%}
+        {%- assign lead = it | split: '</strong>' | first -%}
+        {%- assign rest = it | remove_first: lead | remove_first: '</strong>' | strip %}
+        <li><h3>{{ lead | remove: '<strong>' | strip }}</h3><p>{{ rest }}</p></li>
+        {%- endfor %}
+      </ul>
+      <div class="wa-close">
+        <p class="pull">{{ a.pull | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {{ a.result | markdownify }}
+      </div>
+    </div>
   </div>
 </section>
 {% endfor %}

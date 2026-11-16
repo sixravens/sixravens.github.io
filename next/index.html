@@ -58,7 +58,7 @@ Sections are numbered, and alternate panels, in the order they come.{% endcommen
       {%- endif %}
       <div class="areas">
         {%- for a in site.data.work %}
-        <a class="area{% if a.id == 'ai' %} is-ai{% endif %}" href="{{ site.sr_url }}/work#{{ a.id }}">
+        <a class="area" href="{{ site.sr_url }}/work#{{ a.id }}">
           <h3>{{ a.title }} <span class="go" aria-hidden="true">&rarr;</span></h3>
           <p>{{ a.short }}</p>
         </a>

@@ -12,7 +12,7 @@
       <ul>
         <li><a href="{{ site.sr_url }}/"{% if include.active == 'home' %} aria-current="page"{% endif %}>home</a></li>
         <li><a href="{{ site.sr_url }}/work"{% if include.active == 'work' %} aria-current="page"{% endif %}>work</a></li>
-        <li><a href="{{ site.owr_url }}/"{% if include.active == 'owr' %} aria-current="page"{% endif %}>one white raven</a></li>
+        <li><a class="to-owr" href="{{ site.owr_url }}/"{% if include.active == 'owr' %} aria-current="page"{% endif %}>one white raven</a></li>
         <li><a class="btn btn-sm" href="{% if include.contact %}{{ include.contact }}{% else %}{{ site.sr_url }}/#contact{% endif %}">contact</a></li>
       </ul>
     </nav>

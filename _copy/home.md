@@ -5,7 +5,7 @@
 # end of each heading line says how it is laid out. Numbers and panel colours
 # follow the order. A section with no tag is set as plain text.
 #
-#   {#what}     The four tiles, from _data/work.yml. A "### " heading and text
+#   {#what}     The area tiles, from _data/work.yml. A "### " heading and text
 #               here sits above them, set like a sidebar.
 #   {#think}    A "> " paragraph is the pull quote. A "### " heading and what
 #               follows it is the sidebar beside the text.
@@ -18,7 +18,7 @@
 #               last paragraph goes in the card. (The email address is in the
 #               amber contact band at the foot of the page: _copy/site.md.)
 #   {#name}     Plain text; the last paragraph is set off by a short amber rule.
-title: Red team your *understanding*.
+title: Red team your *understanding.*
 lede: >-
   Organizations make consequential decisions based on what they believe about
   their security programs. We investigate whether those beliefs survive contact
@@ -29,18 +29,19 @@ placeholder: false   # tags "How an engagement runs" as a placeholder; delete wh
 ---
 ## How we think {#think}
 
-Six Ravens is an independent security research and engineering practice. We build and improve detection and response, test preparedness, and investigate failures.
+Six Ravens is an independent security research and advisory practice specializing in detection and response, preparedness and independent investigations.
 
-Technology doesn’t operate independently of the people and institutions that build and use it. A missed alert may say less about the detection than about what the organization has learned to ignore. A misconfiguration may have been a reasonable decision by someone working with incomplete information. A control may have passed every assessment without anyone asking what it accomplished.
+Technology doesn't operate independently of the people and institutions that build and use it. A missed alert may say less about the detection than about what the organization has learned to ignore. A misconfiguration may have been a reasonable decision by someone working with incomplete information. A control may have passed every assessment without anyone asking what it accomplished.
 
 > Every failure has a history. Most organizations read only the last page.
 
-We read the rest: the culture, decisions, incentives, assumptions, and habits that shape how an organization operates. The work draws on security engineering, and on psychology, sociology, economics, and history, fields that studied how people think and act long before security existed.
-
+We read the rest: the culture, decisions, incentives, assumptions and habits that shape how an organization operates. The work draws on security engineering, psychology, sociology, economics and history, fields that studied how people think and act long before security existed.
 
 ### AI is not a separate problem
 
-AI arrives in most organizations the way everything else does: as urgency. A new capability, a new competitor, a new headline, each demanding a response, until agents are acting throughout the business. What rarely arrives with them is a way to think about them. Most responders have no working model for an incident in which the actor was authorized, its reasoning that can’t be inspected, and its own account of events that can’t be trusted. Handing the problem to more AI doesn’t supply one, it moves the same questions up a layer. We help organizations build that mental model, and the detection and response capabiities that follow from it.
+AI is changing the security programs organizations operate and the businesses those programs protect. Vendor tools increasingly interpret evidence and recommend actions, while AI-enabled business systems and agents exercise permissions and make decisions of their own.
+
+We investigate the consequences of those changes: what authority these systems have, how people come to trust their output, what independent evidence exists when they're wrong, and how organizations can respond. Our expertise lies in the security implications of deploying and relying on AI, rather than developing the underlying models.
 
 ## What we do {#what}
 
@@ -48,33 +49,33 @@ AI arrives in most organizations the way everything else does: as urgency. A new
 
 ### We begin with a conversation
 
-You tell us what prompted the call. We ask about the business: what it depends on, who keeps it running, and what has changed recently. Together we settle on a scope small enough to finish and specific enough to matter.
+Tell us what prompted the call. We ask about the people, capabilities and circumstances involved, and what you're hoping to understand or change. Together we establish a focused question, an agreed scope and a clear end to the work.
 
 ### We work alongside your people
 
-Most of the work happens with the people who run your systems and respond when something goes wrong. We read what they read, test what they rely on, and learn how decisions actually get made. What we need from you is access to people and systems.
+The people inside an organization bring knowledge and experience that no outside investigator can replace. We work with them to examine evidence, understand decisions, challenge interpretations and develop conclusions grounded in their circumstances.
 
-### You get a plain accounting of what we find
+### The work has a purpose beyond the report
 
-A written report for the people who have to act on it: what we found, how it came to be, what it means for your business, and what to change first. We walk through it with you and stay available while you act on it.
+Depending on the engagement, that might be an independent reconstruction, an exercise record, an analysis of consequential dependencies or a team identity its members helped create. The work establishes something the organization can use, whether that's a better-informed decision, a change in how people operate or a capability its people can sustain.
 
 ## Selected reading {#reading}
 
 From [*one white raven*](owr), a publication of Six Ravens.
 
-*One White Raven* investigates how people create, interact with, and adapt to complex systems—and how those interactions shape what we believe, how we behave, and what ultimately happens. We draw on research across disciplines to examine these relationships, particularly where technology and artificial intelligence are changing their nature.
+*one white raven* investigates how people create, interact with, and adapt to complex systems—and how those interactions shape what we believe, how we behave, and what ultimately happens. We draw on research across disciplines to examine these relationships, particularly where technology and artificial intelligence are changing their nature.
 
 ## When we're useful {#contact}
 
-Most engagements begin when an organization is building out a security capability, doubts an assurance that looks better on paper than in practice, or has contained an incident it doesn’t yet understand. Increasingly, they begin with a question few can answer: what does AI change about how we detect and respond?
+Most engagements begin with a question that doesn't have an obvious answer. A detection program is meeting its targets, but the people running it have concerns about its effectiveness. An incident has been resolved, yet important questions remain about how it became possible. A new technology or outside provider is taking on responsibilities the organization hasn't had to delegate before. Or a security leader wants to bring a team together around an identity and purpose its members can make their own.
 
-Whether building or scaling detection and response, running an exercise, or investigating an incident, the work starts with the business: the systems that matter, the people who keep them secure, and what they can observe, investigate, and decide when something goes wrong. No framework or taxonomy knows any of that about your organization. Every detection should land with someone who knows what it means and can act on it. Every response should be steady enough that people can do their jobs instead of reacting to every alarm. We build toward those moments, rehearse them, and reconstruct them when they fail.
+These are different circumstances, but they have something in common: the answer depends on more than examining the technology or reviewing a process. It requires understanding the people, decisions and relationships involved, and how they influence one another.
 
-A critical vulnerability is disclosed. A vendor issues an advisory. An executive forwards an article. In a lot of organizations, each one turns into a two-week scramble that pulls people off the work that would actually make the organization safer. That reflex has causes, and they’re rarely technical. We spend a lot of time studying them. We help organizations build the judgment to decide what deserves a response, and the standing to say so. Programs improve in the quiet stretches between emergencies. We help create more of them.
+We follow those questions wherever the evidence leads, whether they concern a particular capability or extend across the organization. What begins as an inquiry into one part of a security program may reveal something consequential somewhere else. Our work connects those findings to decisions that can make a meaningful difference.
 
-### The Fine Print
+### The fine print
 
-We’re small by design. We take on focused engagements, don’t operate a SOC or provide emergency incident response, and don’t sell security products or collect referral fees.
+We're small by design. We take on focused, scoped engagements rather than operating a SOC or providing emergency incident response. We don't sell security products or collect referral fees. Our role is investigative and advisory, with findings and recommendations grounded in evidence.
 
 ## On the name {#name}
 

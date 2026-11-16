@@ -113,9 +113,16 @@ body { font-size: 16px; line-height: 1.65; }
 .alt { background: var(--bg-2); border-top-color: transparent; }
 .alt .owr-list a:hover { background: var(--bg-3); }
 
-/* Canary, the third colour, marks AI wherever it comes up. */
-.area.is-ai::before, .think-aside::before { background: var(--canary); }
-.is-ai .no, .think-aside h3 abbr { color: var(--canary); }
+/* Canary, the third colour, marks one white raven on Six Ravens pages (the
+   practice is amber, the publication canary) and the asides set beside the
+   text. --canary for rules and marks, --canary-text, lighter, for words. */
+:root { --canary-text: color-mix(in srgb, var(--canary) 72%, #fff); }
+.owr .sec-head .no, .owr .sec-head h2, .owr .toc-no, .owr .more { color: var(--canary-text); }
+.owr-from a { text-decoration-color: var(--canary) !important; }
+.owr-from a:hover { color: var(--canary-text) !important; }
+.owr-list a:hover .toc-title { color: var(--canary-text); }
+.nav ul a.to-owr:not(.btn):hover { border-bottom-color: var(--canary); }
+.foot a.to-owr:hover { color: var(--canary-text); }
 .alt + .sec { border-top-color: transparent; }
 .band { background: var(--bg); color: var(--fg-2); border-top: 0; }
 .band + .sec { border-top: 0; }
@@ -129,13 +136,15 @@ body { font-size: 16px; line-height: 1.65; }
   letter-spacing: -.005em;
 }
 .pull::before { content: ""; display: block; width: 40px; height: 2px; margin: 0 0 18px; background: var(--amber); }
-/* 001's sidebar; 004's card beside the contact text is set the same way, in amber */
-.think-aside, .contact-card { position: relative; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
-.think-aside::before, .contact-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; }
-.contact-card::before { background: var(--amber); }
+/* The asides: AI beside how we think, the fine print beside when we're
+   useful. Both the same: a short canary rule, as over the pulls, then a
+   heading, the text in italic, a little smaller (to revisit) */
+.think-aside, .contact-card { position: relative; margin-top: 36px; }
+.think-aside::before, .contact-card::before { content: ""; display: block; width: 40px; height: 2px; margin: 0 0 18px; background: var(--canary); }
 .think-aside h3, .contact-card h3 { margin: 0 0 10px; color: var(--fg); font-size: 1.125rem; font-weight: 500; }
 .think-aside h3 abbr { text-transform: none; text-decoration: none; }
-.think-aside p { margin: 0; }
+.think-aside p, .contact-card p { margin: 0; font-size: .9em; font-style: italic; line-height: 1.6; }
+.think-aside p + p, .contact-card p + p { margin-top: 1em; }
 .think-aside.what-aside { max-width: 40rem; margin: 0 0 clamp(32px, 4vw, 56px); }
 
 /* 002 engagement steps: a timeline, not numbers. A line runs through the
@@ -155,7 +164,6 @@ body { font-size: 16px; line-height: 1.65; }
 /* 003 one white raven: the list as the publication shows it */
 .owr-intro { max-width: 44rem; margin: 0 0 32px; }
 .owr-from { color: var(--fg); font-size: clamp(1.125rem, 1.5vw, 1.3rem); line-height: 1.5; }
-.owr .sec-head h2 { color: var(--amber); }
 .owr-from a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--amber); text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .owr-from a:hover { color: var(--accent-text); }
 .sep { margin: 0 .45em; color: var(--rule); }
@@ -227,10 +235,15 @@ main.sr + .foot { margin-top: 0; }
 .contact-bar .email { margin-top: clamp(24px, 3vw, 36px); }
 .contact-bar p { margin: 0; max-width: 34rem; color: var(--on-accent); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.5; }
 .contact-bar .email, .contact-bar .email-go { color: var(--on-accent); }
+/* A page's own section opening the band (Working together on work): set as
+   the band's own heading and text, the contact line following it */
+.contact-bar-lead { margin-bottom: clamp(48px, 6vw, 80px); }
+.contact-bar-lead .cols p { max-width: none; margin: 0 0 1em; }
 .contact-bar .email:hover { color: var(--on-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
 @media (min-width: 1040px) {
   .contact-bar-in { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
   .contact-bar-text { grid-column: 3 / span 6; }
+  .contact-bar-lead { grid-column: 3 / -1; }
 }
 
 /* 004 contact */
@@ -259,6 +272,7 @@ main.sr + .foot { margin-top: 0; }
 .toc ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .toc a {
   display: flex;
+  align-items: baseline;
   gap: 14px;
   padding: 10px 0;
   border-bottom: 1px solid var(--rule);
@@ -269,24 +283,35 @@ main.sr + .foot { margin-top: 0; }
 .toc a span:last-child { text-transform: lowercase; }
 .toc a abbr { text-transform: none; text-decoration: none; }
 .toc a:hover { color: var(--fg); }
-.toc .no { padding-top: .1em; }
 .prose { max-width: 40rem; }
-.work-area .prose ul { margin: 0 0 1.1em; padding-left: 1.1em; }
-.work-area .prose li { margin: 0 0 .6em; }
-.work-area .prose li::marker { color: var(--muted); }
 /* Work: each area opens on a big, solid heading; the lead under it steps back
    to grey so the heading carries the section */
 .work-area .sec-head h2, .work-area .sec-head .no { font-size: clamp(2.4rem, 4.6vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
 .work-area .sec-head h2 { font-weight: 500; }
 .work-area .sec-head { margin-bottom: clamp(28px, 3.5vw, 52px); }
-.work-area .prose > p:first-child { color: var(--fg-2); font-size: clamp(1.125rem, 1.5vw, 1.3rem); line-height: 1.5; }
+/* Each area: the opening in two columns, set exactly as the text around it
+   (the same columns as Working together); the engagement as cards; then the
+   pull, as on home, with the result under it in one column. One style for all
+   of the text besides the pull; the card leads are bold. */
+.wa-close { max-width: 40rem; }
+.wa-close > :last-child { margin-bottom: 0; }
+.cases { display: grid; gap: 0 var(--col-gap); margin: clamp(28px, 3.5vw, 48px) 0 clamp(36px, 5vw, 64px); padding: 0; list-style: none; }
+/* a card: a rule with an amber stub, as the tiles on home */
+.cases li { position: relative; padding: 20px 0 28px; border-top: 1px solid var(--rule); }
+.cases li::before { content: ""; position: absolute; top: -1px; left: 0; width: 32px; height: 2px; background: var(--amber); }
+.cases h3 { margin: 0 0 6px; color: var(--fg); font-size: 1em; font-weight: 600; line-height: inherit; text-transform: none; }
+.cases p { margin: 0; }
+/* the pull in italic, its short rule in canary, as the asides on home */
+.wa-close .pull { margin-top: 0 !important; font-style: italic; }
+.wa-close .pull::before { background: var(--canary); }
+.cols { max-width: none; column-gap: var(--col-gap); }
 
 /* ---------- Wider screens ---------- */
 @media (min-width: 720px) {
   :root { --gutter: 32px; }
   body { font-size: 17px; }
-  .areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cols { columns: 2; column-gap: 48px; }
+  .areas, .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols { columns: 2; }
   .cols p { break-inside: avoid; }
 }
 @media (min-width: 1040px) {
@@ -296,7 +321,7 @@ main.sr + .foot { margin-top: 0; }
   /* The lede, with any intro stacked under it; the work page's contents beside */
   .opening-text .lede { grid-column: 1 / span 6; }
   .opening-text .intro { grid-column: 1 / span 6; margin-top: 0; }
-  .opening-text .toc { grid-column: 8 / span 5; margin-top: 0; padding-top: .35em; }
+  .opening-text .toc { grid-column: 8 / span 5; grid-row: 1 / span 2; align-self: start; margin-top: 0; padding-top: .35em; }
 
   .sec .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
   .sec-head { display: contents; }
@@ -305,7 +330,7 @@ main.sr + .foot { margin-top: 0; }
   .work-area .sec-head > :not(.no) { margin-bottom: clamp(28px, 3.5vw, 52px); }
   .sec-body { grid-column: 3 / -1; }
 
-  .areas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .steps li { padding: 30px 0 0; }
   .steps li::before { top: 0; }
@@ -323,14 +348,8 @@ main.sr + .foot { margin-top: 0; }
     mask-image: linear-gradient(to right, transparent, #000 35%, #000 65%, transparent), linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent); }
   .toc-meta { grid-column: 3; grid-row: 1; flex-direction: column; align-items: flex-end; gap: 2px; }
 
-  /* Work: the opening paragraph on the left, the detail beside it */
-  .work-area .prose {
-    max-width: none;
-    display: grid;
-    grid-template-columns: repeat(10, minmax(0, 1fr));
-    column-gap: var(--col-gap);
-    align-items: start;
-  }
-  .work-area .prose > p:first-child { grid-column: 1 / span 4; grid-row: 1 / span 9; margin: 0; }
-  .work-area .prose > :not(:first-child) { grid-column: 6 / -1; }
+}
+/* Home: five areas, three to a row until there is room for all five */
+@media (min-width: 1280px) {
+  .areas { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
