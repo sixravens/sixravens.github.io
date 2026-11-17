@@ -1,0 +1,185 @@
+# The events in the 002 figure on /next/v2, in groups. Each one:
+#   what  what happens (the first line of the caption)
+#   so    what it changed (the second line, after the arrow)
+#   by    how far each named force moves, in ring radii: + moves it out,
+#         away from the others; - brings it in. Forces: knowledge, authority,
+#         incentives, relationships, identity, technology.
+#   w     1 if it tends to bring things together, -1 if it pulls them apart,
+#         0 if neither. When the forces are badly out of step, only 1s come
+#         up; when they're locked tight, only -1s.
+# Add, cut or reword freely; the page picks them at random.
+
+
+# Existing events
+- what: "A senior engineer leaves."
+  so: "what they knew leaves with them."
+  by: { knowledge: 0.45 }
+  w: -1
+- what: "A vendor stops sharing telemetry."
+  so: "nothing has failed. we simply know less."
+  by: { technology: 0.55, knowledge: 0.2 }
+  w: -1
+- what: "A reorg moves the decision."
+  so: "who decides is no longer who knows."
+  by: { authority: 0.45, relationships: 0.2 }
+  w: -1
+- what: "The metric becomes the target."
+  so: "everyone agrees on the number. fewer question it."
+  by: { knowledge: -0.25, authority: -0.25, incentives: -0.3, relationships: -0.25, identity: -0.3, technology: -0.25 }
+  w: 0
+- what: "An AI starts triaging alerts."
+  so: "faster, and fewer people see why."
+  by: { technology: -0.2, knowledge: 0.3 }
+  w: -1
+- what: "A new hire asks why."
+  so: "friction, then fewer things get explained away."
+  by: { identity: 0.35 }
+  w: 1
+- what: "The runbook gets rewritten."
+  so: "what one person knew, everyone can."
+  by: { knowledge: -0.4 }
+  w: 1
+- what: "A tabletop exposes confusion."
+  so: "found safely, before it mattered."
+  by: { authority: -0.3, relationships: -0.3 }
+  w: 1
+- what: "Teams start sharing incidents."
+  so: "what one team learns, the next one knows."
+  by: { relationships: -0.4, identity: -0.15 }
+  w: 1
+- what: "The new tool finally gets tuned."
+  so: "the evidence starts meaning something."
+  by: { technology: -0.45 }
+  w: 1
+
+# Knowledge and institutional memory
+- what: "An old incident gets revisited."
+  so: "the facts stayed put. the explanation changed."
+  by: { knowledge: -0.35, identity: 0.12 }
+  w: 1
+- what: "An assumption becomes policy."
+  so: "what was once a judgment is now a rule."
+  by: { knowledge: 0.25, authority: -0.15, identity: -0.1 }
+  w: 0
+- what: "The last skeptic retires."
+  so: "agreement becomes easier. so does being wrong."
+  by: { knowledge: 0.3, identity: -0.15 }
+  w: -1
+- what: "An analyst documents a workaround."
+  so: "an exception becomes something others can examine."
+  by: { knowledge: -0.25, relationships: -0.12 }
+  w: 1
+- what: "A new team inherits the dashboard."
+  so: "the numbers survive. their meaning may not."
+  by: { knowledge: 0.3, relationships: 0.12 }
+  w: -1
+
+# Authority and decision-making
+- what: "Approval moves closer to the work."
+  so: "decisions get faster. judgment matters more."
+  by: { authority: -0.3, relationships: -0.12 }
+  w: 0
+- what: "A leader rewards dissent."
+  so: "disagreement becomes a contribution, not a risk."
+  by: { authority: -0.15, relationships: -0.25, identity: -0.2 }
+  w: 1
+- what: "A decision requires three signatures."
+  so: "accountability spreads. ownership becomes harder to find."
+  by: { authority: 0.35, incentives: 0.15 }
+  w: -1
+- what: "The incident commander delegates."
+  so: "more people can act without waiting."
+  by: { authority: -0.25, relationships: -0.2 }
+  w: 1
+- what: "An exception saves the day."
+  so: "the rule failed. someone's judgment didn't."
+  by: { authority: 0.18, knowledge: -0.15 }
+  w: 0
+
+# Incentives and institutional behavior
+- what: "Alert closure becomes a KPI."
+  so: "the queue improves. what gets investigated changes."
+  by: { incentives: -0.3, knowledge: 0.2 }
+  w: -1
+- what: "A team stops rewarding heroics."
+  so: "quiet competence becomes worth celebrating."
+  by: { incentives: -0.25, relationships: -0.2, identity: -0.1 }
+  w: 1
+- what: "A deadline moves forward."
+  so: "the work is the same. the acceptable shortcuts change."
+  by: { incentives: 0.3, relationships: 0.15 }
+  w: -1
+- what: "Leadership stops ranking teams."
+  so: "sharing knowledge no longer threatens the scoreboard."
+  by: { incentives: -0.3, relationships: -0.25 }
+  w: 1
+- what: "A missed incident becomes a scandal."
+  so: "the cost of admitting uncertainty just went up."
+  by: { incentives: 0.35, identity: 0.2 }
+  w: -1
+
+# Relationships, trust and culture
+- what: "Two teams investigate together."
+  so: "separate perspectives become shared evidence."
+  by: { relationships: -0.35, knowledge: -0.15 }
+  w: 1
+- what: "A manager admits uncertainty."
+  so: "other people discover they can, too."
+  by: { authority: -0.15, relationships: -0.25, identity: -0.12 }
+  w: 1
+- what: "The team develops its own traditions."
+  so: "belonging becomes something people build together."
+  by: { identity: -0.3, relationships: -0.2 }
+  w: 1
+- what: "A disagreement becomes personal."
+  so: "the next difficult conversation gets harder."
+  by: { relationships: 0.35, identity: 0.2 }
+  w: -1
+- what: "A successful response gets studied."
+  so: "good judgment becomes something the team can repeat."
+  by: { knowledge: -0.2, relationships: -0.2, identity: -0.15 }
+  w: 1
+
+# Technology and automation
+- what: "The platform consolidates three tools."
+  so: "fewer interfaces. more depends on one interpretation."
+  by: { technology: -0.3, knowledge: 0.18 }
+  w: 0
+- what: "The AI explanation becomes the evidence."
+  so: "the system is now corroborating itself."
+  by: { technology: -0.15, knowledge: 0.4 }
+  w: -1
+- what: "An agent gains a new integration."
+  so: "its authority grows beyond the original assumptions."
+  by: { technology: 0.25, authority: 0.22 }
+  w: -1
+- what: "Analysts begin checking the model."
+  so: "trust gains an independent source of evidence."
+  by: { knowledge: -0.3, technology: -0.12 }
+  w: 1
+- what: "A reliable automation becomes routine."
+  so: "the work gets easier. questioning it becomes rarer."
+  by: { technology: -0.2, knowledge: 0.22 }
+  w: 0
+
+# Dependencies and organizational boundaries
+- what: "Three vendors share one dependency."
+  so: "redundancy looked stronger than it was."
+  by: { technology: 0.3, knowledge: 0.2 }
+  w: -1
+- what: "A provider joins the exercise."
+  so: "the contractual boundary meets operational reality."
+  by: { relationships: -0.25, knowledge: -0.2 }
+  w: 1
+- what: "A service moves outside the company."
+  so: "the capability remains. control moves elsewhere."
+  by: { authority: 0.22, relationships: 0.2, technology: -0.12 }
+  w: 0
+- what: "Two departments merge."
+  so: "the org chart changes faster than the relationships."
+  by: { authority: 0.18, relationships: 0.3, identity: 0.2 }
+  w: -1
+- what: "A provider shares its incident timeline."
+  so: "two organizations can finally reconstruct one event."
+  by: { knowledge: -0.3, relationships: -0.18 }
+  w: 1

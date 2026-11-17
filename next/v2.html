@@ -1,0 +1,326 @@
+---
+layout: sr
+nav: home
+permalink: /next/v2/
+description: >-
+  Organizations make consequential decisions based on what they believe about
+  their security programs. We investigate whether those beliefs survive contact
+  with reality.
+---
+{%- comment %}Home, second composition: an exploration, beside /next/ rather than
+replacing it. The layout follows _inbox/six-ravens-homepage-v2.html, set in the
+house styles (the v2 block at the foot of sr.css); the motion is in
+assets/js/v2.js. Anything marked rv arrives as it scrolls into view. The words
+are inline here, not in _copy, until the composition is settled.{% endcomment -%}
+<script>document.documentElement.classList.add('v2js');
+/* trying faces for the claims: ?font=serif or ?font=sans (default: mono) */
+(function (f) { if (f) document.documentElement.dataset.font = f; })(new URLSearchParams(location.search).get('font'));</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+{%- comment %}Signals drift over the whole page, as in the 002 game; any that
+touch "understanding.", a section number or the corner raven turn amber.{% endcomment %}
+<canvas class="v2-motes" aria-hidden="true"></canvas>
+{%- assign work = site.sr_url | append: '/work' -%}
+<section class="opening v2-hero">
+  <div class="wrap">
+    <p class="v2-kicker lc rv">Six Ravens <span class="sep">·</span> independent security research + advisory</p>
+    <h1 class="v2-words">red team your <em class="v2-decode">understanding.</em></h1>
+    <div class="opening-text">
+      <p class="lede rv" style="--d: 900ms">Organizations make consequential decisions based on what they believe about their security programs. We investigate whether those beliefs survive contact with reality.</p>
+    </div>
+    {%- comment %}Beliefs, red-teamed: a rhetorical device set into the opening
+    (not on phones). Each claim types itself out under a hanging quote mark,
+    with its own number (fixed: the same claim always has the same one), and
+    its question answers it below and to the right, in a shuffled order. One
+    per li, the question in data-q.{% endcomment %}
+    <div class="v2-belief" aria-hidden="true">
+      <div class="v2-bel-say">
+        <span class="v2-bel-n"></span>
+        <p class="v2-bel-claim"><span class="t"></span><i class="caret"></i></p>
+        <p class="v2-bel-note"></p>
+      </div>
+      <ol class="v2-beliefs" hidden>
+        <li data-q="what would it cost someone to disagree?">Everyone agrees we're prepared.</li>
+        <li data-q="are we improving, or improving the metrics?">The metrics show we're improving.</li>
+        <li data-q="what earned that trust?">Our analysts trust the system.</li>
+        <li data-q="what have we learned from the incidents we didn't have?">We've never had a major incident.</li>
+        <li data-q="what made it reasonable?">The decision was reasonable at the time.</li>
+        <li data-q="when did the conditions that produced it begin?">We found the root cause.</li>
+        <li data-q="what happens when the person everyone relies on leaves?">The team knows what to do.</li>
+        <li data-q="who bears the consequences?">The vendor is responsible.</li>
+        <li data-q="whose priorities didn't make the list?">We're aligned on the priorities.</li>
+        <li data-q="is the explanation evidence, or another output?">The AI explained its decision.</li>
+        <li data-q="what happens when following it makes things worse?">Everyone follows the process.</li>
+        <li data-q="who decided what success should look like?">The program is working as designed.</li>
+        <li data-q="into what we've learned to look for?">We have complete visibility.</li>
+        <li data-q="what was outside its scope?">Our assessment found no significant gaps.</li>
+        <li data-q="who taught us what they mean?">The numbers speak for themselves.</li>
+        <li data-q="which assumptions make them visible?">We know where our risks are.</li>
+        <li data-q="is it independent of the system we're evaluating?">We have the evidence.</li>
+        <li data-q="did the conditions that produced them change?">Every finding has been addressed.</li>
+        <li data-q="who decided what it should examine?">The assessment was independent.</li>
+        <li data-q="toward whose definition of maturity?">The program has matured.</li>
+        <li data-q="what has consistency made harder to notice?">Our reporting is consistent.</li>
+        <li data-q="what matters that we cannot measure?">We measure what matters.</li>
+        <li data-q="do we trust their judgment when it contradicts ours?">We trust our people.</li>
+        <li data-q="does the organization learn from that experience?">Our analysts are experienced.</li>
+        <li data-q="by the people who depend on it, or those who designed it?">The process is well understood.</li>
+        <li data-q="who decides what reaches leadership?">Leadership has an accurate picture.</li>
+        <li data-q="who has the context to understand it?">Everyone has access to the information.</li>
+        <li data-q="what happened the last time someone did?">We encourage people to speak up.</li>
+        <li data-q="what happens when that culture is challenged?">We have a strong culture.</li>
+        <li data-q="what gives that pride meaning?">Our team takes pride in its work.</li>
+        <li data-q="what perspectives might we be selecting against?">We hire people who fit our culture.</li>
+        <li data-q="do they also have the authority to act?">People know they're accountable.</li>
+        <li data-q="which decisions still require permission?">We've empowered our teams.</li>
+        <li data-q="what changed in how decisions are made?">The organization learned its lesson.</li>
+        <li data-q="what behavior does the reward actually produce?">We reward good performance.</li>
+        <li data-q="what work has become invisible?">The team is highly efficient.</li>
+        <li data-q="what did we reasonably know when we made it?">We made the right decision.</li>
+        <li data-q="was following it the right thing to do?">The procedure was followed.</li>
+        <li data-q="what purpose was the exception serving?">We eliminated the exception.</li>
+        <li data-q="which differences did the standard erase?">We standardized the process.</li>
+        <li data-q="what new dependencies did we create?">The new system is more capable.</li>
+        <li data-q="to the failures we've imagined, or those we haven't?">Our architecture is resilient.</li>
+        <li data-q="how does the organization understand it collectively?">No one understands the whole system.</li>
+        <li data-q="when does its reliability become an assumption?">The automation is reliable.</li>
+        <li data-q="what changes when people begin relying on it?">The model performs well in testing.</li>
+        <li data-q="what authority does the policy actually grant?">The agent operates within policy.</li>
+        <li data-q="what would make an unreasonable output recognizable?">The output looks reasonable.</li>
+        <li data-q="what must a human know to exercise it?">Human oversight is required.</li>
+        <li data-q="which judgments have we delegated?">We've reduced human intervention.</li>
+        <li data-q="what do we know about the service we actually depend on?">The provider has excellent security.</li>
+        <li data-q="does it make effective action possible?">The contract makes accountability clear.</li>
+        <li data-q="which dependencies do they share?">We have multiple providers.</li>
+        <li data-q="what did containment leave unresolved?">The incident was contained.</li>
+        <li data-q="which explanations remain untested?">The investigation is complete.</li>
+        <li data-q="which warning signs only became obvious afterward?">Nobody could have predicted this.</li>
+        <li data-q="what made success possible?">The response was successful.</li>
+        <li data-q="what did recovery depend upon?">We recovered quickly.</li>
+        <li data-q="what have those investments enabled us to do?">We've invested heavily in security.</li>
+        <li data-q="what made that adaptation possible?">The team adapted under pressure.</li>
+        <li data-q="how do we recognize when our expectations are wrong?">We can handle the unexpected.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2" aria-labelledby="intro">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">the practice</p><span class="no">000</span><h2 id="intro" class="v2-words">Specialists in security. Students of organizations.</h2></div>
+    <div class="sec-body v2-split">
+      <div class="v2-text rv">
+        <p class="v2-first">Six Ravens is an independent security research and advisory practice specializing in detection and response, incident investigations and organizational preparedness. We examine how these capabilities work in practice, bringing together technical evidence and the people, decisions and institutional conditions that shape their effectiveness.</p>
+        <p>Our work also encompasses third-party relationships and security culture. We investigate how outside organizations influence a company's security capabilities, and help security teams build the identity, trust and shared purpose that make people more effective together.</p>
+        <p>Security programs reflect years of decisions about architecture, staffing, investments, leadership, outside providers and the way people work together. Those decisions shape not only what an organization can do, but what it believes about its ability to do it.</p>
+      </div>
+      <aside class="v2-idea rv" style="--d: 250ms">
+        <p class="v2-kicker lc">the central idea</p>
+        <h3 class="v2-words">Understanding is part of security.</h3>
+        <p>We look beyond whether technology works as designed to how organizations come to understand, depend upon and adapt to it.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2 alt" id="practice" aria-labelledby="what">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">what we do</p><span class="no">001</span><h2 id="what" class="v2-words">Five kinds of work.<br>One way of looking.</h2></div>
+    <div class="sec-body">
+      <p class="v2-lead rv">Our deepest specialization is detection and response. The same attention to technical, human and institutional conditions runs through everything we do.</p>
+      <a class="v2-feature rv" href="{{ work }}#detection">
+        <div>
+          <p class="v2-label"><span class="no">01</span> deepest specialization</p>
+          <h3>Detection<br>+ response.</h3>
+          <p class="v2-blurb">Understand what your program can recognize, what it can do about it, and why.</p>
+        </div>
+        <div class="v2-feature-text">
+          <p>Detection and response is where years of security decisions become consequential. Architecture, intelligence, staffing, governance and the choices made about tools and processes shape what an organization recognizes and how it acts.</p>
+          <p>We investigate how technical capabilities, human judgment, incentives and institutional structures influence outcomes. A detection rule can work exactly as written while the program around it produces an unexpected result.</p>
+          <span class="v2-go">the full engagement <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <div class="v2-minis rv-group">
+        <a class="v2-mini rv" href="{{ work }}#investigations">
+          <p class="v2-label"><span class="no">02</span> independent investigations</p>
+          <h3>What happened, and how did it become possible?</h3>
+          <p>We reconstruct incidents and near misses beyond the immediate technical sequence, considering what people knew, the evidence they had and the institutional conditions around their decisions.</p>
+          <span class="v2-go">independent investigations <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="v2-mini rv" href="{{ work }}#preparedness">
+          <p class="v2-label"><span class="no">03</span> preparedness + exercises</p>
+          <h3>Experience the decision before the incident.</h3>
+          <p>Realistic exercises bring ambiguity, conflicting information and uncertain authority into view. The resulting decision histories show how people, plans and providers actually work together under pressure.</p>
+          <span class="v2-go">preparedness <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="v2-mini rv" href="{{ work }}#third-party">
+          <p class="v2-label"><span class="no">04</span> third-party relationships</p>
+          <h3>Other organizations are part of your security.</h3>
+          <p>Cloud services, SaaS, managed providers and outside specialists affect what your organization can control and how it can respond. We examine the technical, contractual and operational consequences of that reliance.</p>
+          <span class="v2-go">third-party relationships <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="v2-mini rv" href="{{ work }}#culture">
+          <p class="v2-label"><span class="no">05</span> security culture + identity</p>
+          <h3>Build something people want to belong to.</h3>
+          <p>We help teams create their own identity, traditions and shared experiences, and develop the trust and confidence to challenge decisions, speak up and do difficult work together.</p>
+          <span class="v2-go">culture + identity <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2" id="ideas" aria-labelledby="think">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">how we think</p><span class="no">002</span><h2 id="think" class="v2-words">Behavior isn't a component.<br>It's what the system produces.</h2></div>
+    <div class="sec-body">
+      <p class="v2-lead rv">A security outcome doesn't reside in a tool, an analyst, a policy or a vendor. It emerges from what happens between them.</p>
+      <div class="v2-split v2-think">
+        {%- comment %}Emergence (v2.js): six illustrative forces (not a framework:
+        six is the ravens), each tied to some of the others, so moving one moves
+        its neighbours. Things happen, good and bad, and add up: the forces
+        drift out of step and back, but never all the way apart. Signals are
+        handled where all six overlap; the rare unexpected one (white) is
+        noticed only where five do, and explained away where all six agree.
+        Each event is captioned the way the claims in the opening are: what
+        happened, and what it changed. The events are in _data/v2_events.yml.
+        Drag a ring with a mouse; tap or click for the next event.{% endcomment %}
+        <figure class="v2-fig rv" aria-label="Six overlapping forces: knowledge, authority, incentives, relationships, identity and technology. Events move them apart and back together, changing what the organization handles and what it notices.">
+          <div class="v2-stage">
+            <canvas class="v2-canvas" aria-hidden="true"></canvas>
+          </div>
+          <div class="v2-said" aria-live="polite">
+            <p class="v2-said-what"></p>
+            <p class="v2-said-so"></p>
+          </div>
+          <script type="application/json" class="v2-events">{{ site.data.v2_events | jsonify }}</script>
+        </figure>
+        <div class="v2-text">
+          <p class="pull v2-seq rv"><span>Some complexity is inherent.</span> <span>Some is inherited.</span> <span>Some is created by choices nobody remembers making.</span></p>
+          <div class="rv">
+            <p>We can't simplify away the mathematics inside a model, the architecture of a distributed system or the technical facts of an incident. Those demand genuine engineering knowledge.</p>
+            <p>But the arrangements around those technologies are different. Who sees the evidence? Who can question an automated interpretation? What happens when one team needs another to act? Which metrics shape the choices people make? Those conditions develop through people and institutions, and they can be investigated.</p>
+            <p>Our work combines technical investigation with attention to culture, incentives, authority, history and organizational knowledge. The objective isn't to identify a single broken component. It's to understand the behavior the whole system produces, including what works well and why.</p>
+          </div>
+          <aside class="think-aside v2-aside rv">
+            <h3><abbr>AI</abbr> makes this more consequential</h3>
+            <p>Security tools and business systems increasingly interpret evidence, exercise permissions and make decisions. Our questions about trust, authority, independent evidence and organizational response apply to these systems, too.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment %}The one paper section on the page: the contrast is the point.{% endcomment %}
+<section class="sec v2 v2-paper" data-theme="paper" id="useful" aria-labelledby="clients">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">when we're useful</p><span class="no">003</span><h2 id="clients" class="v2-words">There's a reason you called.</h2></div>
+    <div class="sec-body">
+      <p class="v2-lead rv">Not every engagement begins because something went wrong. Often the organization has a consequential question that deserves an independent examination or an experienced outside perspective.</p>
+      <div class="v2-uses rv-group">
+        <article class="rv">
+          <p class="v2-label"><span class="no">01</span> a new leader</p>
+          <h3>You inherited the security program.</h3>
+          <p>You weren't there for the decisions that built it. The metrics, architecture, priorities and operating assumptions come with their own history.</p>
+          <p class="v2-result"><span>Establish what deserves confidence, what has changed, and which decisions matter now.</span></p>
+        </article>
+        <article class="rv">
+          <p class="v2-label"><span class="no">02</span> an incident or near miss</p>
+          <h3>The immediate incident is over. The questions aren't.</h3>
+          <p>The technical sequence may be clear while the organizational circumstances that made it possible remain poorly understood.</p>
+          <p class="v2-result"><span>Get an evidence-based reconstruction that accounts for what people knew at the time.</span></p>
+        </article>
+        <article class="rv">
+          <p class="v2-label"><span class="no">03</span> dependencies</p>
+          <h3>You've delegated the work. Not the consequences.</h3>
+          <p>Outside providers and connected systems make decisions that affect the organization, often beyond its direct control.</p>
+          <p class="v2-result"><span>Understand the dependencies, authority and expectations that determine what happens when they matter.</span></p>
+        </article>
+        <article class="rv">
+          <p class="v2-label"><span class="no">04</span> culture + capability</p>
+          <h3>A capable team can become a community.</h3>
+          <p>Teams develop their own habits and identity whether anyone intends it or not. Those qualities affect trust, judgment and collaboration.</p>
+          <p class="v2-result"><span>Build a shared identity and experiences the people involved can sustain themselves.</span></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2" id="process" aria-labelledby="how">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">how an engagement runs</p><span class="no">004</span><h2 id="how" class="v2-words">Serious work. Plain arrangements.</h2></div>
+    <div class="sec-body">
+      <ol class="steps v2-steps rv-group">
+        <li class="rv"><h3>Begin with the question.</h3><p>Tell us what prompted the call. We ask about the people, capabilities and circumstances involved, and agree on a focused question, a scope and an end to the work.</p></li>
+        <li class="rv"><h3>Work alongside your people.</h3><p>They bring knowledge no outside investigator can replace. Together we examine evidence, understand decisions and challenge interpretations grounded in the organization's circumstances.</p></li>
+        <li class="rv"><h3>Leave something useful.</h3><p>An independent reconstruction, exercise decision history, analysis of dependencies, or a team identity and traditions its members helped create. The outcome is suited to the engagement, not a predetermined report template.</p></li>
+      </ol>
+      <aside class="v2-fine rv">
+        <h3>The fine print</h3>
+        <p>Six Ravens undertakes focused investigative and advisory engagements. We don't operate a SOC, provide emergency incident response or assume operational responsibility for client systems.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{%- comment %}Experience: the three claims as the headline itself, each with the
+work behind it. Where it was done is still to come (the dashed slots).{% endcomment %}
+<section class="sec v2 alt" id="experience" aria-labelledby="built">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">the experience behind the work</p><span class="no">005</span><h2 id="built" class="vh">Built it. Led it. Investigated it.</h2></div>
+    <div class="sec-body">
+      <ol class="v2-claims rv-group" aria-hidden="true">
+        <li class="rv"><span class="v2-claim">Built it.</span><span class="v2-claim-text">Constructing a detection and response department.<span class="v2-org">organization</span></span></li>
+        <li class="rv"><span class="v2-claim">Led it.</span><span class="v2-claim-text">Executive security architecture and engineering leadership.<span class="v2-org">organization</span></span></li>
+        <li class="rv"><span class="v2-claim">Investigated it.</span><span class="v2-claim-text">Detection engineering, forensics, security investigations and major-incident response.<span class="v2-org">organization</span></span></li>
+      </ol>
+      <ul class="vh">
+        <li>Built: constructing a detection and response department.</li>
+        <li>Led: executive security architecture and engineering leadership.</li>
+        <li>Investigated: detection engineering, forensics, security investigations and major-incident response.</li>
+      </ul>
+      <p class="v2-lead v2-after rv">The practice draws on direct experience building and leading security capabilities inside complex organizations, not just examining them from the outside.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2 owr" id="writing" aria-labelledby="reading">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="v2-kicker lc">one white raven</p><span class="no">006</span><h2 id="reading" class="v2-words">The thinking behind the work.</h2></div>
+    <div class="sec-body">
+      <p class="v2-lead rv"><a class="v2-owr" href="{{ site.owr_url }}/"><em>one white raven</em></a> investigates how people create, interact with and adapt to complex systems, and how those interactions shape what we believe, how we behave, and what ultimately happens.</p>
+      <ol class="owr-list rv-group">
+        {%- include owr-order.html -%}
+        {%- for p in pieces limit: 3 %}
+        <li class="rv"><a href="{{ p.url | relative_url }}">
+          {% if p.hero %}<img class="toc-img" src="{{ p.hero.src | relative_url }}" alt="" loading="lazy" style="object-position:{{ p.hero.position }}">{% endif %}
+          <span class="toc-no">{% include piece-no.html n=p.number %}</span>
+          <span class="toc-main">
+            <span class="toc-title">{{ p.title }}</span>
+            <span class="toc-dek">{{ p.dek }}</span>
+          </span>
+          <span class="toc-meta"><span>{{ p.form }}</span>{% if p.placeholder %}<span>coming soon</span>{% else %}<time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%-d %b %Y" }}</time>{% endif %}</span>
+        </a></li>
+        {%- endfor %}
+      </ol>
+      <a class="more rv" href="{{ site.owr_url }}/">All writing<span aria-hidden="true"> &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec v2 alt name" aria-labelledby="name">
+  <div class="wrap">
+    {%- comment %}"six ravens" here means the birds, kept out of brand-case.html
+    with a non-breaking space.{% endcomment %}
+    <div class="sec-head rv"><p class="v2-kicker lc">on the name</p><span class="no">007</span><h2 id="name" class="v2-words">Six Ravens.</h2></div>
+    <div class="sec-body name-body">
+      <div class="rv">
+        <p>For centuries, ravens have been associated with the Tower of London. According to legend, six&nbsp;ravens must remain there; should they ever leave, the Tower will fall, and the kingdom with it.</p>
+        <p>The origins of the legend are less certain than its telling. The ravens remain.</p>
+      </div>
+      <p class="coda rv">We know better than to mistake a good story for evidence. We also know better than to underestimate the power of one.</p>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/v2.js?v={{ site.time | date: '%s' }}" defer></script>
